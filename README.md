@@ -3,7 +3,7 @@
 ## Events log
 
 feb 2020
-migration
+github migration
 
 oct 2017
 web core
