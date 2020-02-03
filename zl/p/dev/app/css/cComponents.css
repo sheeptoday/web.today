@@ -1,0 +1,217 @@
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.cStageHeader
+{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  text-align:center;
+  margin-top:3rem;
+  margin-bottom:3rem;    
+  padding-top:1rem;
+  padding-bottom:1rem;   
+}
+.cStageHeader .aCaption
+{
+  display:inline-block;
+  flex-grow:0;
+  padding-left:4vw;
+  padding-right:4vw;  
+  
+  font-size:3.2rem;
+  font-size: calc( 1em + (3.2 - 1) * ( (100vw - 10em) / ( 100 - 40) ));  
+  line-height:1.2;
+  color:rgba( 68,42,55 ,1);
+}
+.cStageHeader .aDecor
+{
+  display:block;
+  flex-grow:1;  
+  height:1rem;
+  margin-top:.5rem;
+  
+  background-color:rgba( 68,42,55 ,.1);
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.cSubtageHeader
+{
+  padding-left:4rem;
+}
+.cSubtageHeader .aCaption
+{
+  position:relative;
+}
+.cSubtageHeader .aPrefix
+{
+  display:inline-block;
+  vertical-align: baseline;
+  
+  padding-right:1rem;
+  color:rgba( 68,42,55 ,.15);
+}
+.elAppContainer .cSubtageHeader .aPrefix
+{
+  position:absolute;
+  right:100%;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.cIconizedArticle + .cIconizedArticle
+{
+  margin-top:4vw;
+}
+.cIconizedArticle > .aIllustration
+{
+  width:16vh;
+}
+.cIconizedArticle > .aDescription
+{
+  padding-left:4vw;
+  font-size:1em;
+  line-height:1.2;
+}
+@media all and (min-width:700px)
+{
+  .cIconizedArticle > .aDescription
+  {
+    font-size:.8em;
+  }
+}
+@media all and (max-width:400px)
+{
+  .elMama.cIconizedArticle
+  {
+    flex-wrap: wrap;
+  }
+  .elMama.cIconizedArticle > .elMamaCol
+  {
+    width:100%;
+  }
+}
+
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.cHelpfullSheepIcon
+{
+  display:inline-block;
+  vertical-align: middle;
+  width:6rem;
+  height:auto;
+  
+  cursor:pointer;
+}
+.cHelpfullSheepIcon svg
+{
+  width:100%;
+  height:auto;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.cPageMenu
+{
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  
+  line-height:3rem;
+}
+.cPageMenu.onPlace
+{
+  position:fixed;
+  z-index:5008;  
+  top:0;
+  left:0;
+}
+
+.cPageMenuPlace
+{
+  display:block;
+  width:3rem;
+  height:3rem;
+  line-height:3rem;
+  text-align:center;
+  
+  flex-grow:0;
+  flex-shrink:0;
+}
+.cPageMenuOwner
+{
+  display:block;
+  background:black;
+  color:rgba(255,255,255,.4);
+  font-size:1rem;
+  font-weight:700;
+  cursor:pointer;
+}
+.cPageMenuOwner:hover { color: rgba(255,255,255,.9); }
+
+.cPageMenuChapters
+{
+  display:block;
+  background-color:rgba( 250,105,0 ,1);
+  font-size:1rem;
+  font-weight:700;
+  cursor:pointer;
+  
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.cPageMenuChapters > * 
+{
+  line-height:1;
+}
+
+
+.cPageMenuStaticHeader
+{
+  display:block;
+  line-height:3rem;
+  height:3rem;
+  background-color:rgba( 250,105,0 ,0);
+  
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;  
+}
+.cPageMenuStaticHeader .aCaption
+{
+  display: block;
+  padding:0 1rem;  
+  font-size:1.2rem;
+  line-height:1;
+  font-weight:normal;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.cBottomCats img,
+.cBottomCats svg
+{
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+}
+
+.cBottomMessage
+{
+  padding:2em;
+  color:rgba( 232,221,203 ,1);
+  background-color:rgba( 3,22,52 ,1);
+  
+  text-align:center;
+}
+
+/* o o o o o o o o o o o o o o o o o o */

@@ -1,0 +1,297 @@
+.artSteps
+{
+  display:block;
+  list-style:none;
+}
+
+/* ======================================================== */
+
+.artStepListTitle .aCaption
+{
+  font-size:1.6rem;
+  line-height:1;
+  font-weight:700;
+  margin-top:.5rem;
+  margin-bottom:.5rem;
+  
+  padding-left:4rem;
+  
+  color:rgba( 180,222,190 ,1); /* green step */
+}
+
+
+/* ======================================================== */
+
+.artStep + .artStep
+{
+  margin-top:.2rem;
+}
+
+/* ======================================================== */
+
+.artStepIcon
+{
+  width:4rem;
+  min-height:4rem;
+  
+  background-color:rgba( 180,222,190 ,.25);
+  background-position:.75rem .75rem;
+  background-repeat:no-repeat;
+  background-size:2.5rem 2.5rem;    
+}
+.artStepBlock
+{  
+  width:50vw;
+  
+  background-color:rgba( 180,222,190 ,.25);
+}
+.artStepToolbar
+{
+  flex-grow:1;
+}
+
+/* ======================================================== */
+
+
+/* ICONS */
+
+.artStep.isCodingStep .artStepIcon {  background-image: url(../img/icon-coding.svg); }
+.artStep.isWarmingStep .artStepIcon {  background-image: url(../img/icon-warming.svg); }
+.artStep.isTestingStep .artStepIcon {  background-image: url(../img/icon-testing.svg); }
+.artStep.isPlanningStep .artStepIcon {  background-image: url(../img/icon-planning.svg); }
+
+
+/* ======================================================== */
+
+
+.artStepBlock
+{
+  padding:1rem;
+  padding-left:0;
+
+  font-size: 1em;
+  font-size: calc( 1rem + (2 - 1) * ( (100vw - 20rem) / ( 100 - 20) )); 
+}
+.artStepBlock .aCaption
+{
+  font-weight:inherit;
+  font-size: 1em;
+  line-height:1.2;
+}
+.artStepBlock .aSubcaption
+{
+  font-size:.75em;
+  line-height:1.2;
+}
+.artStepBlock .aSubcaption + .aSubcaption { margin-top:.2em; }
+.artStepBlock ul
+{
+  margin-left:1.5em;
+  list-style:disc;
+}
+
+
+/* ======================================================== */
+
+
+.artStepToolbar
+{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.artStepTools
+{
+  padding:.5rem;
+}
+@media screen and (min-width: 901px)
+{
+  .artStepTools.withFreeSheep
+  {
+    position:absolute;
+    padding-top:0;
+  }
+}
+.artStepTool
+{
+  display:inline-block;
+  vertical-align: top; 
+  text-align:center;
+  margin:.5rem
+}
+.artStepTool .aTerm
+{
+  display:block;
+  font-size:.64em;
+  padding:.25em .5em;
+  white-space:nowrap;
+  
+  background-color:rgba( 133,30,37 ,1);
+  color:rgba( 240,221,189 ,1);
+}
+.artStepTool .aLabel
+{
+
+  margin-top:.5em;
+  display: block;
+  color:rgba( 82,12,48 ,1);
+  font-size:.5em;
+  line-height:1.1;
+}
+.artStepTool.isInline
+{
+  vertical-align:middle;
+  padding-top:.1em;
+  padding-bottom:.1em;
+}
+.artStepTool.isInline .aTerm
+{
+  font-size:.8em;
+}
+.artStepTool.hasMoreContent
+{
+  cursor: pointer;
+}
+.artStepTool.hasMoreContent:hover .aTerm
+{
+  /* transform: scale(1.2); */
+}
+
+
+
+
+
+/* ======================================================== */
+
+
+
+
+.artStepListAboutIconsArea .aDescription
+{
+  padding-left:1rem;
+}
+.artStepListAboutIconsArrow
+{
+  position:absolute;
+  z-index:100;
+  bottom:100%;
+  left:0;
+  
+}
+.artStepListAboutIconsArrow .aIcon
+{
+  width:1.5rem;
+  height:5.5rem;
+  background-size:1.5rem 5.5rem;
+  background-image:url(../img/arrow-for-iconHelp-fromBelow.svg);
+}
+@media screen and (max-width: 900px)
+{
+  .elAppContainer.hasCompactMobileMode .artStepListAboutIconsArea {
+    padding-left:.5rem;
+  }
+  .elAppContainer.hasCompactMobileMode .artStepListAboutIconsArrow
+  {
+    margin-left: .5rem;
+  }
+}
+
+
+.artSteps + .artStepListToolbar
+{
+  margin-top:1em;
+}
+
+
+
+/* ======================================================== */
+
+
+
+
+/* ======================================================== */
+
+.withGoalSteps .artStepBlock,
+.withGoalSteps .artStepIcon
+{
+  background-color:rgba( 255,158,157 ,.25);
+}
+.withGoalSteps .artStepListTitle .aCaption
+{
+  color:rgba( 255,158,157 ,1); /* pink step */
+}
+.withGoalSteps .artSteps {
+  counter-reset: counterForGoalSteps;
+}
+.withGoalSteps .artSteps .artStepIcon:before {
+  content: counter(counterForGoalSteps);
+  counter-increment: counterForGoalSteps;
+  
+  display:block;
+  box-sizing: border-box;
+  width:100%;
+  padding:1rem 0;
+  
+  font-size: 1em;
+  line-height:1.2;  
+  font-weight: 700;
+  color:rgba( 255,158,157 ,.5);
+  text-align:center;
+  
+}
+
+/* ======================================================== */
+
+.cArticleStepList:not(.withGoalSteps) .artStepIcon
+{
+  cursor:help;
+}
+
+
+
+
+@media screen and (max-width:900px)
+{
+  .hasCompactMobileMode .artStepListTitle .aCaption
+  {
+    padding-left:calc( 4vw + 4rem );
+  }
+  .hasCompactMobileMode .artStep
+  {
+    flex-wrap:wrap;
+  }
+  .hasCompactMobileMode .artStep .artStepIcon
+  {
+    width:calc( 4vw + 4rem );
+    background-position:4vw .75rem;
+  }  
+  .hasCompactMobileMode .artStep .artStepBlock
+  {
+    flex-grow:1;
+  }
+  .hasCompactMobileMode .artStep .artStepToolbar
+  {
+    width:100%;
+    justify-content: center;
+    background-color: rgba( 180,222,190 ,.25);
+  }
+  .withGoalSteps .hasCompactMobileMode .artStep .artStepToolbar
+  {
+    background-color: rgba( 255,158,157 ,.25);
+  }
+  
+}
+@media screen and (max-width:400px)
+{
+  .hasCompactMobileMode .artStepListTitle .aCaption
+  {
+    padding-left:4rem;
+  }  
+  .hasCompactMobileMode .artStep .artStepIcon
+  {
+    width:4rem;
+    background-position:.75rem .75rem;
+  }    
+}

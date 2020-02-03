@@ -1,0 +1,191 @@
+/* o o o o o o o o o o o o o o o o o o */
+
+.cAppVisibleFooter{
+  padding:8px;
+  font-size:.75em;
+}
+.cAppVisibleBody {
+    padding-bottom:50vw;
+}
+.cAppVisibleHeader {
+  height: 40px;
+}
+.zlIconHeader {
+  background:#9EAE8A;
+  min-height: 40px;
+  font-size: 30px;
+  line-height: 40px;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1010;
+}
+.zlIconHeader h1 {  
+  padding:0 8px;
+  font-size: 30px;
+  line-height: 40px;
+  display:block;
+  float:left;
+  vertical-align:middle;
+  margin:0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;  
+}
+.zlIconHeader-toolbar {
+  display:flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+  padding:0 8px;
+}
+.zlIconHeader-button {
+  display:block;
+  vertical-align:middle;
+  width:40px;
+  height:40px;
+  background: 50% 50% no-repeat;
+  background-size:100%;
+  cursor:pointer;
+  opacity:1;
+}
+.zlIconHeader-button.isActive {
+  cursor:default;
+  opacity:.25;
+}
+.zlIconHeader-button[data-gridview="grid"] {background-image:url(../img/ic_view_quilt_black_24px.svg);}
+.zlIconHeader-button[data-gridview="rows"] {background-image:url(../img/ic_view_stream_black_24px.svg);}
+.zlIconHeader-filterBar {
+  padding-left:20px;
+}
+.zlIconHeader-filterBar:before,
+.zlIconHeader-filterBar:after {
+  content:'';
+  display:table;
+  clear:both;
+}
+.zlIconHeader-filterBar span {
+  display:inline-block;
+  vertical-align:middle;
+  font-size:18px;
+  line-height:40px;
+  float:left;
+  padding:0 8px;
+  margin-right:12px;
+}
+.zlIconHeader-filterBar span:last-child {
+  margin-right:0;
+}
+.zlIconHeader-filterBar span:hover {
+  cursor:pointer;
+  background-color:rgba(0,0,0,.05);
+}
+.zlIconHeader-filterBar span.isActive,
+.zlIconHeader-filterBar span.isActive:hover {
+  text-decoration:underline;
+  background-color:transparent;
+  cursor: default;
+}
+ul.zlIconHeader-filterBar {
+    list-style: none;
+    margin: 0;
+    padding: 2em 0;
+}
+ul.zlIconHeader-filterBar li {
+    display: block;
+}
+ul.zlIconHeader-filterBar span {
+    display:block;
+    float:none;
+    padding: 0 2em;
+}
+ul.zlIconHeader-filterBar span.isActive,
+ul.zlIconHeader-filterBar span.isActive:hover {
+    background:#B8C99D;    
+}
+
+.zlIconHeader-filterBar .zlIconHeader-menuIcon {
+    display: none;
+    cursor: pointer;
+}
+.zlIconHeader-toolbar {
+    display: none;
+}
+/* o o o o o o o o o o o o o o o o o o */
+
+@media all and (max-width:800px)
+{
+  .zlIconHeader .zlIconHeader-filterBar span[data-gridfilter]:not(.isActive) {
+    display: none;
+  }
+  .zlIconHeader-filterBar .zlIconHeader-menuIcon {
+    display: inline-block;
+  }
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+    .zlIconGrid {
+      padding:4px;
+    }
+    .zlIconGridItem {
+      max-width:200px;
+      width:25%;
+      padding:4px;
+      display:inline-block;
+      vertical-align:top;
+    }
+    .zlIconGridItem figure {
+      background:rgba(0,0,0,.05);
+      padding:10px;
+      transition: all .2s;
+    }
+    .zlIconGridItem figure:hover {
+      background:rgba(0,0,0,.1);
+    }    
+    .zlIcon {
+      width:100%;
+      max-width:800px;
+      display:block;
+      margin:0 auto;
+      height:auto;
+      transition: all .2s;
+    }
+    
+/*    
+    .zlIconGrid-mode-grid:hover .zlIcon {
+      opacity:.75;
+    }
+    .zlIconGrid-mode-grid:hover .zlIcon:hover {
+      transform: scale(1.2);
+      opacity:1;
+    }
+    .zlIconGrid-mode-rows .zlIconGridItem {
+      width:100%;
+      max-width:100%;
+    }
+*/
+
+            .zlIconArea { 
+                background:#FBC599;
+                height: calc( 100vh - 40px );
+                overflow-x:hidden;
+                overflow-y:scroll;
+            }
+            .zlIconArea .zlIconGrid {
+                /*padding-top: 44px;*/
+            }
+
+.zoomTarget.noScroll figure.zoomTarget:not(.selectedZoomTarget) {
+    opacity:.5;
+    pointer-events: none;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+@media all and (min-width:700px)
+{
+
+}
+
+/* o o o o o o o o o o o o o o o o o o */

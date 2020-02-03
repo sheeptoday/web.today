@@ -1,0 +1,98 @@
+.Liquid:hover:before
+{
+  content:'.Liquid';
+  position:absolute;
+  top:.5vw;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:1.5vw;
+  font-weight:bold;
+  color:rgba(0,0,0,.25);
+}
+
+.Dry:hover:before
+{
+  content:'.Dry';
+  position:absolute;
+  top:.5vw;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:1.5vw;
+  font-weight:bold;
+  color:rgba(0,0,0,.25);
+}
+
+ .Cup:hover:before
+{
+  content:'.Cup';
+  position:absolute;
+  top:-2vw;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:1.5vw;
+  font-weight:bold;
+  color:rgba(0,0,0,.25);
+}
+ .Cup.RedColor:hover:before
+{
+  content:'.Cup.RedColor';
+}
+
+ .Box:hover:before
+{
+  content:'.Box';
+  position:absolute;
+  top:-2vw;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:1.5vw;
+  font-weight:bold;
+  color:rgba(0,0,0,.25);
+}
+ .Box.RedColor:hover:before
+{
+  content:'.Box.RedColor';
+}
+
+.WashingMachine:hover:before
+{
+  content:'.WashingMachine';
+  position:absolute;
+  top:.5vw;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:2vw;
+  font-weight:bold;
+  color:rgba(0,0,0,.25);
+}
+
+.Table:hover:before
+{
+  content:'.Table';
+  position:absolute;
+  top:.5vw;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:2vw;
+  font-weight:bold;
+  color:rgba(0,0,0,.25);
+}
+
+ .Cat:hover:before
+{
+  content:'[kot]';
+  position:absolute;
+  top:-2vw;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:1.5vw;
+  font-weight:bold;
+  color:rgba(0,0,0,.25);
+}

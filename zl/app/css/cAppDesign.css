@@ -1,0 +1,116 @@
+body
+{
+  font-size: 1em;
+  font-size: calc( 1em + (2.5 - 1) * ( (100vw - 20em) / ( 100 - 20) ));
+  font-family:'PT Sans', 'Roboto', sans-serif;
+  line-height:1.5;
+  
+  background-color: rgba( 250,251,227 ,1);
+  color:            rgba( 25,17,38 ,1);
+}
+
+
+
+h1.aPageCaption
+{
+  font-size:inherit;
+  font-weight:inherit;
+}
+
+h2.aCaption
+{
+  font-weight:700;
+  font-size:3.2rem;
+  font-size: calc( 1em + (3.2 - 1) * ( (100vw - 10em) / ( 100 - 40) ));
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.cAppVisibleHeader
+{
+  background-color:transparent;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.cAppVisibleBody
+{
+  background-color:transparent;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.cAppVisibleFooter
+{
+  background-color:transparent;
+  padding-bottom:0;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.artWelcomeScreenArea
+{
+  max-width:100%;
+  margin:0;
+  padding:0;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.elModalVex.vex.vex-theme-plain .vex-content.withFullscreen .cModalContent {
+    background-color:rgba( 197,224,220 ,1);
+    color:rgba( 119,79,56 ,1);
+}
+.cModalContent
+{
+  font-size:1em;  
+  font-size: calc( 1em + (2.5 - 1) * ( (100vw - 40em) / ( 100 - 10) ));
+  line-height: 1.5;
+}
+.cModalContent .aCaption
+{
+  font-size:1em;  
+  font-size: calc( 1em + (2 - 1) * ( (100vw - 10em) / ( 100 - 40) ));
+  color:rgba( 224,142,121 ,1);
+}
+.cModalContent .cModalContentCaption
+{
+  color:rgba( 217,91,67 ,1 );
+}
+.cModalContent .cIconizedArticle i
+{
+  display:inline-block;
+  vertical-align: baseline;
+  line-height:1;
+  padding-bottom:.1em;
+  border-bottom:.2em solid rgba( 224,142,121 ,.25);
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.cChapterDecoration
+{
+  text-align:center;
+  padding-top:6rem;
+  padding-bottom:0rem;
+}
+.cChapterDecoration img,
+.cChapterDecoration svg
+{
+  width:100%;
+  max-width:80vw;
+  opacity:.25;
+}
+@media all and (max-width:444px)
+{
+  .cChapterDecoration
+  {
+    padding-top:1rem;
+  }
+}

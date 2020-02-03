@@ -1,0 +1,47 @@
+/* heya 2017! */
+
+      body
+      {
+        font-size:20px;
+        font-family:sans-serif;
+      }
+      .cover 
+      { 
+        margin-top:30px;
+        position:relative;
+      }
+      .cover svg
+      {
+        width:100%;
+        width:92vw;
+        max-width:100%;
+        margin:0 auto;
+      }
+      
+      .box
+      {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+      }
+      
+      
+.aButton,
+a.aButton,
+a.aButton:visited {  
+  color:rgba(232,202,164,1);
+  font-weight:bold;
+  text-decoration:none;
+  padding:.75em 2em;
+}
+
+.aButton { background-color:rgba(60,104,98,.8); }
+.aButton:hover { background-color:rgba(20,64,58,.8); }
+.aButton.hasAccent { background-color:rgba(204,42,65,.8); }
+.aButton.hasAccent:hover { background-color:rgba(164,2,25,.8); }
+      

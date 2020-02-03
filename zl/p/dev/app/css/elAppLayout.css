@@ -1,0 +1,295 @@
+/* ZL base1001  */
+/* ======================================================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height:100%;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+/* elAppLayout */
+
+.elAppViewArea {
+  /* general settings */
+  position:relative;
+  margin:0 auto;
+  /* flexbox model */
+  display:flex;
+  flex-direction: column;
+  align-items:stretch;
+  align-content:stretch;
+  justify-content:space-between;    
+  /* settings */
+  min-width:100%;
+  min-height:100vh;  
+}      
+.elAppHeader
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:0;
+}
+.elAppFooter
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:0;
+}
+.elAppBody 
+{
+  /* flexbox model */
+  flex-grow:1;
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;  
+}
+.elAppVisibleBody
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:1;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+/* elAppContainers */
+
+.elAppContainer {
+    margin-left: auto;
+    margin-right: auto;
+}          
+.elAppContainer.inFullWidth {
+    max-width: 100%;
+    width:100%;
+    padding-left:0;
+    padding-right:0;
+}                      
+
+
+
+/* o o o o o o o o o o o o o o o o o o */
+/* el PAPA */
+
+.elPapa
+{
+  /* general settings */
+  position:relative;
+  margin:0 auto;
+  /* flexbox model */
+  display:flex;
+  flex-direction: column;
+  align-items:stretch;
+  align-content:stretch;
+  justify-content:space-between;  
+}      
+.elPapa.inFullscreen
+{
+  min-width:100%;
+  min-height:100vh;
+}
+.elPapa > .elPapaMiddle 
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:2;  
+}
+.elPapa > .elPapaMiddle.inCoverMode
+{
+  /* flexbox model */
+  display:flex;
+  align-items:center;
+  justify-content: center;      
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+/* el MAMA */
+
+.elMama 
+{
+  /* general settings */
+  position:relative;
+  margin:0 auto;
+  width:100%;
+  
+  /* flexbox model */
+  display:flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+}
+.elMama > .elMamaCell
+{
+  /* flexbox model */
+  flex-grow:1;
+}
+.elMama > .elMamaCell.isTiny
+{
+  /* flexbox model */
+  flex-grow:0;
+  flex-shrink:0;
+}
+.elMama > .elMamaCell.isCentral
+{
+  /* flexbox model */
+  align-self:center;
+}    
+.elMama.withProductGrid
+{
+  /* flexbox model */
+  justify-content:center;
+  align-items:stretch;
+  align-content: stretch;
+  flex-wrap:wrap;  
+  /* default settings */
+  padding:0vw;
+}    
+.elMama.withProductGrid > .elMamaBox
+{
+  /* flexbox model */
+  flex-grow:0;  
+  /* default settings */
+  margin:0vw;  
+}
+
+
+/* ======================================================================================= */
+
+.elModal {
+    display:none;
+}
+.vex
+{
+  z-index:6010
+}
+.elModalVex.vex.vex-theme-plain {
+    padding-top:0px;
+    padding-bottom:0;
+}
+.elModalVex.vex.vex-theme-plain .vex-dialog-form .vex-dialog-message {
+    margin:0;
+}
+.elModalVex.vex.vex-theme-plain .vex-dialog-form .vex-dialog-input {
+    margin:0;
+}
+.elModalVex.vex.vex-theme-plain .vex-close:before {
+  top:2vw;
+  right:2vw;
+  content:' ';
+  display:block;
+  width:4vw;
+  height:4vw;  
+  min-width:2rem;
+  min-height:2rem;
+  
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  background-image:url(../img/icon-x-modal.svg);
+  
+  transition:transform .2s;
+}
+.elModalVex.vex.vex-theme-plain .vex-close:hover:before {
+  transform: scale(1.75);
+}
+.elModalVex.vex.vex-theme-plain .vex-content {
+    padding:0;  
+    width: 92vw;
+    max-width: 1000px;
+}
+.elModalVex.vex.vex-theme-plain .vex-content.withFullscreen { 
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:auto; 
+    max-width:100%;
+}            
+.elModalVex.vex.vex-theme-plain .vex-content.withFullscreen .elModalContent {
+    margin-top:0;
+    min-height:100vh;    
+}
+.elModalVex.vex.vex-theme-plain .vex-content.withFullscreen .vex-close:before
+{
+  position:fixed;
+  right:4vw;
+}
+
+
+
+/* ======================================================================================= */
+
+/* THEMING */
+
+
+            /* o o o o o o o o o o o o o o o o o o o o o o o o o o o */
+            /* container */
+            
+            .elAppContainer {
+              max-width:1200px;
+              padding-left:4vw;
+              padding-right:4vw;
+            }
+            @media screen and (max-width:900px)
+            {
+              .elAppContainer.hasCompactMobileMode
+              {
+                padding-left:0;
+                padding-right:0;                
+              }
+            }
+            
+
+            /* o o o o o o o o o o o o o o o o o o o o o o o o o o o */
+            /* modal */
+
+            /* overlay */
+            .vex-overlay {
+                background-color: rgba(0, 0, 0, 0.6);
+            }            
+            .elModalVex.vex.vex-theme-plain .vex-content .elModalContent {
+                margin-top:10vh;
+            }
+            
+            /* content */            
+            .elModalVex.vex.vex-theme-plain .cModalContent {
+                padding:30px;
+                padding:4vw 8vw;
+            }            
+            .elModalVex.vex.vex-theme-plain .vex-content.withFullscreen .cModalContent {
+                padding:30px 60px;
+                padding:4vw 8vw;
+            }
+            .cModalContentCaption {
+                margin-bottom:4vw;
+            }
+            
+            /* o o o o o o o o o o o o o o o o o o o o o o o o o o o */
+            .elChapterNavigation
+            {
+              padding-top:3.5rem;
+            }
+            .elChapterNavigation .cStageHeader
+            {
+              margin-top:0;
+            }
+            @media screen and (max-width:900px)
+            {
+              .elChapterNavigation
+              {
+                padding-top:0;
+              }
+            }
+            
+/* ======================================================================================= */
+

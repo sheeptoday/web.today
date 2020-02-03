@@ -1,0 +1,725 @@
+@import url("icons.css");
+
+
+/*
+--------------------------------------------------- import bulma
+*/
+
+html {
+    min-width: 240px;
+}
+
+.content blockquote.card {
+    background-color: transparent;
+    border: 0;
+}
+
+.content blockquote.column {
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0.75rem;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+    color: inherit;
+}
+
+.box {
+    background: transparent;
+    box-shadow: none;
+}
+
+
+/*
+--------------------------------------------------- atoms
+*/
+
+.elItem {
+    padding: 8px;
+}
+
+a.elItem,
+span.elItem {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.elAntiItem {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.aMarkUL,
+ul.aMarkUL {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0;
+    list-style: none;
+}
+
+.aMarkUL > li,
+.aMarkUL > li + li {
+    margin-top: 0;
+}
+
+
+/*
+--------------------------------------------------- layout
+*/
+
+
+/*
+# Layout groundfloor
+*/
+
+.elBody {
+    min-height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.elView {
+    min-height: 100vh;
+    position: relative;
+}
+
+
+.elView__shadow {
+    background-color: rgba(0, 0, 0, .5);
+
+    position: absolute;
+    z-index: 11000;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    opacity: 0;
+}
+
+.elAside {
+    width: 200px;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+}
+
+.elMenuTrigger {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.elMenuTrigger__readyToOpen {
+    display: block;
+}
+
+.elMenuTrigger__readyToClose {
+    display: none;
+}
+
+.elHeader {
+    display: block;
+}
+
+
+
+/*
+## Layout action: mobile groundfloor
+*/
+
+.elMenuTrigger {
+    display: none;
+}
+
+.elView__mobile {
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+    .elMenuTrigger {
+        display: inline-block;
+    }
+    .elHeaderMenu {
+        display: none;
+    }
+    .elView__mobile {
+        display: block;
+    }
+    .elView__desktop {
+        display: none;
+    }
+    .content h1 {
+        font-size: 1.6em;
+    }
+    .content h2 {
+        font-size: 1.4em;
+    }
+}
+
+
+/*
+## Layout action: aside-panel
+*/
+
+.elView,
+.elAside,
+.elHeaderMobile {
+    -webkit-transition: transform .25s ease-in;
+    -o-transition: transform .25s ease-in;
+    transition: transform .25s ease-in;
+}
+
+.elView__shadow {
+    -webkit-transition: opacity .25s ease-in;
+    -o-transition: opacity .25s ease-in;
+    transition: opacity .25s ease-in;
+}
+
+.elBody--asideIsOpen {
+    overflow-y: hidden;
+    /*max-height: 100vh;*/
+}
+
+.elBody--asideIsOpen .elView,
+.elBody--asideIsOpen .elAside,
+.elBody--asideIsOpen .elHeaderMobile {
+    transform: translateX(200px);
+}
+
+.elBody--asideIsOpen .elView__shadow {
+    right: 0;
+    opacity: 1;
+}
+
+.elBody--asideIsOpen .cMenuTrigger {
+    position: relative;
+    z-index: 11010;
+}
+
+.elBody--asideIsOpen .elMenuTrigger__readyToOpen {
+    display: none;
+}
+
+.elBody--asideIsOpen .elMenuTrigger__readyToClose {
+    display: block;
+}
+
+
+
+/*
+--------------------------------------------------- key components
+*/
+
+
+/*
+# header layout
+*/
+
+.elHeader {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+
+.elHeader > .elMenuTrigger {
+    order: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.elHeader > .elLogo {
+    order: 2;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.elHeader > .elHeaderMenu {
+    order: 3;
+    flex-grow: 1;
+}
+
+.elLogo h2 {
+    display: none;
+}
+
+.elLogo img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.elHeaderMenu > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.elMenuTrigger {
+    line-height: 1;
+}
+
+
+/*
+## Layout action: mobile header
+*/
+
+@media screen and (max-width:768px) {
+    .elHeader {
+        display: none;
+    }
+    .elHeader.elHeaderMobile {
+        display: flex;
+    }
+    .elHeaderMobile {
+        border-bottom: 2px solid white;
+        position: fixed;
+        z-index: 19000;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    .elView {
+        padding-top: 40px;
+    }
+    .elHeaderMobile > .elLogo {
+        flex-grow: 1;
+        text-align: center;
+    }
+    .elHeaderMobile > .elLogo img {
+        max-height: 24px;
+    }
+    .elMain > [id] {
+        /* anchor under fixed header */
+        padding-top: 40px;
+    }
+}
+
+
+
+
+/*
+--------------------------------------------------- current design
+*/
+
+.cBody {
+    background-color: rgba( 250, 251, 227, 1);
+}
+
+.cHeader {
+    background-color: #FFCB01;
+}
+
+
+/*
+# logo
+*/
+.cLogo {
+    margin-right: .5rem;
+}
+.cLogo img {
+    width: auto;
+    height: 48px;
+}
+@media screen and (max-width:768px) {
+    .cLogo {
+        padding-right: 48px;
+    }
+}
+.cHomeLink {
+    padding-left: 88px;
+    display: block;
+    position: relative;
+}
+.cHomeLink:before {
+    content: '';
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 88px;
+    height: 88px;
+    background-color: #FFCB01;
+    background-image: url(../../zavatar.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 68px;
+    border-radius: 50%;
+    transition: all .2s ease-in;
+}
+.cLogo:hover .cHomeLink:before {
+    background-position: 10% 50%;
+}
+
+/*
+# menu
+*/
+
+.cMenu a {
+    display: inline-block;
+    vertical-align: middle;
+    padding: .5rem;
+    font-size: 1.2rem;
+    color: black;
+}
+.cMenu li:not(.is-active) a:hover {
+    background-color: rgba(205, 0, 1, .15);
+}
+.cMenu .is-active a {
+    background: #CD0001;
+    color: white;
+}
+
+.cMenuAside {
+    background-color: #FFCB01;
+}
+
+
+/*
+# welcome slide
+*/
+
+.cCoverWelcome {
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+}
+.cCoverWelcome .title {
+    color: brown;
+}
+.cCoverWelcome.content {
+    margin-bottom: 0;
+}
+.cCoverWelcome img {
+    max-height: 400px;
+    max-height: 40vh;
+}
+.cCoverWelcome + article > .cStageHeader {
+    margin-top: 0;
+}
+
+
+/*
+# stage header
+*/
+
+.cStageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.cStageHeader .aCaption {
+    display: inline-block;
+    flex-grow: 0;
+    padding-left: 4vw;
+    padding-right: 4vw;
+
+    font-size: 3.2rem;
+    font-size: calc( 1em + (3.2 - 1) * ( (100vw - 10em) / ( 100 - 40)));
+    line-height: 1.2;
+    color: rgba( 68, 42, 55, 1);
+}
+
+.cStageHeader .aDecor {
+    display: block;
+    flex-grow: 1;
+    height: 1rem;
+    margin-top: .5rem;
+
+    background-color: rgba( 68, 42, 55, .1);
+}
+
+
+/*
+# stage decoration
+*/
+
+.cStageDecoration {
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+@media screen and (max-width: 768px) {
+.cStageDecoration {
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+}
+.cStageDecoration img,
+.cStageDecoration svg {
+    width: 100%;
+    max-width: 80vw;
+    max-height: 20vh;
+    opacity: .25;
+}
+
+
+/*
+------------------------------------------------------------------------- Top cards
+# Cards: Top cards
+*/
+
+.cTopCards .column-for-card {
+    background-color: transparent;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.cTopCards .column-for-card .card {
+    color: inherit;
+}
+.cTopCards .card {
+    display: block;
+    background-color: transparent;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-size: .9em;
+}
+.cTopCards .card-image {
+    padding: 1.5rem;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.cTopCards .title {
+    padding-bottom: .25rem;
+}
+@media screen and (min-width: 769px) {
+    .cTopCards .has-default-hover .card-image img {
+        -webkit-transition: transform .2s ease-in;
+        -o-transition: transform .2s ease-in;
+        transition: transform .2s ease-in;
+    }
+    .cTopCards .has-default-hover:hover .card-image img {
+        /*transform: scale(1.1);*/
+    }
+    .cTopCards .title > span {
+        display: inline-block;
+        margin-left: -2.25rem;
+        padding-left: 2.25rem;
+        padding-right: .5rem;
+        padding-bottom: .25rem;
+        transition: background .2s ease-out, color .1s ease-out;
+    }
+    .cTopCards a:hover .title > span {
+        color: white;
+        background-color: dodgerblue;
+    }
+}
+@media screen and (max-width: 768px) {
+    .cTopCards.elItem {
+        padding: 0;
+    }
+    .cTopCards blockquote.column {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .cTopCards .card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        align-content: stretch;
+        padding: 2vh 0 2vh 4vw;
+    }
+    .cTopCards .card-image {
+        order: 9;
+        padding: .25rem;
+        padding-right: 8px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .cTopCards .card-content {
+        padding-left: 8px;
+        min-width: 140px;
+    }
+}
+
+
+/*
+# Contacts
+*/
+
+.cContacts {
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+/*
+------------------------------------------------------------------------- Gallery
+# Gallery zlPicturesGallery
+*/
+
+/* ### layout */
+.zlPicture {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    align-content: stretch;
+
+    margin: 2rem 0;
+}
+.zlPicture > header {
+    order: 3;
+}
+.zlPicture > main {
+    order: 2;
+    flex-grow: 2;
+}
+.zlPicture > footer {
+    order: 1;
+    flex-grow: 0;
+}
+
+/* ### image */
+.zlPicture main figure {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+.zlPicture main img {
+    vertical-align: middle;
+}
+
+/* ### info */
+.zlPicture__description {
+    padding: 1rem 2rem;
+    width: 320px;
+    background-color: rgba(255,255,100,.95);
+    min-height: 100%;
+}
+@media (min-width:1000px) and (max-width:1400px) {
+    .zlPicture__description {
+        font-size:.8em;
+    }
+}
+@media (max-width:1000px) {
+    .zlPicture__description {
+        position: absolute;
+        z-index: 20;
+        top: 0;
+        right: 0;
+
+        -webkit-transition: transform .25s ease-in;
+        -o-transition: transform .25s ease-in;
+        transition: transform .25s ease-in;
+
+        -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        -o-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    .zlPicture.has-open-description .zlPicture__description {
+        z-index: 40;
+        -webkit-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+}
+@media (max-width:400px) {
+    .zlPicture__description {
+        max-width: 100vw;
+        padding-left: 72px;
+        width: auto;
+    }
+    .zlPicture.has-open-description .zlPicture__descriptionTrigger {
+        right: auto;
+        left: 0;
+    }
+}
+
+/* ### info trigger */
+.zlPicture__descriptionTrigger {
+    display: none;
+}
+@media (max-width:1000px) {
+    .zlPicture__descriptionTrigger {
+        display: block;
+        position: absolute;
+        z-index: 30;
+        top: 0;
+        right: 100%;
+        background-color: yellow;
+    }
+    .zlPicture__descriptionTrigger .aIcon {
+        width: 42px;
+        height: 42px;
+        cursor: pointer;
+    }
+    .zlPicture__descriptionTrigger .aIcon--close { display: none; }
+    .zlPicture.has-open-description .aIcon--close { display: inline-block; }
+    .zlPicture.has-open-description .aIcon--info { display: none; }
+}
+
+/* ### social */
+.zlPicture__social {
+    opacity: 1;
+    font-size: 2em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.zlPicture__social:hover,
+.zlPicture__social:active {
+    opacity: 1;
+}
+.zlPicture__social .social-likes_vertical .social-likes__widget {
+    max-width: 2em;
+}
+.zlPicture__social .social-likes__button {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+@media (max-width:1000px) {
+    .zlPicture__social {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 0;
+    }
+}
+
+/* ### actions */
+.zlPicture__actions {
+    margin-top: 2rem;
+}
+
+/**/

@@ -1,0 +1,2165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- app details -->
+  <title> ZL: Development skills </title>  
+  <meta property="og:title" content="ZL: Development skills" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="front-end process with description" />
+  <meta property="og:url" content="http://sheep.today/zl/development.html" />
+  <meta property="og:image" content="http://sheep.today/zl/illustrations/promo-picture.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="600" />
+  <meta property="og:locale" content="en_US" />
+  
+  
+  <!-- frontent settings -->
+  <meta charset="utf-8" charmark="12з">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <link rel="apple-touch-icon" sizes="57x57" href="../app/favicons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../app/favicons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../app/favicons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../app/favicons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../app/favicons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../app/favicons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../app/favicons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../app/favicons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../app/favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="../app/favicons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../app/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../app/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../app/favicons/favicon-16x16.png">
+  <link rel="manifest" href="../app/favicons/manifest.json">
+  <meta name="msapplication-TileColor" content="#FFCC01">
+  <meta name="msapplication-TileImage" content="../app/favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#FFCC01">  
+  
+  <!-- critical CSS -->
+  <style>
+    html, body
+    {
+      width:100%;
+      margin:0;
+      padding:0;
+    }
+    .artWelcomeScreenArea, .elAppContainer {
+        max-width:800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cChapterDecoration { text-align:center; }
+    .cAppVisibleFooter { text-align:center; padding-bottom:2em; }
+    .aText { max-width:600px; }
+    img, svg { max-width:600px; }
+    @media all and (max-width:600px) {
+      .aText { max-width:100%; }
+      img, svg { max-width:100%; }    
+    }
+    .elModal { display:none; }
+    
+    #Loading { display:none; }
+    @media screen {
+      body.hasLoading {
+        overflow:hidden;
+      }      
+      body.hasLoading #Loading
+      {
+        position:fixed;
+        z-index:5500;
+        display:block;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background-color: rgba( 250,251,227 ,1);
+        color:            rgba( 25,17,38 ,.5);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        opacity:1;
+        transition: opacity .5s;
+      }
+      body.hasLoading #LoadingImage
+      {
+        -webkit-animation: LoadingRotation 1.6s infinite linear;
+        animation: LoadingRotation 1.6s infinite linear;          
+      }
+    }
+    @-webkit-keyframes LoadingRotation {
+        from {-webkit-transform: rotate(359deg);}
+        to   {-webkit-transform: rotate(0deg);}
+    }
+    @keyframes LoadingRotation {
+        from {transform: rotate(359deg);}
+        to   {transform: rotate(0deg);}
+    }     
+  </style>
+
+  
+  <!-- custom settings -->
+  
+  <script>
+  // hey google!
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-87015828-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+</head>
+<body class="withAppView hasLoading">
+  <div class="elAppViewArea">
+    <header class="elAppHeader">
+      <div class="elAppVisibleHeader cAppVisibleHeader">
+        <div class="cPageMenu onPlace">
+          <div class="cPageMenuPlace cPageMenuOwner">
+            <div class="aIllustration">
+              <img src="illustrations/zl.svg" alt="ZL"/>
+            </div>
+          </div>
+          <div class="cPageMenuPlace cPageMenuChapters cjsPageMenuChapters">
+            <div class="jsSVGtransformer" data-svgid="#ATST32">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                   id="ATST32" height="32" width="32" viewBox="0 0 64 64">
+                <desc>mini-hamburger to cross</desc><defs></defs>
+                <g>
+                  <path fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" 
+                        d="m 5.0916789,20.818994 53.8166421,0" 
+                        ddefault="m 5.0916789,20.818994 53.8166421,0"
+                        dactive="M 12.972944,50.936147 51.027056,12.882035"
+                        ></path>
+                  <path fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" 
+                        d="m 5.0916788,42.95698 53.8166422,0"
+                        ddefault="m 5.0916788,42.95698 53.8166422,0"
+                        dactive="M 12.972944,12.882035 51.027056,50.936147"
+                        ></path>
+                  <path fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="bevel" 
+                        d="m 5.1969746,31.909063 53.8166424,0" 
+                        ddefault="m 5.1969746,31.909063 53.8166424,0" 
+                        dactive="m 29.5068085,31.909063 0,0" 
+                        ></path>                              
+                </g>
+              </svg>
+            </div>             
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="elAppBody">
+      <div class="elAppVisibleBody cAppVisibleBody">
+        
+        <article>
+          
+          
+          <section class="artWelcomeScreenArea">
+            <div class="artWelcomeScreen">
+              <div class="artWelcomeScreenpartForNavigation">
+                <section class="artChapters">
+                  <div class="artChapterBackground"></div>
+                  <div class="elPapa">
+                    <div class="elPapaTop">
+                      <span class="cPageMenu">
+                        <span class="cPageMenuPlace cPageMenuOwner">
+                          <span class="aIllustration">
+                            <svg version="1.1" id="ZLh1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                               width="43.1px" height="21.2px" viewBox="0 0 43.1 21.2" enable-background="new 0 0 43.1 21.2" xml:space="preserve">
+                            <path class="zlh1-path" fill-rule="evenodd" fill="#FFFFFF" clip-rule="evenodd" d="M25,18.4c-1.9,2.6-3.9,2.7-5.6,2.7c-4,0.1-8.1-0.2-12.1-0.4
+                              c-2.4-0.1-4.8-0.2-7.2-0.3c-0.3-1.8,0.8-2.4,1.6-3.1c3.2-2.6,6.4-5,9.5-7.7c1.8-1.5,3.7-3.1,4.7-6.1c-3.1,0.2-5.8,0.3-8.5,0.6
+                              C5.8,4.2,4.2,4.7,2.6,4.8C2,4.9,1.4,4.2,0.8,3.8c0.5-0.5,1-1.3,1.6-1.4c3-0.5,5.9-1,8.9-1.3c4-0.4,8-0.7,12.3-1
+                              c0.4,1.9-0.5,3-2.1,4.1c-2,1.3-3.9,2.6-5.6,4.2C12.4,11.5,9,14.9,5.3,18.4C11.9,18.4,18.1,18.4,25,18.4z"/>
+                            <path class="zlh1-path" fill-rule="evenodd" fill="#FFFFFF" clip-rule="evenodd" d="M27.5,0c1.9,0.9,1.6,2.3,1.6,3.5c0,3.6,0,7.2,0,11.2c4.7,0.1,9.3-1,13.9-1.5
+                              c0.2,1.5-0.3,2-1.6,2.2c-3.6,0.5-7.4,0.7-10.8,2.2c-1.6,0.7-3.6-0.4-4-2.2c-0.3-1-0.6-2.1-0.5-3.2C26.5,8.3,27,4.3,27.5,0z"/>
+                            </svg>
+                          </span>                        
+                        </span>
+                        <span class="cPageMenuStaticHeader">
+                          <span class="aCaption">Development skill</span>
+                        </span>
+                      </span>
+                    </div>
+                    <div class="elPapaMiddle inCoverMode artChaptersTitle">
+                      <h2 class="aCaption"><span class="aPrefix">here you may read about...</span><br> <i>front-end process</i></h2>                    
+                    </div>
+                    <div class="elPapaBottom">
+                      <div class="artChaptersCaption">
+                        Chapters
+                      </div>
+                      <div class="artChaptersList">
+                        <ol>
+                          <li>
+                            <a href="#ChapterBE" class="aCaption">Before development</a>
+                          </li>
+                          <li>
+                            <a href="#ChapterDV" class="aCaption">Development</a>
+                          </li>
+                          <li>
+                            <a href="#ChapterFD" class="aCaption">Frontend design</a>
+                          </li>
+                          <li>
+                            <a href="#ChapterPB" class="aCaption">Publication</a>
+                          </li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="artWelcomeScreenpartForIntroduction">
+                
+                  <div class="elPapa">
+                    <div class="elPapaMiddle">
+                      <div class="artWelcomeOptions">
+                        <div class="aText">
+                            <strong class="aDecorated"><span class="aLabel">or</span></strong> 
+                            scroll the document<br>
+                            looking for 
+                            <div class="artStepTool isInline">
+                              <div class="aTerm">keywords</div>
+                            </div>
+                        </div>
+                        <div class="aText">
+                          <strong class="aDecorated"><span class="aLabel">or</span></strong> 
+                          enjoy friendly fauna
+                        </div>
+                      </div>
+                    </div>
+                    <div class="elPapaBottom">
+                      <div class="aIllustration artWelcomeCharacter" >
+                        <svg version="1.1" id="WelcomeSheepSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                           width="527.7px" height="378.3px" viewBox="0 0 527.7 378.3" enable-background="new 0 0 527.7 378.3" xml:space="preserve">
+                        <polyline fill="#FFFFFF" points="295.5,31.2 278.5,30 270.7,32 262.5,35.5 251.2,45.3 251.2,54.5 266.3,56.7 287.8,56.7 298.7,61.8 
+                          308.5,68 314,82.7 322.8,106.5 373.7,95.2 379.7,98.3 339,150.5 315.5,210.3 347,226.2 357,244.8 365.4,254.7 415.2,233.2 
+                          428.2,207.8 451.4,193.2 463.2,176.3 469.9,145.8 464.8,125.8 455.7,115.3 464.5,92.5 457.4,61.6 435.5,40 415.7,28.8 398,27 
+                          386.4,23.5 366.7,10 338.9,5.1 325.2,7.1 310.2,15.6 "/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M150.7,91.4c3.6,19.7,6.3,39.3,9.8,59c1.2,6.5,6.5,20.4,2.7,26
+                          c-4.5,6.6-9.4-30.5-9.1-35.1c0.9-17.2-12.5-40.6-8.2-56.6c0.2-0.8,59.6,22.3,66.5,23.4c0.9-5.2-8.2-16.9-6.9-25.8
+                          c0.8-5.9,11.5-14.6,11.6-18.2c0.3-14.7-40.8,16.5-41.8,16.2c-5.6-1.6-18.1-13.4-19.2-18.4c-2.1-9.5,24.3-19.3,31.1-21.9
+                          c19.7-7.2,22,26.5,45.2,18.2c19.1-6.8,21.1-26.1,43.6-29.6c15.7-2.5,14.8,6.9,25.7-6.7c7.3-9.1,14.1-13,24.5-18.2
+                          c23.1-11.7,43.6,6.9,61.8,17.8c23.1,13.8,24.4-12,43.3-16c21.7-4.6,47.2-2.1,68.5,3c24.6,5.9,38,18.4,19.6,40.6
+                          c-15.8,19.1-27.1,41.1-41.3,61.3c-2.6,3.7-7.9,11.4-8.5,16c-0.9,7.4,1.3,10.8,2.2,19.1c2.5,22.3-13,49.1-32,60.5
+                          c-10.3,6.2-3.7,5.9-2.1,16c1.2,7.4-8.6,10.3-8.7,19c-0.1,16,2.4,34.1,6.3,49.8c2.2,8.9,9.7,22.9-1.6,26.7c-9.1,3.1-8.2-9.2-9.9-15.8
+                          c-4.7-19.1-8.6-39.2-15.7-57.5c-13.3,6.5-14.5,13.6-7.4,28c-14.8,6.3-12.1-4.9-15.2-17.8c-19.6,11.9-8.2,36.2-1.3,54.5
+                          c2.4,6.4,8.6,20.8,1.5,25.7c-9.5,6.5-17.6-26-19.9-31.6c-2.6,0.6,1.8,51.8,2.5,57c1.7,11.7-8.7,19.4-18.1,11.7
+                          c-5.5-4.5-11.1-15.9-18.4-17.9c-13.4-3.8-19,14.1-30.3,13.1c-10.5-1-10.5-14.6-16.3-19.6c-12.3-10.5-54.8,9.7-64.1,17.9
+                          c-20.2,17.9-20.6-25.8-43.2-7.4c-7.6,6.2-15.7-6.8-24.5,2.7c-8.2,8.9-18.6,24.2-32.1,15.4c-10.5-6.8-12.3-15.8-26.4-13.2
+                          c-8.6,1.6-20.8,7.8-29.4,2.1c-14.2-9.5-16.9-8.3-32.4,2.2c-17.3,11.8-10.7-20.6-13.6-26.7c-4.4-9.4-1.8-24-2.3-34.1
+                          c-0.5-10.1-5.6-26.6-2.5-36.2c3.3-10.1-6.4-23.4-3.5-34c2.4-8.8,16.3-12.6,23.5-15.6c10.5-4.5,11.4-6.4,8.9-19.1
+                          c-1.7-8.6-2.5-26.3-10.4-32.3c-9.3-7.1-13.5-26.4-18.3-36.5c-5.1-10.8-10.6-21-14.1-32.5c-6.1-20.1,20.9-33.5,37.8-34.4
+                          C64,64.1,93.1,47.1,98.4,84.4c2,14.4,11.8,49.7,2.4,62c-3.4,4.4-11.9,2.2-13.9,6.7c-2,4.5-1.3,11.9-1.4,16.6
+                          c-0.2,11-1.1,32,6.3,40.3c-8.6,5.3-19.8,4-29.3,6.3c-12.5,3-25.9,7.3-37.4,13.1C-3.9,244,38,256.2,50.2,257.3
+                          c23.7,2,47.3,6.6,71.1,7.6c24.4,1,52.3-1,76.1,3.2c21.6,3.8,52.2-0.7,73.9-3.9c20.2-3,59.7,2,73.7-16.1c19-24.5-38.1-38.6-53-42.5
+                          c-26.2-7-56-1.4-81.1-8.7c5.6-8.6,46.1-1,55.4-0.1c20.2,1.9,52.3,7.9,69,19.6c8.3,5.8,18.9,4.9,21.4,17.8
+                          c2.9,14.9,3.3,16.5,19.5,12.6c13.1-3.2,22.7-6.8,31.6-17.4c1.1-1.3,9.8-12.9,7.5-15c-0.9-0.8-7-1-6.1-3.1
+                          c0.6-1.4,29.3-9.3,34.6-13.7c9.7-8,16.1-19.8,20.3-31.4c5.1-13.9,1.8-26.7-4.4-39.5c-7.1-14.6-10.8,7.9-20.7,3.2
+                          c5.7-11.9,19.8-19,21.5-33.5c1.9-16.7-3.1-34-15.3-46c-19.9-19.5-43.1-22.1-67.7-22.1c1-2.7,3.4-3.3,5.6-5.2
+                          c-13.2-14.2-32-14-49.1-16c-13-1.5-24.1,10.5-30.8,19.8c-3.2,4.4-7.9,18.7-12.7,18.5c-0.5-3.6-0.3-7.1,0.8-10.6
+                          c-1.8-3.8-12.9-2.5-16.2-2c-7,1-21.6,7.2-22.8,15.6c-1.3,8.7,15.4,2.8,20.2,2.5c12.6-1,21.9,5.2,33.1,11.1
+                          c22,11.7,32.2-32.1,50.4-22c4.2,2.3,23,10.3,22.8,16.8c-0.2,9.9-13.8,16.8-20.2,22.2c-12.5,10.5-18.9,7.8-20.8-6.6
+                          c-1.5-11.9-19.3-7.4-25.7-3.7c-2.2,1.3,7.4,23.2,8.3,25.8c3.8,11.8,8.9,7.5,21,4.2c9.5-2.6,55.4-12.3,37.8,5.4
+                          c-17.4,17.4-35.3,38.4-44,61.7c2.9-0.9,16-14,20.4-9.9c3.5,3.3,1.6,20-5.4,19.7c-5.6-0.2-20.8,2.7-22.7,8.8
+                          c-1.1,3.6-7.7,22.8-10.5,22.1c-5.5-1.5,7.7-21.3,3.6-21.1c-3.1,0.1-11.4-0.9-3.5-5.5c11-6.5,13.4-16.5,18.7-27.3
+                          c3.6-7.3,41.3-53.4,40.8-53.9c-3.5-4.1-31.4,4.4-36.2,5.7c-17.1,4.6-34.2,9.3-51,15c-12,4.1-31.6,4.3-31.6,20.6
+                          c0,17.8-0.3,34.4,1.5,52.1c-19.7-7,5.2-51.2-12-61.4C217.6,113,183.5,102.2,150.7,91.4C151.3,94.8,154.1,92.5,150.7,91.4z
+                           M302.2,269.6c-2.5,8.1-109.1,3-117.1,2.1c-7.8-0.9-15.5,0.9-23.4,0c-2.6-0.4-5.3-0.7-7.9-0.8c-2.3-0.2-4.5-0.4-6.8-0.6
+                          c-5.7-2.8-8.1-1.6-7.2,3.5c-5,3.7,3.2,44.9-4,45.4c-4.2,0.3,1.4-49.4-7.6-50.4c-16.6-1.9-33.9-2.7-50.7-3.7c-5.9-0.4-34.2-7-34-0.1
+                          c0.1,5.2-1.1,35.4,0.4,36.6c-5.5-4.8-4-28.2-4.5-34.8c-0.6-7.3-12.5-14.4-19.5-12.8c-7.2,1.7,4.9,90.7,5.1,101.2
+                          c0.2,11.9,6,8.3,12,3.3c7.8-6.5,15-9.2,24-4.6c4.3,2.2,2.5-36.7,5.6-38.5c3.8-2.3-1.1,40.8,3.9,43.1c10.1,4.6,24.3,0.5,34.8-0.5
+                          c4.6-0.4,4.8-23.5,5.4-28.2c12.9,7.3-5.6,33.4,18,43.2c1.1-3.2,1.7-6.6,1.7-10.1c2.4,2.1,2,8.7,2.3,12.2c3.8-2.9,22.2-18.8,22.9-23
+                          c0.8-5.1-2.1-31.4,2.9-33.7c4.8,5,1.4,22.9,1.2,29.1c-0.3,12.2,19.9,4.6,24.9,2.8c-2.6,1,6.9-30.9,7-21.2
+                          c0.2,22.4,0.5,14.6,13.9,29.6c0.8-2.5,1.2-20.2,3.3-20.5c7.5-0.9,1.4,28.4,5.4,25.9c6.8-4.4,26.4-19.8,34.6-17.2
+                          c4.9,1.5,32-4.9,33.2-9.7c2.4-10.1-5.4-25.3,1.1-34.2c3.9,3.2,5.6,17.7,2.8,22.3c-6.2,10.2,12.1,27.8,18.4,32.3
+                          c0.9,0.6,25.6-8.1,28.5-8.9c6.2-1.8-5-21.1,0.2-25.4c2.1-1.7,4,24.8,5.7,29c1.6,3.8,16.6,19.1,20.7,18.8c13.1-0.7,2.8-50.5,2.7-60
+                          c-0.1-9.9-0.2-55.6-8.7-62.1C338.2,262.6,321,264.8,302.2,269.6C302.2,269.7,303.4,269.3,302.2,269.6z M77,163.3
+                          c4.2-1.2,1-8.5-2.5-9.2c-4.5-1-16.4,7.7-20.6,9.1c-8.7,2.8-11.4,0.5-9.1,9.5c2,8.1,3.3,16.4,5.5,24.5c5.2,19.4,5.6,15.9,24.3,13.3
+                          C85.1,208.9,79.7,171.2,77,163.3C77.3,163.3,77.7,165.2,77,163.3z"/>
+                        <path class="welcomeCup" fill-rule="evenodd"  clip-rule="evenodd" d="M175.7,216.6c2.6,0.7,12.3,4.2,14.6,1.5c3.8-4.4,8.3-12.6,0.9-15.9
+                          c-19.7-8.6-14.9,17.8-25.9,23.1c-24,11.6-61.7,5.1-63-27.1c-0.6-13.7,24.8-12.5,32.1-12.8c16.7-0.6,30.2-1.8,41.4,10.5
+                          c4.1,4.5,13.8-4.8,20-0.6c6.8,4.6,5.4,12,3.1,18.4C195.8,222.7,174.7,218.6,175.7,216.6C177.9,217.1,175.6,216.8,175.7,216.6z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M197.3,220.3c30.2,28.4-47.9,28-63,26.5c-17-1.7-30.9-3.5-44.5-12.5
+                          c-7.7-5,11-15.7,16.1-14.9c-2.4,8-20.5,13.3-2.6,16.7c16.7,3.1,33.2,5.3,50.2,5.6c12.6,0.3,34.1,2.4,44.3-6
+                          C206.6,228.5,190.6,225,197.3,220.3C198.6,221.6,197.2,220.4,197.3,220.3z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M219,130.3c1.4,0.5,21.3,5.9,21.6,8.1c0.7,5.7,0.1,19.7-0.7,25.4
+                          c-15.1-9.3,8.6-29.6-19.5-30.2c-4-0.1-4.5,16.9-4.7,20c-0.2,2.7,14.9,5.6,17.4,7.3c-5.4-0.9-21-0.5-20.6-7
+                          C213,147.1,214.3,135.7,219,130.3C222.1,131.4,215.9,133.9,219,130.3z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M278.3,140.9c-6.8-7.9,57-22.5,57.4-22.9c-5.7,6.4-23.4,6.6-31.5,11.1
+                          C296.7,133.2,286.4,138.2,278.3,140.9C277.9,140.4,279.1,140.6,278.3,140.9z"/>
+                        <g>
+                          <path class="welcomeSmoke welcomeSmoke1" fill-rule="evenodd" clip-rule="evenodd" fill="#000000" d="M127.3,170.1c-1.1-1-5.8-24.6-5.3-26.7c0.5-2.4,9.5-23.9,9.7-23.9
+                            c11.8-0.6-2.8,20.7-4,23.4C122,155.3,142.3,159.3,127.3,170.1C125.8,168.7,128.8,169,127.3,170.1z"/>
+                          <path class="welcomeSmoke welcomeSmoke2" fill-rule="evenodd" clip-rule="evenodd" fill="#000000" d="M144,134.4c0.7,8.1-4,9.8,2.6,17.7c5.6,6.7,2.1,10.4-3.5,14.8
+                            C149,162.2,127.4,134.1,144,134.4C144.2,136.5,142,134.4,144,134.4z"/>
+                        </g>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M165.6,121c7.2,0,39.2,3.7,41.2,10.7C202.4,130.4,165,123.7,165.6,121
+                          C166.7,121,165.5,121.3,165.6,121z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M319.7,137.7c-16,5.1-31.5,10.8-47.4,16.3C271.3,151.9,314.6,133.8,319.7,137.7
+                          C315.4,139.1,319.2,137.3,319.7,137.7z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M201.7,121c-3.1,0-35.7-7.9-35.5-8.3C167.6,109.8,202.2,118.9,201.7,121
+                          C200.3,121,201.8,120.6,201.7,121z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M186.6,174.9c8.6,0,41.3-0.5,46.2,6.6C228.3,182.1,186.6,174.8,186.6,174.9
+                          C189.9,174.9,186.5,175.2,186.6,174.9z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M275.7,164.4c4-5.6,31.8-14.5,38.3-12.5C311.3,153.2,276.5,165.9,275.7,164.4
+                          C276,164,275.8,164.7,275.7,164.4z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M311.1,167.5c-9.4,2.2-31.8,12.8-39.9,9.6C276.8,171.7,309,171.5,311.1,167.5
+                          C308.4,168.1,311.1,167.4,311.1,167.5z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M169.4,135.3c7.4-0.9,26-1.1,31.4,5.3C197.9,140.3,169.4,137.1,169.4,135.3
+                          C170.7,135.1,169.4,135.5,169.4,135.3z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M199.4,153.3c-3.2-0.8-27.5-5.2-27.6-6.5C175.3,146,200.3,149.7,199.4,153.3
+                          C197.9,152.9,199.5,153,199.4,153.3z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M213.1,169.7c-7.7-0.4-26.9,1.1-33.5-3C183.4,165.1,213.3,166.5,213.1,169.7
+                          C210.4,169.6,213.1,169.5,213.1,169.7z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M278.9,187.2c2.3-4.5,17.5-6.6,21.8-5.5C293.9,184.7,286.1,185.3,278.9,187.2
+                          C280.2,184.5,280.8,186.7,278.9,187.2z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M228.2,172.8c-6.6,2.1-9.6,1.3-9.2-2.4C220.9,170.4,229.3,170.9,228.2,172.8
+                          C225.1,172.4,228.4,172.5,228.2,172.8z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"  fill="#fcfbca" d="M85.8,105.8c-13,8.4-21.4,33-26.8,46.6c-2.7,6.7-13.2,7.7-19,9.3
+                          c-6.4,1.8-4.6-7.4-7.6-9.6c-6.8-4.9-10.3-22.5-14-29.9c-5.2-10.1-7.9-22.8-6.4-33.7c2.5-17.9,76.9-30.5,78.9-15.4
+                          c2.1,15.9,3.7,31.4,3.2,47.5c-0.3,8.2-23,41.2-32.1,31.8C63.4,149.4,85.3,105.4,85.8,105.8C85,106.3,86,106.1,85.8,105.8z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" fill="#fcfbca" d="M468.6,87.7c7.1-4.1,14.3-8.2,21.4-12.3c5.5,6.3-24,35.8-29.5,39.4
+                          c0.9,1.4,4-0.8,5.8-1.1c-0.9,13.1-12.4,0.1-2.3-11c10-11-1.6-42.8-10.1-51.4c-12.1-12.4-21.9-18.9-37.5-24.2
+                          c-14-4.7,46.1-31.7,37.9-14.2c2.5-0.9,41.4-5.8,42.8,0.2c0.4,1.8-1.9,1.3-1.1,3c29-11,19.1,29.5,10.2,42.7
+                          c-4.4,6.5-8.8,13.9-16.6,16.1C487,75.7,467.7,87.4,468.6,87.7C475.7,83.7,468.5,87.7,468.6,87.7z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M314.1,104.6c-15.1,3.5-27.5,7.3-42.2,12.3
+                          c-14.3,4.9-16.9-20.4-15.9-29.1c1.7-15.2,19.2-32.2,35.6-25.5c17.6,7.2,24.3,24.1,24.9,41.6C312.9,104.8,315.3,103.9,314.1,104.6z"
+                          />
+                        <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M239.1,61.8c25.1,0.1,15.5,11.2,11.6,25.9
+                          c-4.7,17.8,21.5,38.2-12.4,29.3c-9.3-2.4-24.7-5.7-25.8-19C210.6,75.9,216.2,64.4,239.1,61.8C246.1,61.9,236.7,62.1,239.1,61.8z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M109.7,204.3c20.9,8.8,38.9,5,60.2-0.1
+                          C162.8,236.7,120.8,232.6,109.7,204.3C112.9,205.7,110.3,206,109.7,204.3z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M159,202.7c-2.6-13.5-39.8-2.8-39.8-2.5c2.4,7.8-18.1-7.9-5.7-8.2
+                          c15.9-0.4,31.8-6.2,47.9-1.1C171.5,194.2,166.3,200.6,159,202.7C158.3,199.6,159.5,202.5,159,202.7z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M239,314c-2.3-5-6.7-28-2.2-32.4C239.4,284.7,242.6,311.8,239,314
+                          C238.5,312.7,241.5,312.5,239,314z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M258.3,332.9c-2.8-6.4-9.1-34.8-3.9-40.4C257.2,293.9,258.7,332.7,258.3,332.9
+                          C257.9,332,258.7,332.8,258.3,332.9z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M37.3,153.6c-4.5-11.2,12.6-30.4,17.8-39.8c2-3.6,26.5-37.3,27.3-34.8
+                          c1.1,3.3-20.5,27.8-23.2,32.2C51.3,124.2,46.6,141.7,37.3,153.6C36.8,152.3,38.1,152.6,37.3,153.6z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M30.8,140.6c-1.1-7.8,13.9-29.5,19.2-34.9c4.3-4.3,7.3-10.3,11.3-15
+                          c2.6-3.1,16-15,16.2-15.5C75.7,78.8,31,140.6,30.8,140.6C30.5,138.4,32.6,140.9,30.8,140.6z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M48.4,151.7c-10-1.8,36.1-62.4,37-61.3C71.5,110.2,59.1,130.1,48.4,151.7
+                          C47.6,151.6,50.6,147.1,48.4,151.7z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M62.6,76.6c-13,16.8-23.9,34.6-34.7,52.8C26,128.7,52,76.7,62.6,76.6
+                          C60.4,79.3,60.4,76.6,62.6,76.6z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M52,75.3c0.9,0.9-27.1,44.8-30.1,49.1C16.8,121,44.2,77.4,52,75.3
+                          C53.5,76.8,47.8,76.4,52,75.3z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M37,80.2c2.6,2.9-13,27.4-17,30.8C14.1,106.6,33.7,84.3,37,80.2
+                          C37.9,81.2,34.7,83,37,80.2z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M89.7,119.6c-4,7.2-9.5,20.8-15.9,25.6C73.1,141.7,82.7,116.9,89.7,119.6
+                          C88.5,121.7,89.5,119.5,89.7,119.6z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.7,103.6c-2.4-5.5,7.7-21.4,13.4-21.2C27.9,87,18.5,102.2,14.7,103.6
+                          C13.8,101.7,15.5,103.3,14.7,103.6z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M461.1,57.6c-3.5-7.2,44.8-28.4,51.5-31.4C512.1,25.4,465.9,52.8,461.1,57.6
+                          C459.7,54.6,465.9,52.8,461.1,57.6z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M440.6,32.6c8.3-7.3,18.2-12.2,28.2-16.7C469.6,17.4,443.5,32.2,440.6,32.6
+                          C449.2,25.1,442.1,32.4,440.6,32.6z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M457.5,48.4c-1.8-2,18.6-15.8,22.7-15.3C472.6,38.1,465,43.2,457.5,48.4
+                          C457.4,48.3,465.1,43.2,457.5,48.4z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M447.7,17.1c-4.4,3.3-12.1,12.6-17.4,9.2C432.2,25.1,446.1,14.9,447.7,17.1
+                          C442.9,20.7,447.5,16.8,447.7,17.1z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M491.3,60.9c-8,5.5-15.9,10.9-23.9,16.4C466,75,486.8,62,491.3,60.9
+                          C483.3,66.4,490.8,61.1,491.3,60.9z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M485,55c-6.9,3.7-13.6,7.9-20.5,11.3C466.3,63.6,483,51.9,485,55
+                          C481.5,56.9,484.8,54.8,485,55z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M421.5,24.2c5.2-5.3,12.1-8.3,18.2-12.2C438.7,14.5,422.5,25.8,421.5,24.2
+                          C426.7,19,421.7,24.5,421.5,24.2z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M479.1,91.9c-3.9,2.6-7.8,5.1-11.6,7.7C467.5,96,477.7,89.4,479.1,91.9
+                          C475.4,94.4,479,91.6,479.1,91.9z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M459.5,34.4c0.8-2.1,2.3-3.4,4.5-4C465.6,32.3,464.1,33.6,459.5,34.4
+                          C459.9,31.3,461.3,33.2,459.5,34.4z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M457.4,35.5c-2,1.1-4.1,2.3-6.1,3.4C449.8,36.3,455.8,32.8,457.4,35.5
+                          C455.3,36.7,457.2,35.3,457.4,35.5z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M497.4,58.2c1.7-1.1,2.9-1.9,4.2-2.7C502.3,57.3,502.3,57.3,497.4,58.2z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M448.6,15.1c1.4-0.8,2.8-1.6,4.3-2.3C454.2,15.1,449.9,17.5,448.6,15.1
+                          C450,14.4,448.8,15.5,448.6,15.1z"/>
+                        <path class="welcomeEye" fill-rule="evenodd" clip-rule="evenodd" fill="#000000" d="M282.3,105.1c-13.1-5.7,1.3-15,5.4-7.9
+                          C292.5,105.3,285,106.3,282.3,105.1C281.7,104.8,282.4,104.9,282.3,105.1z"/>
+                        <path class="welcomeEye" fill-rule="evenodd" clip-rule="evenodd" fill="#000000" d="M239.8,99.6c0,6.5-11.9,8.6-11.8,2C228,94.3,239.9,92.4,239.8,99.6
+                          C239.8,103.1,239.9,97.7,239.8,99.6z"/>
+                        </svg>                
+                      </div>
+                      <style>
+                        #WelcomeSheepSVG .welcomeEye
+                        {                          
+                          -webkit-animation: WelcomeReading 2.6s infinite linear;
+                          animation: WelcomeReading 2.6s infinite linear;                          
+                        }
+                        #WelcomeSheepSVG .welcomeSmoke1
+                        {                          
+                          animation: WelcomeCoffee1 2.6s infinite linear;
+                        }                        
+                        #WelcomeSheepSVG .welcomeSmoke2
+                        {                          
+                          animation: WelcomeCoffee2 2.6s infinite linear;
+                        }                                                
+                        @-webkit-keyframes WelcomeReading {
+                            0%  {-webkit-transform: translate(80%, 0%);}
+                            85% {-webkit-transform: translate(-80%, 0%);}
+                            100%{-webkit-transform: translate(80%, 0%);}
+                        }
+                        @keyframes WelcomeReading {
+                            0%  {transform: translate(80%, 0%);}
+                            85% {transform: translate(-80%, 0%);}
+                            100%{transform: translate(80%, 0%);}
+                        }
+                        @keyframes WelcomeCoffee1 {
+                            0%  {opacity:.75;transform: translate(0%, 0%);}
+                            80% {opacity:0;transform: translate(0%, -20%);}
+                            94% {opacity:0;transform: translate(0%, -0%);}
+                            99% {opacity:.75;transform: translate(0%, -0%);}
+                            100%{opacity:.75;transform: translate(0%, 0%);}
+                        }                        
+                        @keyframes WelcomeCoffee2 {
+                            0%  {opacity:0;transform: translate(0%, -40%);}
+                            1%  {opacity:0;transform: translate(0%, 40%);}
+                            20% {opacity:.75;transform: translate(0%, 0%);}
+                            100%{opacity:0;transform: translate(0%, -40%);}
+                        }                                  
+                        #WelcomeSheepSVG:hover .welcomeEye
+                        {
+                          transform:translate(0, -80%);
+                          -webkit-animation:none;
+                          animation:none;
+                          transition: all .5s;
+                        }                        
+                      </style>
+                    </div>
+                  </div>
+                </div>
+              
+            </div>
+          </section>
+          
+          
+          
+          <!--
+          
+          CHAPTER
+          
+          -->          
+          
+          <div class="cChapterDecoration" style="padding-top:6em;"><img src="app/img/chapter-decoration-sheet-row.svg" alt=""></div>
+          
+          
+          <section id="ChapterBE" class="elAppContainer elChapterNavigation hasCompactMobileMode">            
+            <div class="cStageHeader">
+              <span class="aDecor"></span>
+              <h2 class="aCaption">
+                Before development
+              </h2>
+              <span class="aDecor"></span>
+            </div>          
+          </section>
+          
+          
+        <div class="cSubstage">
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">BE1.</span> Task</h3>
+            </div>
+          </section>
+          
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout hasHeader">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isWarmingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      defining goals
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>listening to managers, stakeholders or clients</li>
+                      <li>taking a time</li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      describing result
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>looking at similar projects</li>
+                      <li>using own experience</li>
+                      <li>drawing visual scetches</li>
+                      <li>drawing user routes</li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                    <div class="artStepTools">
+                      <div class="artStepTool">
+                        <div class="aTerm">17 years</div>
+                        <div class="aLabel">experience<br>of making<br>web pages</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="elMama artStep isWarmingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      researching for current materials
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>checking existed or suggested api</li>
+                      <li>checking current design</li>
+                      <li>checking bussiness task</li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isPlanningStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      scheduling time
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>writing plan, or modifying this one</li>
+                      <li>imitating process, suggesting development time</li>
+                      <li>appending scheduled time into the calendar</li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>              
+              <div class="artStepListToolbar">
+                  <div class="elMama artStepListAboutIconsArea">
+                    <div class="elMamaCell isTiny aIcon">
+                      <div class="cHelpfullSheepIcon" data-modal="href" href="#HelpfullPartAboutStepIcons">
+                        <p class="aIllustration">
+                          <svg version="1.1" id="HelpfullSheep001" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                               width="766px" height="446px" viewBox="0 0 766 446" style="enable-background:new 0 0 766 446;" xml:space="preserve"
+                               class="isCharacter">
+                          <style type="text/css">
+                          <![CDATA[
+                              .st0{fill-rule:evenodd;clip-rule:evenodd;}
+                              .st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                          ]]>
+                          </style>
+                          <ellipse opacity="0.15" stroke="#000000" stroke-miterlimit="10" cx="180.7" cy="404.6" rx="135.4" ry="24.9"/>
+                          <g style="transform:scale(1.15);" class="aCharacterHover isLazy">
+                              <path class="st0" d="M558.6,147.4c1.8-33.6,19.6-43.8,43.4-63.3c18-14.8,25.9-49.2-5.2-53.9c-29.6-4.5-7.6,25.4-22.6,42.4
+                                  c-16.4,18.6-42.5,4.8-30.2-18.9c20.8-40.2,93.7-50.9,100.1,5c3.9,33.8-22.1,41.4-46.4,53.5c-28.4,14.1-18.1,31.5-31.6,51.8
+                                  C560.1,160.3,557.6,154.7,558.6,147.4C559.3,133.1,559.1,151.1,558.6,147.4z"/>
+                              <path class="st0" d="M546,201.3c0-20.9,38.2-35.6,39-8.6C585.7,216.9,543.2,229.5,546,201.3C546,187.6,544.9,212.3,546,201.3z"/>
+                          </g>
+                          <g>
+                              <path class="st1" d="M272.8,322c33.1,27.7-97.5,32.4-74.8,13.3c-9.6-7.1-52.4,21.3-71.7,15.9c-15.5-4.3-28.6-18.2-37.5-31.1
+                                  c-4.8-6.9-11.8-52.5-16.9-51.7c-2.4,2.9-3.4,6.2-3.1,9.8c-28.8-9.1-24.9-57.5-20.6-79.8c3.6-18.9,16.7-35,29.3-48.9
+                                  c7.2-7.9,35.5-17.3,34.7-27.2c-36.7-1.9,8.7-53.3,22.2-62c31.4-20.2,68.2-25.7,103.6-17c-3.6,3.5-4.5,7.3-2.7,11.4
+                                  c8.6,7.1,40.4-33.9,65.9-16.6c11.3,7.7,23.8,16.4,29.9,28.9c1.7,3.5,4.6,28,7.1,29.1c6.7,2.9,9.5-17.1,26.2-6.4
+                                  c25.6,16.3,20,52,14.5,76.1"/>
+                              <path class="st0" d="M347.3,72.9c45.9-1.3,46.9,59.1,49.4,89.5c3.3,41.4,54.6-21.8,69.2-20.7c18,1.5,30.4,10.1,35.6,27.6
+                                  c3.6,12.2-10.7,51.2-21.2,28.1c-7.9-17.5-35.1-14.4-47.8-6.4c-12.2,7.8,10,38.6,4.6,56.1c-12.5,40.5-24.9,60-58.9,86
+                                  c-32.6,24.8-75.5-14.3-104.4,11.1c-8.1,7.1-27.3,14.6-30.8,25.4c-0.2,0.5-13.3,50.8-15.9,31.9c-3-22.5,2.2-37.7-20.5-43.7
+                                  c-8-2.1-11.8,43.3-15,48.8c-13.9-8.5-1.5-44.2-14.4-50c-22.2-9.9-19.5,52.8-31.3,45.1c-8.6-5.6,9.7-45-7.2-38.8
+                                  c-10.4,3.8-14.2,34.8-14.2,44c-21.6,8.7-7.4-46.1-23-58.7c-20.3-16.4-40.9-53-53.8-76c-22.5-40.1-17.4-85.7,12.8-119.3
+                                  c7-7.8,21.9-17.4,26.4-26.8C93.6,112,90.1,94,98.3,79.7c15.9-27.6,52.7-36.1,79.4-47.8c17.6-7.7,33.2-7.4,50.9-2.9
+                                  c25.1,6.5,14.4,2.1,33.9-7.2C294.5,6.6,336.7,47,347.3,72.9C356.2,72.6,346.4,70.9,347.3,72.9z M112.1,122.4
+                                  c0.8,10-18.4,13.5-25.1,18.6c-17.3,13.3-34.8,35.7-39,57.5c-4.2,22.3-8.2,70.7,20.6,79.8c-0.3-3.7,0.7-6.9,3.1-9.8
+                                  c-7.5,1.2,29.8,69.5,42.6,77.5c17,10.6,41.1,8.4,58.3-0.4c7.1-3.6,15.7-17.3,25.3-10.2c-10.1,8.5,21.7,15.2,24.8,15.4
+                                  c21.9,1.7,41.2-7.5,54.3-25c-37.5-31.6-76.7-57.2-47.1-111c8.8-16.1,38.6-32.4,8.8-45.7c-18.7-8.3-34.9,50.9-51.5,29.6
+                                  c-26.4-33.7,44.9-112.9,68.2-50.2c11,29.5,19.9,20.7,43.4,13.1c25.8-8.3,55.2-6.8,80,4.6c5.5-24.3,9.5-48.8-7.5-69.9
+                                  c-18.8-23.3-24.7,3.8-33.3,0.1c-3.6-1.6-1.6-16-2.2-18c-4.5-14.9-13.9-24.3-25.9-33.6c-13.3-10.2-25.3-18.4-42.5-10.7
+                                  c-6.2,2.7-24.3,27.5-32.4,20.8c-1.8-4.1-0.9-8,2.7-11.4c-35.3-8.7-72.2-3.2-103.6,17C120.9,69,75.4,120.4,112.1,122.4
+                                  C112.6,127.6,109.9,122.3,112.1,122.4z"/>
+                          </g>
+                          <g  style="transform:rotate(-10deg) scale(1.12);" class="aCharacterHover isLazy">
+                              <path class="st0" d="M483.2,358.3c23.8-10.6,49.8-19.5,72.1-33.1c11.8-7.2,21.2-22.4,36-16.4c9.1,3.7,6.7,17.6,1.7,23.3
+                                  c-9.3,10.5-18.4,0.5-29,1.2c-27.4,2-54.1,25.7-79.7,34.3c16.1,43-5.7,39.4-37.6,52.6c-21.7,8.9-59.4,36.2-73.7,10.2
+                                  c-12.7-23.1-11.1-48.1,10.8-63.1C403.9,353.5,467.8,334.5,483.2,358.3C504.3,348.9,480.9,354.8,483.2,358.3z M459.7,354
+                                  c-24.3,7-47.4,16.9-70.6,24.5c-12.8,4.2-8.1,43,3.2,40.4c26.8-6.2,51.3-12.3,76.2-24.2C485.7,386.5,473.3,354,459.7,354
+                                  C456.4,354.9,470.2,354,459.7,354z"/>
+                              <path class="st1" d="M459.7,354c13.7,0,26,32.5,8.8,40.7c-24.9,11.9-49.4,18-76.2,24.2c-11.3,2.6-16-36.2-3.2-40.4
+                                  C412.3,370.9,435.3,361,459.7,354C470.2,354,456.4,354.9,459.7,354z"/>
+                              <path class="st0" d="M406.2,405.1c-21.3-1.7-3.2-31.9,5.6-26C423.5,387,423.4,405.8,406.2,405.1
+                                  C397.5,404.4,411.9,405.3,406.2,405.1z"/>
+                              <path class="st0" d="M457.1,376.6c-1.7,10.5-14.2,19.3-23.5,10.6C421.9,376.1,444.9,358.6,457.1,376.6
+                                  C456.1,383.1,455.4,374,457.1,376.6z"/>
+                          </g>
+                          <g>
+                              <path class="st1" d="M371,297.8c-41.6-1.6-21.3-26.3-14.9-48c6.7-22.7-24.4-65.5,8.5-74.3c30.4-8.1,66.5,28.4,65.1,57.3
+                                  C427.7,273,409.5,290.4,371,297.8C363.6,297.6,377.7,296.6,371,297.8z"/>
+                              <path class="st0 aCharacterHover" style="transform:translateX(-70%)" d="M416,230.4c0,17.2-29.5,18.8-28.9,1C387.7,213,416.1,212.7,416,230.4C416,237.6,416,221.5,416,230.4z"/>
+                          </g>
+                          <g>
+                              <path class="st1" d="M283.1,294.2c-29.9-2.6-55.5-28.8-43.2-59.6c11-27.7,29.4-40.3,56.2-52.1C353,157.6,371.8,300.6,283.1,294.2
+                                  C265.9,292.7,296.8,295.2,283.1,294.2z"/>
+                              <path class="st0 aCharacterHover" style="transform:translateX(-60%)" d="M334.3,231.8c-0.7,15.1-27.6,18.6-29.5,3.2C302.1,212.4,329.8,208.1,334.3,231.8
+                                  C334,238.7,333.8,229,334.3,231.8z"/>
+                          </g>
+                          </svg>
+                        </p>
+                        <div class="aLabel">
+                          What does this icons mean?
+                        </div>
+                      </div>    
+                      <div class="artStepListAboutIconsArrow">
+                        <span class="aIcon"></span>
+                      </div>
+                    </div>
+                    <div class="elMamaCell isCentral aDescription">
+                    </div>
+                    <div id="HelpfullPartAboutStepIcons" class="elModal withFullscreen">
+                        <div class="elModalContent elPapa cModalContent">           
+                          <div class="elPapaMiddle inCoverMode">
+                            <section>
+                              <div class="elMama cIconizedArticle">
+                                <div class="elMamaCell isTiny aIllustration">
+                                  <img src="illustrations/jobtype-warming.svg" alt=""/>
+                                </div>
+                                <div class="elMamaCell aDescription">
+                                  <div class="aCaption">warming stage</div>
+                                  <div class="aText">
+                                    <p>
+                                      time is spent on <i>gathering</i> data, <i>converting</i> 
+                                      data into the frontend-friendly format and <i>learning</i> new API
+                                    </p>
+                                  </div> 
+                                </div>
+                              </div>
+                              <div class="elMama cIconizedArticle">
+                                <div class="elMamaCell isTiny aIllustration">
+                                  <img src="illustrations/jobtype-planning.svg" alt=""/>
+                                </div>
+                                <div class="elMamaCell aDescription">
+                                  <div class="aCaption">planning</div>
+                                  <div class="aText">
+                                    <p>
+                                      time is spent on <i>talking</i> or <i>thinking</i>
+                                    </p>
+                                  </div> 
+                                </div>
+                              </div> 
+                              <div class="elMama cIconizedArticle">
+                                <div class="elMamaCell isTiny aIllustration">
+                                  <img src="illustrations/jobtype-coding.svg" alt=""/>
+                                </div>
+                                <div class="elMamaCell aDescription">
+                                  <div class="aCaption">coding</div>
+                                  <div class="aText">
+                                    <p>
+                                      time is spent to <i>create</i> new components or functionality
+                                    </p>     
+                                  </div> 
+                                </div>
+                              </div> 
+                              <div class="elMama cIconizedArticle">
+                                <div class="elMamaCell isTiny aIllustration">
+                                  <img src="illustrations/jobtype-testing.svg" alt=""/>
+                                </div>
+                                <div class="elMamaCell aDescription">
+                                  <div class="aCaption">testing</div>
+                                  <div class="aText">
+                                    <p>
+                                      time is spent on <i>using</i> the product and <i>updating</i> components
+                                    </p>
+                                  </div> 
+                                </div>
+                              </div> 
+                            </section>
+                          </div>
+                        </div>
+                    </div>                     
+                  </div>
+                </div>    
+            </div>
+          </section>
+        </div>
+
+        <div class="cSubstage">
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">BE2.</span> Environment</h3>
+            </div>
+          </section>
+          
+          
+          <section class="elAppContainer inArticleLayout">
+            <div class="cArticleRow isMainFlowRow hasHeader">
+              <div class="aCaption">
+                available technologies
+              </div>
+              <div class="bListOfComponents">
+                <div class="aCaption">
+                  frontend programming
+                </div>
+                <ol>
+                  <li>
+                    js/ECMAScript + custom components
+                  </li>
+                  <li>                    
+                    <div class="artStepTool isInline">
+                      <div class="aTerm">jquery</div>
+                    </div>
+                  </li>
+                  <li>                    
+                    <div class="artStepTool isInline">
+                      <div class="aTerm">angular</div>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      learning something new
+                    </div>
+                    <div class="aSubcaption">
+                      there was positive experience with <strong>aurelia</strong> and <strong>react</strong>
+                    </div>
+                  </li>
+                </ol> 
+              </div>
+              <div class="bListOfComponents">
+                <div class="aCaption">
+                  frontend design
+                </div>
+                <ol>
+                  <li>
+                    handmade components
+                  </li>
+                  <li>
+                    <div class="artStepTool isInline">
+                      <div class="aTerm">bootstrap</div>
+                    </div>
+                  </li>
+                  <li>
+                    framework based
+                  </li>
+                </ol> 
+              </div>
+              <div class="bListOfComponents">
+                <div class="aCaption">
+                  backend programming
+                </div>
+                <ol>
+                  <li>
+                    trying to avoid backend
+
+                      <blockquote class="cHelpfullSheepIcon" data-modal="href" href="#HowToAvoidBackendTechniques">
+                        <p class="aIllustration">
+                          <svg version="1.1" id="HelpfullSheep001" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                               width="200px" height="140px" viewBox="0 0 766 446" style="enable-background:new 0 0 766 446;" xml:space="preserve"
+                               class="isCharacter">
+                          <style type="text/css">
+                          <![CDATA[
+                              .st0{fill-rule:evenodd;clip-rule:evenodd;}
+                              .st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                          ]]>
+                          </style>
+                          <ellipse opacity="0.15" stroke="#000000" stroke-miterlimit="10" cx="180.7" cy="404.6" rx="135.4" ry="24.9"/>
+                          <g style="transform:scale(1.15);" class="aCharacterHover isLazy">
+                              <path class="st0" d="M558.6,147.4c1.8-33.6,19.6-43.8,43.4-63.3c18-14.8,25.9-49.2-5.2-53.9c-29.6-4.5-7.6,25.4-22.6,42.4
+                                  c-16.4,18.6-42.5,4.8-30.2-18.9c20.8-40.2,93.7-50.9,100.1,5c3.9,33.8-22.1,41.4-46.4,53.5c-28.4,14.1-18.1,31.5-31.6,51.8
+                                  C560.1,160.3,557.6,154.7,558.6,147.4C559.3,133.1,559.1,151.1,558.6,147.4z"/>
+                              <path class="st0" d="M546,201.3c0-20.9,38.2-35.6,39-8.6C585.7,216.9,543.2,229.5,546,201.3C546,187.6,544.9,212.3,546,201.3z"/>
+                          </g>
+                          <g>
+                              <path class="st1" d="M272.8,322c33.1,27.7-97.5,32.4-74.8,13.3c-9.6-7.1-52.4,21.3-71.7,15.9c-15.5-4.3-28.6-18.2-37.5-31.1
+                                  c-4.8-6.9-11.8-52.5-16.9-51.7c-2.4,2.9-3.4,6.2-3.1,9.8c-28.8-9.1-24.9-57.5-20.6-79.8c3.6-18.9,16.7-35,29.3-48.9
+                                  c7.2-7.9,35.5-17.3,34.7-27.2c-36.7-1.9,8.7-53.3,22.2-62c31.4-20.2,68.2-25.7,103.6-17c-3.6,3.5-4.5,7.3-2.7,11.4
+                                  c8.6,7.1,40.4-33.9,65.9-16.6c11.3,7.7,23.8,16.4,29.9,28.9c1.7,3.5,4.6,28,7.1,29.1c6.7,2.9,9.5-17.1,26.2-6.4
+                                  c25.6,16.3,20,52,14.5,76.1"/>
+                              <path class="st0" d="M347.3,72.9c45.9-1.3,46.9,59.1,49.4,89.5c3.3,41.4,54.6-21.8,69.2-20.7c18,1.5,30.4,10.1,35.6,27.6
+                                  c3.6,12.2-10.7,51.2-21.2,28.1c-7.9-17.5-35.1-14.4-47.8-6.4c-12.2,7.8,10,38.6,4.6,56.1c-12.5,40.5-24.9,60-58.9,86
+                                  c-32.6,24.8-75.5-14.3-104.4,11.1c-8.1,7.1-27.3,14.6-30.8,25.4c-0.2,0.5-13.3,50.8-15.9,31.9c-3-22.5,2.2-37.7-20.5-43.7
+                                  c-8-2.1-11.8,43.3-15,48.8c-13.9-8.5-1.5-44.2-14.4-50c-22.2-9.9-19.5,52.8-31.3,45.1c-8.6-5.6,9.7-45-7.2-38.8
+                                  c-10.4,3.8-14.2,34.8-14.2,44c-21.6,8.7-7.4-46.1-23-58.7c-20.3-16.4-40.9-53-53.8-76c-22.5-40.1-17.4-85.7,12.8-119.3
+                                  c7-7.8,21.9-17.4,26.4-26.8C93.6,112,90.1,94,98.3,79.7c15.9-27.6,52.7-36.1,79.4-47.8c17.6-7.7,33.2-7.4,50.9-2.9
+                                  c25.1,6.5,14.4,2.1,33.9-7.2C294.5,6.6,336.7,47,347.3,72.9C356.2,72.6,346.4,70.9,347.3,72.9z M112.1,122.4
+                                  c0.8,10-18.4,13.5-25.1,18.6c-17.3,13.3-34.8,35.7-39,57.5c-4.2,22.3-8.2,70.7,20.6,79.8c-0.3-3.7,0.7-6.9,3.1-9.8
+                                  c-7.5,1.2,29.8,69.5,42.6,77.5c17,10.6,41.1,8.4,58.3-0.4c7.1-3.6,15.7-17.3,25.3-10.2c-10.1,8.5,21.7,15.2,24.8,15.4
+                                  c21.9,1.7,41.2-7.5,54.3-25c-37.5-31.6-76.7-57.2-47.1-111c8.8-16.1,38.6-32.4,8.8-45.7c-18.7-8.3-34.9,50.9-51.5,29.6
+                                  c-26.4-33.7,44.9-112.9,68.2-50.2c11,29.5,19.9,20.7,43.4,13.1c25.8-8.3,55.2-6.8,80,4.6c5.5-24.3,9.5-48.8-7.5-69.9
+                                  c-18.8-23.3-24.7,3.8-33.3,0.1c-3.6-1.6-1.6-16-2.2-18c-4.5-14.9-13.9-24.3-25.9-33.6c-13.3-10.2-25.3-18.4-42.5-10.7
+                                  c-6.2,2.7-24.3,27.5-32.4,20.8c-1.8-4.1-0.9-8,2.7-11.4c-35.3-8.7-72.2-3.2-103.6,17C120.9,69,75.4,120.4,112.1,122.4
+                                  C112.6,127.6,109.9,122.3,112.1,122.4z"/>
+                          </g>
+                          <g  style="transform:rotate(-10deg) scale(1.12);" class="aCharacterHover isLazy">
+                              <path class="st0" d="M483.2,358.3c23.8-10.6,49.8-19.5,72.1-33.1c11.8-7.2,21.2-22.4,36-16.4c9.1,3.7,6.7,17.6,1.7,23.3
+                                  c-9.3,10.5-18.4,0.5-29,1.2c-27.4,2-54.1,25.7-79.7,34.3c16.1,43-5.7,39.4-37.6,52.6c-21.7,8.9-59.4,36.2-73.7,10.2
+                                  c-12.7-23.1-11.1-48.1,10.8-63.1C403.9,353.5,467.8,334.5,483.2,358.3C504.3,348.9,480.9,354.8,483.2,358.3z M459.7,354
+                                  c-24.3,7-47.4,16.9-70.6,24.5c-12.8,4.2-8.1,43,3.2,40.4c26.8-6.2,51.3-12.3,76.2-24.2C485.7,386.5,473.3,354,459.7,354
+                                  C456.4,354.9,470.2,354,459.7,354z"/>
+                              <path class="st1" d="M459.7,354c13.7,0,26,32.5,8.8,40.7c-24.9,11.9-49.4,18-76.2,24.2c-11.3,2.6-16-36.2-3.2-40.4
+                                  C412.3,370.9,435.3,361,459.7,354C470.2,354,456.4,354.9,459.7,354z"/>
+                              <path class="st0" d="M406.2,405.1c-21.3-1.7-3.2-31.9,5.6-26C423.5,387,423.4,405.8,406.2,405.1
+                                  C397.5,404.4,411.9,405.3,406.2,405.1z"/>
+                              <path class="st0" d="M457.1,376.6c-1.7,10.5-14.2,19.3-23.5,10.6C421.9,376.1,444.9,358.6,457.1,376.6
+                                  C456.1,383.1,455.4,374,457.1,376.6z"/>
+                          </g>
+                          <g>
+                              <path class="st1" d="M371,297.8c-41.6-1.6-21.3-26.3-14.9-48c6.7-22.7-24.4-65.5,8.5-74.3c30.4-8.1,66.5,28.4,65.1,57.3
+                                  C427.7,273,409.5,290.4,371,297.8C363.6,297.6,377.7,296.6,371,297.8z"/>
+                              <path class="st0 aCharacterHover" style="transform:translateX(-70%)" d="M416,230.4c0,17.2-29.5,18.8-28.9,1C387.7,213,416.1,212.7,416,230.4C416,237.6,416,221.5,416,230.4z"/>
+                          </g>
+                          <g>
+                              <path class="st1" d="M283.1,294.2c-29.9-2.6-55.5-28.8-43.2-59.6c11-27.7,29.4-40.3,56.2-52.1C353,157.6,371.8,300.6,283.1,294.2
+                                  C265.9,292.7,296.8,295.2,283.1,294.2z"/>
+                              <path class="st0 aCharacterHover" style="transform:translateX(-60%)" d="M334.3,231.8c-0.7,15.1-27.6,18.6-29.5,3.2C302.1,212.4,329.8,208.1,334.3,231.8
+                                  C334,238.7,333.8,229,334.3,231.8z"/>
+                          </g>
+                          </svg>
+                        </p>
+                        <div class="aLabel">
+                          How to avoid backend?
+                        </div>
+                      </blockquote>    
+                      <div id="HowToAvoidBackendTechniques" class="elModal">
+                          <div class="elModalContent cModalContent">
+                            <div class="aCaption cModalContentCaption">how to avoid backend</div>
+                            <div class="aText">
+                              <p>
+                                using documented <i>html templates</i> instead of CMS
+                              </p>
+                              <p>
+                                using third part <i>services</i> with embed plugins
+                              </p>
+                              <p>
+                                finding frontend library
+                              </p>
+                              <br>
+                              
+                            </div> 
+                          </div>
+                      </div>                         
+                  </li>
+                  <li>
+                    learning something new
+                    <div class="aSubcaption">
+                      was positive experience with <strong>Yii</strong>
+                    </div>
+                  </li>
+                  <li>             
+                     wordpress or custom php/mySql
+                  </li>
+                </ol> 
+              </div>
+              
+              
+              <div class="aCaption">
+                workplace
+              </div>
+              <div class="bListOfComponents">
+                <ul>
+                  <li>
+                    <div class="">
+                        <div class="artStepTool">
+                          <div class="aTerm">node.js</div>
+                        </div>
+                        <div class="artStepTool">
+                          <div class="aTerm">babel</div>
+                        </div>
+                        <div class="artStepTool">
+                          <div class="aTerm">gulp</div>
+                        </div>
+                        <div class="artStepTool">
+                          <div class="aTerm">git</div>
+                        </div>                        
+                    </div>
+                  </li>
+                  <li>
+                    devices 
+                    <div class="aSubcaption">
+                      mobile and desktop screens
+                    </div>
+                  </li>
+                  <li>
+                    project management tools
+                    <div class="aSubcaption">
+                      asana, basecamp, jira
+                    </div>
+                  </li>
+                  <li>
+                    team contacts
+                  </li>
+                </ul> 
+              </div>
+            </div>   
+          </section>
+        </div>  
+          
+          
+          <!--
+          
+          CHAPTER
+          
+          -->
+          
+          <div class="cChapterDecoration"><img src="app/img/chapter-decoration-coffee.svg" alt=""></div>
+          
+          
+          
+          <section  id="ChapterDV" class="elAppContainer elChapterNavigation hasCompactMobileMode">            
+            <div class="cStageHeader">
+              <span class="aDecor"></span>
+              <h2 class="aCaption">
+                Development
+              </h2>
+              <span class="aDecor"></span>
+            </div>          
+          </section>  
+          
+        <div class="cSubstage">  
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">DV1.</span> Information schema</h3>
+              <div class="aText">
+                <p>
+                  In theory this is important part of web-development (we provide <i>information</i> 
+                  and this is our product). But in real life nobody cares. <span class="aNBR">Do it quick:</span>
+                </p> 
+              </div>
+            </div>
+          </section>  
+          
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isWarmingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      rewriting content in plain text
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isWarmingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      suggesting placeholders for missing content
+                    </div>
+                    <div class="aSubcaption">
+                      lorem ipsum, temporary images and media
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      html markup
+                    </div>
+                    <div class="aSubcaption">
+                      using browser defaults for html semantics
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                    <div class="artStepTools">
+                      <div class="artStepTool">
+                        <div class="aTerm">HTML semantics</div>
+                      </div>                   
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section> 
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout">
+           <div class="cArticleStepList withGoalSteps">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  goals
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      all content is available in one place
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      content organized with groups/sections
+                    </div>                           
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      missing content is marked
+                    </div>                            
+                  </div>
+                  <blockquote class="elMamaCell artStepToolbar">
+                    <div class="artStepTools withFreeSheep">
+                      <div class="artStepTool cHelpfullSheepIcon" data-modal="href" href="#HelpfullAboutMissingContent">
+                        <p class="aIllustration">
+                          <svg version="1.1" id="HelpfullSheep002" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                               width="200px" height="140px" viewBox="0 0 766 446" style="enable-background:new 0 0 766 446;" xml:space="preserve"
+                               class="isCharacter">
+                          <style type="text/css">
+                          <![CDATA[
+                              .st0{fill-rule:evenodd;clip-rule:evenodd;}
+                              .st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                          ]]>
+                          </style>
+                          <ellipse opacity="0.15" stroke="#000000" stroke-miterlimit="10" cx="180.7" cy="404.6" rx="135.4" ry="24.9"/>
+                          <g style="transform:scale(1.15);" class="aCharacterHover isLazy">
+                              <path class="st0" d="M558.6,147.4c1.8-33.6,19.6-43.8,43.4-63.3c18-14.8,25.9-49.2-5.2-53.9c-29.6-4.5-7.6,25.4-22.6,42.4
+                                  c-16.4,18.6-42.5,4.8-30.2-18.9c20.8-40.2,93.7-50.9,100.1,5c3.9,33.8-22.1,41.4-46.4,53.5c-28.4,14.1-18.1,31.5-31.6,51.8
+                                  C560.1,160.3,557.6,154.7,558.6,147.4C559.3,133.1,559.1,151.1,558.6,147.4z"/>
+                              <path class="st0" d="M546,201.3c0-20.9,38.2-35.6,39-8.6C585.7,216.9,543.2,229.5,546,201.3C546,187.6,544.9,212.3,546,201.3z"/>
+                          </g>
+                          <g>
+                              <path class="st1" d="M272.8,322c33.1,27.7-97.5,32.4-74.8,13.3c-9.6-7.1-52.4,21.3-71.7,15.9c-15.5-4.3-28.6-18.2-37.5-31.1
+                                  c-4.8-6.9-11.8-52.5-16.9-51.7c-2.4,2.9-3.4,6.2-3.1,9.8c-28.8-9.1-24.9-57.5-20.6-79.8c3.6-18.9,16.7-35,29.3-48.9
+                                  c7.2-7.9,35.5-17.3,34.7-27.2c-36.7-1.9,8.7-53.3,22.2-62c31.4-20.2,68.2-25.7,103.6-17c-3.6,3.5-4.5,7.3-2.7,11.4
+                                  c8.6,7.1,40.4-33.9,65.9-16.6c11.3,7.7,23.8,16.4,29.9,28.9c1.7,3.5,4.6,28,7.1,29.1c6.7,2.9,9.5-17.1,26.2-6.4
+                                  c25.6,16.3,20,52,14.5,76.1"/>
+                              <path class="st0" d="M347.3,72.9c45.9-1.3,46.9,59.1,49.4,89.5c3.3,41.4,54.6-21.8,69.2-20.7c18,1.5,30.4,10.1,35.6,27.6
+                                  c3.6,12.2-10.7,51.2-21.2,28.1c-7.9-17.5-35.1-14.4-47.8-6.4c-12.2,7.8,10,38.6,4.6,56.1c-12.5,40.5-24.9,60-58.9,86
+                                  c-32.6,24.8-75.5-14.3-104.4,11.1c-8.1,7.1-27.3,14.6-30.8,25.4c-0.2,0.5-13.3,50.8-15.9,31.9c-3-22.5,2.2-37.7-20.5-43.7
+                                  c-8-2.1-11.8,43.3-15,48.8c-13.9-8.5-1.5-44.2-14.4-50c-22.2-9.9-19.5,52.8-31.3,45.1c-8.6-5.6,9.7-45-7.2-38.8
+                                  c-10.4,3.8-14.2,34.8-14.2,44c-21.6,8.7-7.4-46.1-23-58.7c-20.3-16.4-40.9-53-53.8-76c-22.5-40.1-17.4-85.7,12.8-119.3
+                                  c7-7.8,21.9-17.4,26.4-26.8C93.6,112,90.1,94,98.3,79.7c15.9-27.6,52.7-36.1,79.4-47.8c17.6-7.7,33.2-7.4,50.9-2.9
+                                  c25.1,6.5,14.4,2.1,33.9-7.2C294.5,6.6,336.7,47,347.3,72.9C356.2,72.6,346.4,70.9,347.3,72.9z M112.1,122.4
+                                  c0.8,10-18.4,13.5-25.1,18.6c-17.3,13.3-34.8,35.7-39,57.5c-4.2,22.3-8.2,70.7,20.6,79.8c-0.3-3.7,0.7-6.9,3.1-9.8
+                                  c-7.5,1.2,29.8,69.5,42.6,77.5c17,10.6,41.1,8.4,58.3-0.4c7.1-3.6,15.7-17.3,25.3-10.2c-10.1,8.5,21.7,15.2,24.8,15.4
+                                  c21.9,1.7,41.2-7.5,54.3-25c-37.5-31.6-76.7-57.2-47.1-111c8.8-16.1,38.6-32.4,8.8-45.7c-18.7-8.3-34.9,50.9-51.5,29.6
+                                  c-26.4-33.7,44.9-112.9,68.2-50.2c11,29.5,19.9,20.7,43.4,13.1c25.8-8.3,55.2-6.8,80,4.6c5.5-24.3,9.5-48.8-7.5-69.9
+                                  c-18.8-23.3-24.7,3.8-33.3,0.1c-3.6-1.6-1.6-16-2.2-18c-4.5-14.9-13.9-24.3-25.9-33.6c-13.3-10.2-25.3-18.4-42.5-10.7
+                                  c-6.2,2.7-24.3,27.5-32.4,20.8c-1.8-4.1-0.9-8,2.7-11.4c-35.3-8.7-72.2-3.2-103.6,17C120.9,69,75.4,120.4,112.1,122.4
+                                  C112.6,127.6,109.9,122.3,112.1,122.4z"/>
+                          </g>
+                          <g  style="transform:rotate(-10deg) scale(1.12);" class="aCharacterHover isLazy">
+                              <path class="st0" d="M483.2,358.3c23.8-10.6,49.8-19.5,72.1-33.1c11.8-7.2,21.2-22.4,36-16.4c9.1,3.7,6.7,17.6,1.7,23.3
+                                  c-9.3,10.5-18.4,0.5-29,1.2c-27.4,2-54.1,25.7-79.7,34.3c16.1,43-5.7,39.4-37.6,52.6c-21.7,8.9-59.4,36.2-73.7,10.2
+                                  c-12.7-23.1-11.1-48.1,10.8-63.1C403.9,353.5,467.8,334.5,483.2,358.3C504.3,348.9,480.9,354.8,483.2,358.3z M459.7,354
+                                  c-24.3,7-47.4,16.9-70.6,24.5c-12.8,4.2-8.1,43,3.2,40.4c26.8-6.2,51.3-12.3,76.2-24.2C485.7,386.5,473.3,354,459.7,354
+                                  C456.4,354.9,470.2,354,459.7,354z"/>
+                              <path class="st1" d="M459.7,354c13.7,0,26,32.5,8.8,40.7c-24.9,11.9-49.4,18-76.2,24.2c-11.3,2.6-16-36.2-3.2-40.4
+                                  C412.3,370.9,435.3,361,459.7,354C470.2,354,456.4,354.9,459.7,354z"/>
+                              <path class="st0" d="M406.2,405.1c-21.3-1.7-3.2-31.9,5.6-26C423.5,387,423.4,405.8,406.2,405.1
+                                  C397.5,404.4,411.9,405.3,406.2,405.1z"/>
+                              <path class="st0" d="M457.1,376.6c-1.7,10.5-14.2,19.3-23.5,10.6C421.9,376.1,444.9,358.6,457.1,376.6
+                                  C456.1,383.1,455.4,374,457.1,376.6z"/>
+                          </g>
+                          <g>
+                              <path class="st1" d="M371,297.8c-41.6-1.6-21.3-26.3-14.9-48c6.7-22.7-24.4-65.5,8.5-74.3c30.4-8.1,66.5,28.4,65.1,57.3
+                                  C427.7,273,409.5,290.4,371,297.8C363.6,297.6,377.7,296.6,371,297.8z"/>
+                              <path class="st0 aCharacterHover" style="transform:translateX(-70%)" d="M416,230.4c0,17.2-29.5,18.8-28.9,1C387.7,213,416.1,212.7,416,230.4C416,237.6,416,221.5,416,230.4z"/>
+                          </g>
+                          <g>
+                              <path class="st1" d="M283.1,294.2c-29.9-2.6-55.5-28.8-43.2-59.6c11-27.7,29.4-40.3,56.2-52.1C353,157.6,371.8,300.6,283.1,294.2
+                                  C265.9,292.7,296.8,295.2,283.1,294.2z"/>
+                              <path class="st0 aCharacterHover" style="transform:translateX(-60%)" d="M334.3,231.8c-0.7,15.1-27.6,18.6-29.5,3.2C302.1,212.4,329.8,208.1,334.3,231.8
+                                  C334,238.7,333.8,229,334.3,231.8z"/>
+                          </g>
+                          </svg>
+                        </p>
+                        <div class="aLabel">missing data?</div>
+                      </div>
+                      <div id="HelpfullAboutMissingContent" class="elModal">
+                          <div class="elModalContent cModalContent">
+                            <div class="aCaption cModalContentCaption">missing data</div>
+                            <div class="aText">
+                              <ul>
+                                <li>
+                                  in forms
+                                  <div class="aTextSublevel">
+                                    labels, error messages, success feedback, ...
+                                  </div>
+                                </li>
+                                <li>
+                                  in products 
+                                  <div class="aTextSublevel">
+                                    unique url, special prices, testimonials, ...
+                                  </div>
+                                </li>
+                                <li>
+                                  in lists
+                                  <div class="aTextSublevel">
+                                    filters, sorting functions, search fields, ...
+                                  </div>
+                                </li>
+                                <li>
+                                  in project
+                                  <div class="aTextSublevel">
+                                    404, page titles, ...
+                                  </div>                                  
+                                </li>
+                              </ul>                
+                            </div> 
+                          </div>
+                      </div>                        
+                    </div>
+                  </blockquote>
+                </li> 
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      content is print-friendly
+                    </div>                            
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>               
+              </ul>              
+            </div>   
+          </section>
+
+        </div>
+        
+        <div class="cSubstage">
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">DV2.</span> Content layout</h3>
+              <div class="aText">
+                headers, footers, collumns...
+              </div>
+            </div>
+          </section>           
+          
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      positioning on screen                      
+                    </div>
+                    <div class="aSubcaption">
+                      all components should have right place and time on the screen
+                    </div>                  
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      positioning inside components
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>
+                        <div>
+                          gallery items and controls
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          product cards
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          articles, lists and all others
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      making everything adaptive and responsive
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isTestingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      making everything independent from content
+                    </div>
+                    <div class="aSubcaption">
+                      set min- and max- values
+                    </div>    
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section> 
+
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout">
+           <div class="cArticleStepList withGoalSteps">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  goals
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      html templates are ready for backend team
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      task to visual design is ready
+                    </div>     
+                    <div class="aSubcaption">
+                      «make this ugly templates to be beautiful, please»
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>               
+              </ul>              
+            </div>   
+          </section>
+
+        </div> 
+        
+        <div class="cSubstage">
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">DV3.</span> Navigation</h3>
+            </div>
+          </section>      
+          
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout hasHeader">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isWarmingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      defining user routes and URL design
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      creating project controls
+                    </div>
+                    <div class="aSubcaption">
+                      page transitions, links, navigation bars
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      creating component controls
+                    </div>
+                    <div class="aSubcaption">
+                      tabs, pagers, modals, collapse and others
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      covering navigation with tests
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                    <div class="artStepTools">
+                      <div class="artStepTool">
+                        <div class="aTerm">Mocha</div>
+                      </div>
+                      <div class="artStepTool">
+                        <div class="aTerm">Jasmine</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section> 
+          
+          
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout">
+           <div class="cArticleStepList withGoalSteps">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  goals
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      clickable prototype
+                    </div>
+                    <div class="aSubcaption">
+                      as complete project without design and backend
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      all transitions are defined
+                    </div>     
+                    <div class="aSubcaption">
+                      create a task for motion design
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li> 
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      avoid broken links and buttons
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>              
+            </div>   
+          </section>
+          
+        </div>
+
+
+        <div class="cSubstage">
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">DV4.</span> Forms</h3>
+            </div>
+          </section>   
+          
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout hasHeader">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isPlanningStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      searching for solutions to avoid the forms
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      correct sizes and types
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      making large forms to be user-friendly
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>
+                        dividing into groups and steps
+                      </li>
+                      <li>
+                        adding suggestions, autofills and default values
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isTestingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      making form elements to be client-friendly 
+                    </div>
+                    <div class="aSubcaption">
+                      here clients = browsers and devices
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      creating validation and error reports
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      covering forms with tests
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section> 
+          
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout">
+           <div class="cArticleStepList withGoalSteps">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  goal
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      user-friendly forms
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>              
+            </div>   
+          </section>
+          
+        </div>
+
+        <div class="cSubstage">
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">DV5.</span> Create communication with content and backend</h3>
+            </div>
+          </section>
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout hasHeader">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      creating usefull api
+                    </div>
+                    <div class="aSubcaption">
+                      data-binding, data-model, views, preloads
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isPlanningStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      defining updates and version control
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section> 
+
+        </div>  
+          
+          <!--
+          
+          CHAPTER
+          
+          -->
+          
+          <div class="cChapterDecoration"><img src="app/img/chapter-decoration-design.svg" alt=""></div>
+          
+          
+          
+          
+          <section id="ChapterFD" class="elAppContainer elChapterNavigation hasCompactMobileMode">            
+            <div class="cStageHeader">
+              <span class="aDecor"></span>
+              <h2 class="aCaption">
+                Frontend design
+              </h2>
+              <span class="aDecor"></span>
+            </div>          
+          </section>  
+          
+          <section class="elAppContainer inArticleLayout">
+            <div class="cArticleRow isMainFlowRow">
+              <div class="aText">
+                <p>
+                  If previous steps are reached, the designing will have predictable timing.
+                </p>
+              </div>
+            </div>   
+          </section> 
+          
+        <div class="cSubstage">  
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">FD1.</span> Create communication with design</h3>
+            </div>
+          </section>   
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout hasHeader">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isPlanningStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      to discuss the design task, using prototype
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isPlanningStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      for design-oriented projects:
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>
+                        compare prototype with current design
+                      </li>
+                      <li>
+                        define missing parts
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isPlanningStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      create checklist for frontend design 
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section> 
+          
+        </div>
+
+        <div class="cSubstage">
+          
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">FD2.</span> Animations</h3>
+            </div>
+          </section> 
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout hasHeader">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isPlanningStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      defining animations
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>
+                        <div>
+                          for layout transitions
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          for interactive elements  
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          for content (banners, decorations)
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      creating animations
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>using SVG</li>
+                      <li>using CSS</li>
+                      <li>GIF, Adobe Flash, js-libraries, ...</li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                    <div class="artStepTools">
+                      <div class="artStepTool">
+                        <div class="aTerm">SVG animation</div>
+                      </div>                   
+                    </div>
+                  </div>
+                </li>
+                <li class="elMama artStep isTestingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      check for correct time and timing functions
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isTestingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      check for browser performance
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section> 
+
+        </div>  
+          
+        <div class="cSubstage">  
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">FD3.</span> Create design system</h3>
+            </div>
+          </section> 
+          
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout hasHeader">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      creating atoms (basic elements)
+                    </div>
+                    <div class="aSubcaption">
+                      titles, buttons, images, labels, links ...
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      creating components
+                    </div>
+                    <div class="aSubcaption">
+                      headers, articles, product cards, galleries ...
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      creating templates for «html-email»
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isPlanningStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      checking and confirming design system
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section> 
+          
+        </div>  
+        
+        <div class="cSubstage">        
+        
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">FD4.</span> Creating designed prototype</h3>
+            </div>
+          </section> 
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout hasHeader">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      joining everyhing together
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>clickable prototype</li>
+                      <li>designed components</li>
+                      <li>current content</li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      making content print-friendly
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isWarmingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      making content internet-friendly
+                    </div>
+                    <div class="aSubcaption">
+                      for search engines, social and advertise networks
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isTestingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      visual testing
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>check all devices</li>
+                      <li>check all states</li>
+                      <li>imitate errors (broken JS, no CSS, ...)</li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      creating areas for technical debt
+                    </div>
+                    <div class="aSubcaption">
+                      with custom.css/custom.js places
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section> 
+          
+  
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout">
+           <div class="cArticleStepList withGoalSteps">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  goals
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      content is usefull
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      content looks good
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      bussiness task is reached
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>              
+            </div>   
+          </section>
+          
+        </div>  
+          
+          <!--
+          
+          CHAPTER
+          
+          -->
+          
+          <div class="cChapterDecoration"><img src="app/img/chapter-decoration-deploy.svg" alt=""></div>
+          
+          
+          
+          <section id="ChapterPB" class="elAppContainer elChapterNavigation hasCompactMobileMode">            
+            <div class="cStageHeader">
+              <span class="aDecor"></span>
+              <h2 class="aCaption">
+                Publication
+              </h2>
+              <span class="aDecor"></span>
+            </div>          
+          </section> 
+          
+          
+        <div class="cSubstage">
+        
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">PB1.</span> Creating package</h3>
+            </div>
+          </section>   
+          
+          
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout hasHeader">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      reducing size
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>image optimization</li>
+                      <li>css/js minification</li>
+                      <li>server-side optimization</li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      to automate everything
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                    <div class="artStepTools">
+                      <div class="artStepTool">
+                        <div class="aTerm">gulp</div>
+                      </div>                   
+                    </div>
+                  </div>
+                </li>
+                <li class="elMama artStep isCodingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      writing documentation
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>defining readers and their requests</li>
+                      <li>describing project parts for readers</li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                    <div class="artStepTools">
+                      <div class="artStepTool">
+                        <div class="aTerm">documentation writing</div>
+                      </div>                   
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section> 
+        
+        </div>
+        
+        <div class="cSubstage">
+          
+          <section class="elAppContainer inArticleLayout cSubtageHeaderContainer">
+            <div class="cSubtageHeader">
+              <h3 class="aCaption"><span class="aPrefix">PB2.</span> Do feedback</h3>
+            </div>
+          </section>    
+
+
+         
+          <section class="elAppContainer hasCompactMobileMode inArticleLayout hasHeader">
+            <div class="cArticleStepList">
+              <header class="artStepListTitle">
+                <h4 class="aCaption">
+                  steps to do
+                </h4>
+              </header>
+              <ul class="artSteps">
+                <li class="elMama artStep isWarmingStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      checking for remaining technical debt
+                    </div>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                    <div class="artStepTools">
+                      <div class="artStepTool">
+                        <div class="aTerm">technical debt</div>
+                      </div>                   
+                    </div>
+                  </div>
+                </li>
+                <li class="elMama artStep isPlanningStep">
+                  <div class="elMamaCell isTiny artStepIcon"></div>
+                  <div class="elMamaCell isTiny artStepBlock">
+                    <div class="aCaption">
+                      writing questions to others
+                    </div>
+                    <ul class="aSubcaption">
+                      <li>do you like...?</li>
+                      <li>do you understand how to...?</li>
+                      <li>does result match your expectations?</li>
+                    </ul>
+                  </div>
+                  <div class="elMamaCell artStepToolbar">
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>           
+          
+        </div>
+        
+        </article>
+        
+    
+        
+   
+        
+        
+        
+      </div>
+    </div>
+    <footer class="elAppFooter">
+      <div class="elAppVisibleFooter cAppVisibleFooter"> 
+        <div class="cBottomCats">
+          <img src="app/img/bottom-cats.svg" alt="">
+        </div>
+        <div class="cBottomMessage">
+          <strong>Got feedback?</strong><br>
+          zl.sheepcity@gmail.com
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+        <div id="Loading">
+          <div>
+
+            <div id="LoadingImage">
+              <svg version="1.1" id="LoadingSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="199.5px" height="170px" viewBox="0 0 199.5 170" enable-background="new 0 0 199.5 170" xml:space="preserve">
+              <path fill="#FFFFFF" d="M46,41.5c2.3-6.1,5.8-12.1,12-15.3c2-1,9.8-2.7,9.2-3.5c-1.5-1.1,0.9-4-1.1-3.4c8.1-19.8,44.7-21.7,55.6-1.3
+                c-1.8,0.3-2.3,0.2-3.5,1.6c-0.1-0.2,10.1,0.4,12.2,1c8.3,2.4,16.6,4.8,21.3,12.3c4.3,6.9,8.6,17.7,3.8,25.4c-3.1,4.9-4.2,0.8-8,3.6
+                c17.7,8.3,22.5,15.5,13.4,35c-2.5,5.4-4.1,9.6-7.6,14.4c-2.8,3.8-20.4,14.8-25,10.8c0.6-0.4-0.2-1.1-0.6-2c-4.3,2.1-2,3.8-2.1,3.9
+                c-6.6,5.9-12.6,6.6-21.4,7.7c-4.5,0.6-17,1.1-20.8-2.3c-2.6-2.3-9.8-11.5-12.4-11.5c-3.1,3.7,1.9,4.7-5.8,4
+                c-5.2-0.4-11.3-0.6-16-3.1c-4.9-2.6-5-8.9-8.7-12.4c-3.2-8.2,9.6-8,10.5-8.3c8.9-2.4,15.8-4.6,22.7-10.8c6-5.5,14.5-23,5.7-29.6
+                c4.9-2.3,12.1-8.2,17.6-5.3c3.6,1.9,6.7,10.1,11.3,8.5c8.1-2.8-1.6-11.1-4.4-14.2c-7.8-8.7-17,11.3-25.1,8.1c-4.8-1.9-8.4-8-14-8.1
+                c-4.9-0.2-11.2-2.3-15.9-3.8C49.4,40.8,46.8,41.8,46,41.5z"/>
+              <path d="M166.4,73.6c0,18.3-4.9,29.5-16.1,43c-4.3,5.2-12.2,7.4-15.9,12.8c-4.5,6.4-1.8,16.5-7.1,21.4c-1.1-4.4-1.6-15.5-6.1-18
+                c-1.9,2.4-8.6,19.7-10.4,19.3c-0.1,0-2.3-8.4-2.5-9.9c-0.8-8.9-3-6-10.5-7.7c-7.5-1.8-14.6-4.3-17.5,4.8c-0.8,2.5-2.3,15.6-5.8,12.7
+                c-0.8-8.9-2.8-18.2-6.6-26.4c-3.3,4.6-10.8,23.8-15.6,23.8c1.3-6.3,2.5-25.6-1.9-27.2c-7.1-2.6-9.9-8.3-11.9-14.9
+                c-2.3-7.7-8.4-3.7-14.5-8.3C5.3,84.5-1.2,42.9,29.2,38.4c-3.3-3.1-7.8-6-12.6-6.1c-4.9-0.1-5.4,5-10.1,4.6
+                c-18.6-1.6,7.2-25.5,18.2-13.8c4.8,5.1,0.6,9.2,6.7,13.5c5.1,3.6,12.6,3,15.4-1.5c2.1-3.5,4-5.8,7.1-8.4c2.3-1.9,6.9-2.4,8.4-5.1
+                c3.9-7,5.7-12.6,13.5-16.9c8.7-4.8,22.4-6.2,31.9-2.7c3.6,1.4,13.7,6.8,13.8,11.6c0.1,2.7,12.4,4.9,15.7,5.8
+                c12.8,3.2,21.7,15.3,23.4,28.1c0.3,2.5,0,13.6-2,15.2C158,63.2,165.2,71.7,166.4,73.6C166.4,77.8,165.8,72.7,166.4,73.6z M48.4,40.9
+                c4.7,1.5,10.8,4.4,15.7,4.6c5.6,0.2,10.1,6.5,14.9,8.3c8.1,3.1,17-18.4,24.8-9.7c2.7,3.1,13.8,15.6,5.7,18.5
+                c-4.6,1.6-10.3-6.2-13.9-8.1c-5.5-2.9-10.6,0.5-15.5,2.8c8.8,6.6,0.7,25.3-5.4,30.7c-6.9,6.2-13.5,10.3-22.4,12.7
+                c-1.9,0.5-11.2,1-11.5,2.8c-0.6,3.7,5.5,12.2,8.8,14c3.5,1.9,8.8,3.2,12.8,3.2c1.2-0.2,2.3-0.1,3.4,0.3c7.2-2.6-0.1-2.9,3.9-7.7
+                c2.5,0,8.8,10,11,12c5.7,5.2,15.4,6.7,22.9,5.7c6.4-0.8,13.8-2.2,18.2-7.5c0.8-1,7.6-11.6,9.3-8.4c0.5,0.9-2.1,4.4-2.7,4.8
+                c5.2,4.6,17.6-4.7,21.7-7.4c5.7-3.7,6.5-9.4,9.1-15c9.1-19.5,1.5-28.5-16.2-36.7c3.2-2.4,7.7,1.6,10.3-1.9c5-6.7,2.7-13.1,0-20.3
+                c-3.1-8.5-11.4-12.9-19-16.3c-2.5-1.1-20.4-2.3-19.9-1.4c1.2-1.4,2.7-2.3,4.5-2.5C108.2-2.1,75.5,1,67.4,20.8c2-0.7,3.7-0.5,5.2,0.6
+                c1.3,1.8-8.8,3.4-10.8,4.3c-7.4,3.4-11.5,7.6-14.3,15C48.4,40.9,48,40.8,48.4,40.9z"/>
+              <g>
+                <path fill="#FFFFFF" d="M46,44.5c0.3,1.3-2.6,5.8-3.5,6.5c-7.9,6.7-11.9,18.2-9.7,28.3C19.1,80.2,6.7,68.7,12,54.2
+                  C15.7,44,37.6,33.7,45.6,43.7C45.9,44,45.6,43.9,46,44.5z"/>
+                <path d="M32.7,53.7c2.1,4.8,0,11.6-6.9,8.8c-5.5-2.2,0.7-10.9,6.4-8.9C32.5,53.5,32.2,53.4,32.7,53.7z"/>
+              </g>
+              <g>
+                <path fill="#FFFFFF" d="M37.9,83.8C22.7,60.4,53.3,35.2,74.6,52.3c11.5,9.3,9.8,30.8-4.7,37c-8,3.4-13.9,2.9-21.9,0.5
+                  c-1.5-0.5-8.8-4.1-9.9-5.6C37.6,83.4,37.8,83.9,37.9,83.8z"/>
+                <path d="M61.3,62c5.3,5.1-0.7,14.6-7.1,9.4C46.5,65.1,56.3,62,61.3,62C62.1,62.8,61.1,62,61.3,62z"/>
+              </g>
+              </svg>          
+            </div>     
+          </div>
+        </div>
+  
+  
+  <!-- libs -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  
+  <link rel="stylesheet" href="app/lib/vex-modal/vex.css" media="all">
+  <link rel="stylesheet" href="app/lib/vex-modal/vex-theme-plain.css" media="all">
+  <script src="app/lib/vex-modal/vex.combined.min.js"></script>
+  
+  <script src="app/lib/snap-svg/snap.svg-min.js"></script>
+  
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+  
+  <!-- app -->
+  <link  href="app/css/app.css" rel="stylesheet"  media="all">
+  <link  href="app/css/print.css" rel="stylesheet"  media="all">
+  <!-- app engine -->
+  <script src="app/js/appConfig.js"></script>
+  <script src="app/js/appComponents.js"></script>
+  <script src="app/js/appGo.js"></script>
+  
+  <!-- custom settings -->
+  
+  
+</body>
+</html>

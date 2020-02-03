@@ -1,0 +1,55 @@
+html {
+    font-size: 1em;
+    font-size: calc( 1em + (2.5 - 1) * ( (100vw - 20em) / ( 100 - 20) ));
+}
+body
+{
+  font-family:'PT Sans', 'Roboto', sans-serif;
+  font-size: 1em;  
+  line-height:1.5;
+  
+  background-color: rgba( 250,251,227 ,1);
+  color:            rgba( 25,17,38    ,1);
+}
+h2
+{
+  font-size: 1.25em;
+  font-size: calc( 1.25em + (3.75 - 1.25) * ( (100vw - 20em) / ( 100 - 20) ));
+  font-weight: normal;
+  line-height: 1.25;
+}
+h6
+{
+  font-size: 0.8125em;
+  font-size: calc( 13px + (26 - 13) * ( (100vw - 320px) / ( 1600 - 320) ));
+  font-weight: normal;
+  line-height: 1.25;  
+}
+/* o o o o o o o o o o o o o o o o o o */
+
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.cAppVisibleHeader
+{
+  background-color:transparent;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.cAppVisibleBody
+{
+  background-color:transparent;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.cAppVisibleFooter
+{
+  background-color:transparent;
+  padding-bottom:0;
+}
+
+/* o o o o o o o o o o o o o o o o o o */

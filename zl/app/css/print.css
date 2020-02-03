@@ -1,0 +1,71 @@
+@media print {
+
+  .cAppVisibleHeader { display: none; }
+  
+  .artWelcomeScreen { flex-wrap:wrap; }
+  .artWelcomeScreenpartForNavigation { width:100%; height:auto; }
+  .artWelcomeScreenpartForIntroduction { width:100%; height:auto; }
+  .artChapters,
+  .artChapterBackground,
+  .artChapters > .elPapa  
+  { 
+    position:static; 
+    height:auto; 
+    width:100%;
+  }
+  .artChapters > .elPapa > .elPapaBottom { min-height:0; }
+  .artChaptersList .aCaption 
+  { 
+    border-top:0; 
+    padding-top:.2em;
+    padding-bottom:.2em;
+  }
+  
+  .artWelcomeScreenpartForIntroduction > .elPapa { min-height:0; }
+  .artWelcomeOptions .aText + .aText
+  {
+    margin-top:1em;
+  }  
+  
+  
+  .aTerm
+  {
+    text-decoration:underline;
+    padding-top:0;
+    padding-bottom:0;
+    background:none;
+    font-size:1rem !important;
+  }
+  
+  .artWelcomeCharacter
+  {
+    width:400px;
+    height:auto;
+  }
+  
+  .cChapterDecoration { padding-top:0 !important; page-break-before: always; }
+  .cHelpfullSheepIcon { display: none; }
+  
+  .elAppContainer 
+  {
+    page-break-inside: avoid;
+  }
+  .cSubstage 
+  {
+    page-break-inside: avoid;
+  }
+  .artStep
+  {
+    padding-bottom:0;
+  }
+  
+  .zlh1-path { fill:#000000; }
+
+}
+
+
+
+
+
+ 
+

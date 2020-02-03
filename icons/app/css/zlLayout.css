@@ -1,0 +1,249 @@
+/*
+    zlBase
+    123.0002.eg
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight:normal;
+}
+html, body {
+    height:100%;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o *//* elAppLayout */
+
+.elAppViewArea {
+    /* general settings */
+    position:relative;
+    margin:0 auto;
+    overflow-x:hidden;
+    overflow-y:auto;
+    /* flexbox model */
+    display:flex;
+    flex-direction: column;
+    align-items:stretch;
+    align-content:stretch;
+    justify-content:space-between;
+    /* settings */
+    min-width:100%;
+    min-height:100vh;
+}
+.elAppHeader
+{
+    /* general settings */
+    position:relative;
+    /* flexbox model */
+    flex-grow:0;
+}
+.elAppFooter
+{
+    /* general settings */
+    position:relative;
+    /* flexbox model */
+    flex-grow:0;
+}
+.elAppBody
+{
+    /* flexbox model */
+    flex-grow:1;
+    display: flex;
+    align-items: stretch;
+    align-content: stretch;
+}
+.elAppVisibleBody
+{
+    /* general settings */
+    position:relative;
+    width: 100%;
+    /* flexbox model */
+    flex-grow:1;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o *//* media */
+
+@media screen and (max-width:1000px)
+{
+
+}
+
+
+/* o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o *//* el PAPA */
+.elPapa
+{
+    /* general settings */
+    position:relative;
+    margin:0 auto;
+    /* flexbox model */
+    display:flex;
+    flex-direction: column;
+    align-items:stretch;
+    align-content:stretch;
+    justify-content:space-between;
+}
+.elPapa.inFullscreenMode
+{
+    min-width:100%;
+    min-height:100vh;
+}
+.elPapa > .elPapaMiddle
+{
+    /* general settings */
+    position:relative;
+    /* flexbox model */
+    flex-grow:2;
+}
+.elPapa > .elPapaMiddle.inCoverMode
+{
+    /* flexbox model */
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+/* o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o *//* el MAMA */
+.elMama
+{
+    /* general settings */
+    position:relative;
+    margin:0 auto;
+    width:100%;
+    /* flexbox model */
+    display:flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+.elMama > .elMamaCell
+{
+    /* flexbox model */
+    flex-grow:1;
+}
+.elMama > .elMamaCell.isTiny
+{
+    /* flexbox model */
+    flex-grow:0;
+    flex-shrink:0;
+}
+.elMama > .elMamaCell.isCentral
+{
+    /* flexbox model */
+    align-self:center;
+}
+
+/* o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o *//* el Content */
+.elCnt * + * { margin-top: 1em; }
+.elCnt .aText
+{
+  max-width:60em;
+}
+.elCnt ul
+{
+  margin-top:0;
+  margin-bottom:1em;
+  margin-left:1.5em;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o *//* elModal */
+body.vex-open {
+    transform: none !important;
+}
+.elModal {
+    display:none;
+}
+.elModalVex .vex-overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+.elModalVex .vex-close:before { display:none; }
+.elModalVex .vex-close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    width: 2em;
+    height: 2em;
+    background-color: transparent;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDAwMDAwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTE5IDYuNDFMMTcuNTkgNSAxMiAxMC41OSA2LjQxIDUgNSA2LjQxIDEwLjU5IDEyIDUgMTcuNTkgNi40MSAxOSAxMiAxMy40MSAxNy41OSAxOSAxOSAxNy41OSAxMy40MSAxMnoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==);
+    transform-origin: 50% 50%;
+    transition: transform .2s;
+}
+.elModalVex .vex-close:hover {
+    transform: scale(1.2);
+}
+.elModalVex .vex-content {
+    background: transparent;
+    position:relative;
+    margin:0 auto;
+    max-width: 100%;
+    width: 540px;
+}
+.elModalContent {
+    background: white;
+    padding: 1em 2em;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+@media screen and (max-width:600px) {
+    .elModalVex .vex-content {
+        width: 100%;
+    }
+    .elModalContent {
+        margin: 0;
+    }
+}
+/* o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o *//* elModal withFullscreen */
+.elModalVex.withFullscreen .vex-close {
+    position: fixed;
+}
+.elModalVex.withFullscreen .vex-content {
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.elModalVex.withFullscreen .elModalContent {
+    margin: 0;
+    min-height: 100vh;
+}
+/* o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o *//* elModal withSidebar */
+.elModalVex.withSidebar {
+    overflow-x:hidden;
+}
+.elModalVex.withSidebar .vex-content {
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    width:300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform .2s ease-in;
+}
+.elModalVex.withSidebar .elModalContent {
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+    padding:0;
+}
+.elModalVex.withSidebar.isOpen .vex-content {
+    transform: translateX(0);
+}
+@media screen and (max-width:400px)
+{
+    .elModalVex.withSidebar .vex-content {
+        width: 100%;
+    }
+}

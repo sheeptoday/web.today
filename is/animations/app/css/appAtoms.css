@@ -1,0 +1,80 @@
+
+/* o o o o o o o o o o o o o o o o o o */
+.aNBR { white-space:nowrap; }
+@media screen { .aPrint { display: none; } }
+/* o o o o o o o o o o o o o o o o o o */
+
+.aBanner img,
+.aBanner svg 
+{
+  display:block;
+  max-width:100%;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+.aIcon
+{
+  display:inline-block;
+  vertical-align: middle;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  
+}
+a.aIcon,
+a.aIcon:link,
+a.aIcon:visited,
+a.aIcon:active,
+button.aIcon,
+button.aIcon:active
+{
+  border:0;
+  margin:0;
+  outline:0;
+  display:inline-block;
+  vertical-align: middle;
+  background-color:transparent;
+  box-shadow:none;
+}
+/* o o o o o o o o o o o o o o o o o o */
+.aIconized
+{
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+}
+/* o o o o o o o o o o o o o o o o o o */
+.aCaption
+{
+  font-weight:700;
+}
+/* o o o o o o o o o o o o o o o o o o */
+.aText
+{
+  max-width:100%;
+}
+.aText p + p
+{
+  margin-top:1em;
+}
+.aText ul
+{
+  margin-bottom:1em;
+  margin-left:1.5em;
+}
+/* o o o o o o o o o o o o o o o o o o */
+.aList li {
+  margin-bottom: 1em;
+}
+/* o o o o o o o o o o o o o o o o o o */
+.aMiniText
+{
+  font-size:.8em;
+}
+/* o o o o o o o o o o o o o o o o o o */
+.aPicture img,
+.aPicture svg
+{
+  max-width:100%;
+  height: auto;
+}
+/* o o o o o o o o o o o o o o o o o o */

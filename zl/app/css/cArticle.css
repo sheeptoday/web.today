@@ -1,0 +1,42 @@
+.inArticleLayout .cSubtageHeader
+{
+  padding-left:4rem;
+  margin-top: 4em;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.inArticleLayout .cArticleRow
+{
+  padding-left:4rem;
+  margin-top:4rem;
+  margin-bottom:4rem;
+}
+.inArticleLayout .cArticleRow.hasHeader
+{
+  margin-top:1rem;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.inArticleLayout .cArticleStepList
+{
+  margin-top:4rem;
+  margin-bottom:4rem;
+}
+.hasHeader .cArticleStepList
+{
+  margin-top:0;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+@media all and (max-width:400px)
+{
+  .inArticleLayout .cArticleRow.isMainFlowRow
+  {
+    padding-left:0;
+  }
+}

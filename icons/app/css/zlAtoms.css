@@ -1,0 +1,98 @@
+/*
+    zlAtoms
+    123.0002.eg
+*/
+
+/* o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o */
+/*
+    Inline blocks
+*/
+
+.aIconized
+{
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+}
+/* --------------------------------------------- aIcon */
+.aIcon
+{
+    display:inline-block;
+    vertical-align: middle;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+a.aIcon, a.aIcon:link, a.aIcon:visited, a.aIcon:active, a.aIcon:hover,
+button.aIcon, button.aIcon:active, button.aIcon:hover
+{
+    border:0;
+    margin:0;
+    outline:0;
+    background-color:transparent;
+    box-shadow:none;
+}
+/* --------------------------------------------- aButton */
+.aButton, button.aButton,
+a.aButton, a.aButton:link, a.aButton:visited, a.aButton:hover, a.aButton:active
+{
+    display:inline-block;
+    vertical-align:baseline;
+    cursor:pointer;
+    outline:0;
+    text-decoration:none;
+    text-align:center;
+    box-shadow:none;
+    padding:0em .25em;
+}
+.aButton {
+    background-color: rgba(0,0,0,.15);
+    transition: all .25s;
+}
+.aButton:disabled
+{
+    opacity:.5;
+    cursor: default;
+    pointer-events: none;
+}
+.aButton.fullWidth
+{
+    width:100%;
+    margin-right:0;
+    margin-left:0;
+}
+.aButton:hover
+{
+    background-color: rgba(0,0,0,.25);
+}
+
+
+/* o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o */
+/*
+    Text
+*/
+
+.aCnt {
+    padding:1em;
+}
+.aCaption
+{
+  font-weight:700;
+}
+.aText-sm
+{
+  font-size:.8em;
+}
+.aPicture img,
+.aPicture svg
+{
+  max-width:100%;
+  height: auto;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o */
+/*
+    Helpers
+*/
+
+.aNbr { white-space:nowrap; }
+@media screen { .aPrint { display: none; } }

@@ -1,0 +1,185 @@
+/* ZL base1001  */
+/* ======================================================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight:normal;
+}
+html, body {
+    height:100%;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+/* elAppLayout */
+
+.elAppViewArea {
+  /* general settings */
+  position:relative;
+  margin:0 auto;
+  /* flexbox model */
+  display:flex;
+  flex-direction: column;
+  align-items:stretch;
+  align-content:stretch;
+  justify-content:space-between;    
+  /* settings */
+  min-width:100%;
+  min-height:100vh;  
+}      
+.elAppHeader
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:0;
+}
+.elAppFooter
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:0;
+}
+.elAppBody 
+{
+  /* flexbox model */
+  flex-grow:1;
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;  
+}
+.elAppVisibleBody
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:1;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+/* elAppContainer */
+
+.elAppContainer 
+{
+  max-width:1200px;
+  padding-left:4vw;
+  padding-right:4vw;
+  margin-left: auto;
+  margin-right: auto;
+}          
+.elAppContainer.inFullWidth 
+{
+  max-width: 100%;
+  width:100%;
+  padding-left:0;
+  padding-right:0;
+}                      
+@media screen and (max-width:900px)
+{
+  .elAppContainer.hasCompactMobileMode
+  {
+    padding-left:0;
+    padding-right:0;                
+  }
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.elMainContent
+{
+  position:relative;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+/* el PAPA */
+
+.elPapa
+{
+  /* general settings */
+  position:relative;
+  margin:0 auto;
+  /* flexbox model */
+  display:flex;
+  flex-direction: column;
+  align-items:stretch;
+  align-content:stretch;
+  justify-content:space-between;  
+}      
+.elPapa.inFullscreenMode
+{
+  min-width:100%;
+  min-height:100vh;
+}
+.elPapa > .elPapaMiddle 
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:2;  
+}
+.elPapa > .elPapaMiddle.inCoverMode
+{
+  /* flexbox model */
+  display:flex;
+  align-items:center;
+  justify-content: center;      
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+/* el MAMA */
+
+.elMama 
+{
+  /* general settings */
+  position:relative;
+  margin:0 auto;
+  width:100%;
+  
+  /* flexbox model */
+  display:flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+}
+.elMama > .elMamaCell
+{
+  /* flexbox model */
+  flex-grow:1;
+}
+.elMama > .elMamaCell.isTiny
+{
+  /* flexbox model */
+  flex-grow:0;
+  flex-shrink:0;
+}
+.elMama > .elMamaCell.isCentral
+{
+  /* flexbox model */
+  align-self:center;
+}    
+.elMama.withProductGrid
+{
+  /* flexbox model */
+  justify-content:center;
+  align-items:stretch;
+  align-content: stretch;
+  flex-wrap:wrap;  
+  /* default settings */
+  padding:0vw;
+}    
+.elMama.withProductGrid > .elMamaBox
+{
+  /* flexbox model */
+  flex-grow:0;  
+  /* default settings */
+  margin:0vw;  
+}
+
+
+/* ======================================================================================= */

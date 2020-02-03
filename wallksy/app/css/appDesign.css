@@ -1,0 +1,153 @@
+html {
+    font-size: 16px;
+    font-size: calc( 1em + (2.5 - 1) * ( (100vw - 20em) / ( 100 - 20) ));
+}
+body
+{
+  font-family:'PT Sans', 'Roboto', sans-serif;
+  font-size: 1em;  
+  line-height:1.5;
+  
+  background-color: #E8DDCB;
+  background-color: rgba( 232, 221, 203, 1 );
+  
+  color:            #191126;  
+  color:            rgba( 25, 17, 38, 1);
+  
+}
+h2
+{
+  font-size: 1.25em;
+  font-size: calc( 1.25em + (3.75 - 1.25) * ( (100vw - 20em) / ( 100 - 20) ));
+  font-weight: normal;
+  line-height: 1.25;
+}
+h6
+{
+  font-size: 0.8125em;
+  font-size: calc( 13px + (26 - 13) * ( (100vw - 320px) / ( 1600 - 320) ));
+  font-weight: normal;
+  line-height: 1.25;  
+}
+
+b {   font-weight:700;  }
+/* o o o o o o o o o o o o o o o o o o */
+
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.cAppVisibleHeader
+{
+  background-color:transparent;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.cAppVisibleBody
+{
+  background-color:transparent;
+  width: 100%;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.cAppVisibleFooter
+{
+  background-color:transparent;
+  padding-bottom:0;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.aLink
+{
+  color: #CDB380;
+  text-decoration:underline;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+#SheepTodayHeaderline 
+{
+
+  position:absolute;
+  z-index:9000;
+  top:0;
+  left:0;
+  right:0;
+
+  
+  background:black;
+  color:white;
+  font-size:16px;
+  line-height:32px;
+}
+.SheepTodayHeaderlineLogo,
+a.SheepTodayHeaderlineLogo
+{
+  display:inline-block;
+  vertical-align:middle;
+  padding:0 8px;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  line-height:1.2;
+}
+a.SheepTodayHeaderlineLogo:hover { color:orange; }
+#SheepTodayHeaderline .aLabel { 
+  color:#666666; 
+  display:inline-block;
+  vertical-align:middle;  
+}
+.SheepTodayHeaderlineLink
+{
+  display:inline-block;
+  vertical-align:middle;
+  padding:0 8px;
+  color:white;
+  text-decoration:underline;
+  cursor:pointer;
+  line-height:1.2;
+}
+.SheepTodayHeaderlineLink:hover { color:orange; }
+.SheepTodayHeaderlineLast { text-align:right; }
+.SheepTodayHeaderlineCurrent .aTitle { 
+  color:orange; 
+  display:inline-block;
+  vertical-align:middle;
+}
+@media all and (max-width:540px)
+{
+ #SheepTodayHeaderline .SheepTodayHeaderlineCurrent .aLabel { display:none; }
+}
+
+.SheepTodayHeadermenu 
+{
+  position:relative;
+  display:none;
+  padding:40px 8px;
+  background:black;
+}
+.SheepTodayHeadermenu .aClose
+{
+  position:absolute;
+  top:1rem;
+  right:1rem;
+  display:block;
+  width:1.5rem;
+  height:1.5rem;  
+  
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  background-image:url( ../img/icon-x-modal.svg );
+  
+  transition:transform .2s;  
+}
+
+.SheepTodayHeadermenu .aClose:hover {
+  transform: scale(1.2);
+}

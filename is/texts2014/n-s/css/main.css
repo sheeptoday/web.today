@@ -1,0 +1,129 @@
+html, body { 
+margin: 0; 
+padding: 0;
+}
+
+body { 
+background: #FFF;
+color: #000;
+
+font-size: 83%; /* Base: 13px */
+font-family: 'Microsoft Sans Serif', tahoma, arial, sans-serif;
+}
+
+
+/* HTML ELEMENTS
+------------------------------------ */
+
+* { margin: 0; }
+
+a, a:link {
+color: #00F;
+text-decoration: underline;
+}
+
+
+p {
+padding: 0 0 1.5em 0;
+}
+
+table {
+border: 0px;
+border-collapse: collapse; /* border-collapse:separate; */
+}
+table td {
+padding: 0px;
+}
+
+input {
+vertical-align: middle;
+}
+
+
+/* SPECIAL ELEMENTS
+------------------------------------ */
+
+.textsmall  { font-size: 0.9em; }
+.textsmall2 { font-size: 0.85em; }
+.textsmall3 { font-size: 0.79em; }
+.textbig    { font-size: 1.1em; }
+.textbig2   { font-size: 1.15em; }
+
+.textblack { color: #000; }
+.textgray  { color: #7C7C7C; }
+.textred   { color: #F00; }
+
+/* IDs
+------------------------------------ */
+
+#TextContent {
+width: 520px;
+margin: 20px auto;
+color: #333;
+line-height: 1.8em;
+}
+
+#TextContent h1 {
+font-family: georgia, 'Trebuchet MS', tahoma, sans-serif;
+text-align: center;
+font-size: 33px;
+font-weight: normal;
+color: #666;
+margin-bottom: 50px;
+line-height: 50px;
+}
+
+#TextContent p span {
+font-size: 1.15em;
+font-family: georgia, serif;
+font-style: italic;
+}
+#TextContent p span i {
+font-weight: bold;
+letter-spacing: 2px;
+}
+
+#TextContent h4.bullets {
+font-weight: bold;
+text-align: center;
+font-family: georgia, serif;
+font-size: 2em;
+letter-spacing: 5px;
+margin-top: 1em;
+}
+#TextContent h4.number {
+font-weight: normal;
+font-family: georgia, serif;
+text-align: center;
+color: #999;
+font-size: 0.9em;
+padding-bottom: 1em;
+letter-spacing: 5px;
+}
+#TextContent h4.bullets a {
+color: #333;
+text-decoration: none;
+}
+#TextContent h4.number a {
+color: #999;
+text-decoration: none;
+}
+#TextContent h4.number a:hover { text-decoration: underline; }
+
+p.illustarion {
+text-align: center;
+padding: 2em 0 60px 0;
+font-size: 0.79em;
+font-family: tahoma, arial, sans-serif;
+color: #999;
+line-height: normal;
+}
+p.illustarion a {
+color: #999;
+text-decoration: none;
+}
+p.illustarion a:hover { text-decoration: underline; }
+
+
+
+

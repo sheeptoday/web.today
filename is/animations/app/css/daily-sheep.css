@@ -1,0 +1,88 @@
+body
+{
+  background-color: rgba( 250,251,227 ,1);
+  color:            rgba( 25,17,38    ,1);
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.dailySheep
+{
+  display:block;
+  width:75vw;
+}
+
+.dailySheep svg
+{
+  width:100%;
+  height:auto;
+  max-height:60vh;
+}
+
+.animationControls
+{
+  text-align:center;
+  padding-bottom:4vh;
+}
+.animationDoButton
+{
+  height:10vh;
+  max-height:120px;
+  width:10vh;
+  background-size:contain;
+  background-image:url(../img/button-sheep-face.png);
+  opacity:.15;
+  transition:all .2s;
+}
+.animationDoButton.isReady
+{
+  opacity:1;
+  cursor:pointer;
+}
+.animationDoButton.isReady:hover
+{
+  transform:scale(1.1);
+}
+
+.elPapaBottom
+{
+  position:relative;
+  min-height:10vh;
+}
+.elArrowNext
+{
+  position:absolute;
+  display:block;
+  top:0;
+  right:4vh;
+  width:12vh;
+}
+.elArrowPrev
+{
+  position:absolute;
+  display:block;
+  top:0;
+  left:4vh;
+  width:12vh;
+}
+.elArrow img
+{
+  width:100%;
+  height:auto;
+  transition:all .2s;
+}
+.elArrow:hover img
+{
+  transform:scale(1.1);
+}
+
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+@media all and (max-width:400px)
+{
+
+
+}

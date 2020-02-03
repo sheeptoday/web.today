@@ -1,0 +1,359 @@
+@import url("icons.css");
+/*
+v2017.10.15 MID OCT
+*/
+
+
+/*
+--------------------------------------------------- import bulma
+*/
+
+html {
+    min-width: 240px;
+}
+.content blockquote.card {
+    background-color: transparent;
+    border: 0;
+}
+.content blockquote.column {
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0.75rem;
+}
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+    color: inherit;
+}
+.box {
+    background: transparent;
+    box-shadow: none;
+}
+.checkbox.button,
+.radio.button {
+    line-height: 1.5;
+}
+
+
+/*
+--------------------------------------------------- default color theme
+*/
+/*
+a         { color: #0ABFBC; }
+a:visited { color: #6C5B7B; }
+a:hover   { color: #13747D; }
+a:active  { color: #F67280; }
+*/
+
+
+
+
+/*
+--------------------------------------------------- layout
+*/
+
+/*
+# Layout groundfloor
+*/
+
+.elBody {
+    min-height: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+.elView {
+    min-height:100vh;
+    position: relative;
+    overflow: hidden;
+}
+.elView__shadow {
+    background-color: rgba(0,0,0,.5);
+
+    position: absolute;
+    z-index: 11000;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    opacity: 0;
+}
+.elMenuTrigger {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.elMenuTrigger__readyToOpen,
+.elPageMenuTrigger__readyToOpen {
+    display: block;
+}
+.elMenuTrigger__readyToClose,
+.elPageMenuTrigger__readyToClose {
+    display: none;
+}
+.elPageMenuTrigger {
+    cursor: pointer;
+}
+.elPageMenuTrigger--isFloat {
+    position: fixed;
+    top:0;
+    right:0;
+    z-index: 19500;
+}
+/*
+## Layout action: mobile groundfloor
+*/
+
+.elMenuTrigger { display: none; }
+.elView__mobile { display: none; }
+
+@media screen and (max-width:768px) {
+    .elMenuTrigger { display: inline-block; }
+    .elHeaderMenu { display: none; }
+    .elView__mobile { display: block; }
+    .elView__desktop { display: none; }
+}
+
+/*
+## Layout action: aside-panel
+*/
+.elAside {
+    width:200px;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+}
+.elAside.elAside--reversed {
+    right: auto;
+    left: 100%;
+}
+.elView,
+.elAside,
+.elHeaderMobile,
+.elPageMenuTrigger--isFloat {
+    -webkit-transition: transform .25s ease-in;
+    -o-transition: transform .25s ease-in;
+    transition: transform .25s ease-in;
+}
+.elView__shadow {
+    -webkit-transition: opacity .25s ease-in;
+    -o-transition: opacity .25s ease-in;
+    transition: opacity .25s ease-in;
+}
+.elBody--asideIsOpen {
+    overflow-y: hidden;
+}
+.elBody--asideIsOpen .elView,
+.elBody--asideIsOpen .elAside,
+.elBody--asideIsOpen .elHeaderMobile {
+    transform: translateX(200px);
+}
+.elBody--asideIsOpen .elView__shadow {
+    right: 0;
+    opacity: 1;
+}
+.elBody--asideIsOpen .cMenuTrigger {
+    position: relative;
+    z-index: 11010;
+}
+.elBody--asideIsOpen .elMenuTrigger__readyToOpen {
+    display: none;
+}
+.elBody--asideIsOpen .elMenuTrigger__readyToClose {
+    display: block;
+}
+
+.elBody--pageMenuIsOpen {
+    overflow-y: hidden;
+}
+.elBody--pageMenuIsOpen .elView,
+.elBody--pageMenuIsOpen .elAside--reversed,
+.elBody--pageMenuIsOpen .elHeaderMobile {
+    transform: translateX(-200px);
+}
+.elBody--pageMenuIsOpen .elView__shadow {
+    right: 0;
+    opacity: 1;
+}
+.elBody--pageMenuIsOpen .cPageMenuTrigger {
+    position: relative;
+    z-index: 19500;
+}
+.elBody--pageMenuIsOpen .elPageMenuTrigger__readyToOpen {
+    display: none;
+}
+.elBody--pageMenuIsOpen .elPageMenuTrigger__readyToClose {
+    display: block;
+}
+.elBody--pageMenuIsOpen .elPageMenuTrigger--isFloat {
+    position: fixed;
+    top:0;
+    transform: translateX(-200px);
+}
+/**/
+
+
+
+/*
+--------------------------------------------------- layout atoms
+*/
+
+.elItem {
+    padding: 8px;
+}
+a.elItem,
+span.elItem {
+    display: inline-block;
+    vertical-align: baseline;
+}
+.elAntiItem {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+ul.aMarkonly {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0;
+    list-style: none;
+}
+ul.aMarkonly > li,
+ul.aMarkonly > li + li {
+    margin-top: 0;
+}
+
+body.hasFocusedShadow {
+    pointer-events:  none;
+}
+body.hasFocusedShadow .aFocusedShadow {
+    position: relative;
+    z-index: 9010;
+    pointer-events: auto;
+    box-shadow: 0 0 0 99999px rgba(0, 0, 0, .75);
+}
+body.hasFocusedShadow .aFocusedShadow__container {
+    transition: all .25s;
+}
+
+/**/
+
+
+/*
+--------------------------------------------------- layout key components
+*/
+
+/*
+# header layout
+*/
+
+.elHeader {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+.elHeader > .elMenuTrigger {
+    order: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.elHeader > .elLogo {
+    order: 2;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.elHeader > .elHeaderMenu {
+    order: 3;
+    flex-grow: 1;
+}
+.elHeader > .elMenuToolbar {
+    order: 90;
+}
+.elHeader > .elMenuMobileToolbar {
+    order: 100;
+    min-width: 40px;
+    min-height: 40px;
+}
+.elMenuToolbar--placeholder {
+    min-width: 40px;
+    min-height: 40px;
+}
+
+/*
+## logo
+*/
+
+.elLogo .aDisplayAlias {
+    display: none;
+}
+.elLogo img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*
+## menu
+*/
+
+.elHeaderMenu > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.elHeaderMenu a {
+    display: inline-block;
+    vertical-align: middle;
+    padding: .5rem;
+    font-size: 1.2rem;
+}
+.elMenuTrigger {
+    line-height: 1;
+}
+
+/*
+## Layout action: mobile header
+*/
+
+@media screen and (max-width:768px) {
+    .elHeader { display: none; }
+    .elHeader.elHeaderMobile { display:flex; }
+    .elHeaderMobile {
+        position: fixed;
+        z-index: 19000;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+    }
+    .elView {
+        padding-top: 40px;
+    }
+    .elHeaderMobile > .elLogo {
+        flex-grow: 1;
+        text-align:center;
+    }
+    .elHeaderMobile > .elLogo img {
+        max-height: 24px;
+    }
+    .elMain > [id] { /* anchor under fixed header */
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+/**/

@@ -1,0 +1,904 @@
+/* Non combined
+@import url("../css/appLayout.css"); 
+@import url("../css/appAtoms.css");  
+@import url("../css/appDesign.css"); 
+@import url("../css/ksyComponents.css");
+*/
+
+
+/* Combined LIGO 2017 */
+
+/* ZL base1001  */
+/* ======================================================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight:normal;
+}
+html, body {
+    height:100%;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+/* elAppLayout */
+
+.elAppViewArea {
+  /* general settings */
+  position:relative;
+  margin:0 auto;
+  /* flexbox model */
+  display:flex;
+  flex-direction: column;
+  align-items:stretch;
+  align-content:stretch;
+  justify-content:space-between;    
+  /* settings */
+  min-width:100%;
+  min-height:100vh;  
+}      
+.elAppHeader
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:0;
+}
+.elAppFooter
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:0;
+}
+.elAppBody 
+{
+  /* flexbox model */
+  flex-grow:1;
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;  
+}
+.elAppVisibleBody
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:1;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+/* elAppContainer */
+
+.elAppContainer 
+{
+  max-width:1200px;
+  padding-left:4vw;
+  padding-right:4vw;
+  margin-left: auto;
+  margin-right: auto;
+}          
+.elAppContainer.inFullWidth 
+{
+  max-width: 100%;
+  width:100%;
+  padding-left:0;
+  padding-right:0;
+}                      
+@media screen and (max-width:900px)
+{
+  .elAppContainer.hasCompactMobileMode
+  {
+    padding-left:0;
+    padding-right:0;                
+  }
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+/* el PAPA */
+
+.elPapa
+{
+  /* general settings */
+  position:relative;
+  margin:0 auto;
+  /* flexbox model */
+  display:flex;
+  flex-direction: column;
+  align-items:stretch;
+  align-content:stretch;
+  justify-content:space-between;  
+}      
+.elPapa.inFullscreenMode
+{
+  min-width:100%;
+  min-height:100vh;
+}
+.elPapa > .elPapaMiddle 
+{
+  /* general settings */
+  position:relative;
+  /* flexbox model */
+  flex-grow:2;  
+}
+.elPapa > .elPapaMiddle.inCoverMode
+{
+  /* flexbox model */
+  display:flex;
+  align-items:center;
+  justify-content: center;      
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+/* el MAMA */
+
+.elMama 
+{
+  /* general settings */
+  position:relative;
+  margin:0 auto;
+  width:100%;
+  
+  /* flexbox model */
+  display:flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+  justify-content:space-between;
+}
+.elMama > .elMamaCell
+{
+  /* flexbox model */
+  flex-grow:1;
+}
+.elMama > .elMamaCell.isTiny
+{
+  /* flexbox model */
+  flex-grow:0;
+  flex-shrink:0;
+}
+.elMama > .elMamaCell.isCentral
+{
+  /* flexbox model */
+  align-self:center;
+}    
+.elMama.withProductGrid
+{
+  /* flexbox model */
+  justify-content:center;
+  align-items:stretch;
+  align-content: stretch;
+  flex-wrap:wrap;  
+  /* default settings */
+  padding:0vw;
+}    
+.elMama.withProductGrid > .elMamaBox
+{
+  /* flexbox model */
+  flex-grow:0;  
+  /* default settings */
+  margin:0vw;  
+}
+
+
+/* ======================================================================================= */
+
+.elModal {
+    display:none;
+}
+
+.elModalVex.vex.vex-theme-plain {
+    padding-top:0px;
+    padding-bottom:0;
+}
+.elModalVex.vex.vex-theme-plain .vex-dialog-form .vex-dialog-message {
+    margin:0;
+}
+.elModalVex.vex.vex-theme-plain .vex-dialog-form .vex-dialog-input {
+    margin:0;
+}
+.elModalVex.vex.vex-theme-plain .vex-close:before {
+    top:0;
+    right:0;
+}
+.elModalVex.vex.vex-theme-plain .vex-content {
+    padding:0;        
+}
+.elModalVex.vex.vex-theme-plain .vex-content.withFullscreen { 
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:auto;     
+}            
+.elModalVex.vex.vex-theme-plain .vex-content.withFullscreen .elModalContent {
+    margin-top:0;
+    min-height:100vh;    
+}
+
+
+/* ======================================================================================= */
+
+/* layout */
+.vex-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+}            
+.elModalVex.vex.vex-theme-plain .vex-content .elModalContent {
+    margin-top:10vh;
+}
+
+/* close button */
+.elModalVex.vex.vex-theme-plain .vex-close:before {
+  top:4vw;
+  right:4vw;
+  content:' ';
+  display:block;
+  width:4vw;
+  height:4vw;  
+  min-width:2rem;
+  min-height:2rem;
+  
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  background-image:url(../img/icon-x-modal.svg);
+  
+  transition:transform .2s;
+}
+.elModalVex.vex.vex-theme-plain .vex-close:hover:before, .elModalVex.vex.vex-theme-plain .vex-close:active:before {
+  transform: scale(1.75);
+}
+
+/* content */            
+.elModalVex.vex.vex-theme-plain .cModalContent {
+    padding:30px;
+}            
+.elModalVex.vex.vex-theme-plain .vex-content.withFullscreen .cModalContent {
+    background-color: black;
+    color:white;
+    padding:0;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+
+
+
+/* o o o o o o o o o o o o o o o o o o */
+.aNBR { white-space:nowrap; }
+@media screen { .aPrint { display: none; } }
+/* o o o o o o o o o o o o o o o o o o */
+
+
+
+/* o o o o o o o o o o o o o o o o o o */
+.aIcon
+{
+  display:inline-block;
+  vertical-align: middle;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  
+}
+a.aIcon,
+a.aIcon:link,
+a.aIcon:visited,
+a.aIcon:active,
+button.aIcon,
+button.aIcon:active
+{
+  border:0;
+  margin:0;
+  outline:0;
+  display:inline-block;
+  vertical-align: middle;
+  background-color:transparent;
+  box-shadow:none;
+}
+/* o o o o o o o o o o o o o o o o o o */
+.aIconized
+{
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+}
+/* o o o o o o o o o o o o o o o o o o */
+.aCaption
+{
+  font-weight:700;
+}
+/* o o o o o o o o o o o o o o o o o o */
+.aText
+{
+  max-width:100%;
+}
+.aText p + p
+{
+  margin-top:1em;
+}
+.aText ul
+{
+  margin-bottom:1em;
+  margin-left:1.5em;
+}
+/* o o o o o o o o o o o o o o o o o o */
+.aMiniText
+{
+  font-size:.8em;
+}
+/* o o o o o o o o o o o o o o o o o o */
+.aPicture img,
+.aPicture svg
+{
+  max-width:100%;
+  height: auto;
+}
+/* o o o o o o o o o o o o o o o o o o */
+
+
+/* ================================================================================== */
+
+ .aButton,
+a.aButton {
+    display:inline-block;    
+    vertical-align:middle;
+    cursor:pointer;
+    outline:0;    
+    text-decoration:none;    
+    text-align:center;
+    box-shadow:none;
+}
+.aButton:disabled {
+    opacity:.5;
+    cursor: default;
+    pointer-events: none;
+}
+.aButton.fullWidth {
+    width:100%;
+    margin-right:0;
+    margin-left:0;
+}
+
+/* theme */
+
+.aButton {
+    padding:7px 15px 6px 15px;
+    margin:5px 5px 5px 0;
+    font-size:inherit;
+    line-height:1.25em;
+    border:1px solid transparent;            
+    background-color: rgba(69,72,75,1);
+    color: rgba(238,230,171,1);
+    transition: all .2s;    
+}
+.aButton:hover {
+    background-color: rgba(105,103,88,1);
+}
+.aButton:active {
+    background-color: rgba(54,57,59,1);
+}
+
+/* ================================================================================== */
+
+
+
+html {
+    font-size: 16px;
+    font-size: calc( 1em + (2.5 - 1) * ( (100vw - 20em) / ( 100 - 20) ));
+}
+body
+{
+  font-family:'PT Sans', 'Roboto', sans-serif;
+  font-size: 1em;  
+  line-height:1.5;
+  
+  background-color: #E8DDCB;
+  background-color: rgba( 232, 221, 203, 1 );
+  
+  color:            #191126;  
+  color:            rgba( 25, 17, 38, 1);
+  
+}
+h2
+{
+  font-size: 1.25em;
+  font-size: calc( 1.25em + (3.75 - 1.25) * ( (100vw - 20em) / ( 100 - 20) ));
+  font-weight: normal;
+  line-height: 1.25;
+}
+h6
+{
+  font-size: 0.8125em;
+  font-size: calc( 13px + (26 - 13) * ( (100vw - 320px) / ( 1600 - 320) ));
+  font-weight: normal;
+  line-height: 1.25;  
+}
+
+b {   font-weight:700;  }
+/* o o o o o o o o o o o o o o o o o o */
+
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.cAppVisibleHeader
+{
+  background-color:transparent;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.cAppVisibleBody
+{
+  background-color:transparent;
+  width: 100%;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.cAppVisibleFooter
+{
+  background-color:transparent;
+  padding-bottom:0;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.aLink
+{
+  color: #CDB380;
+  text-decoration:underline;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+#SheepTodayHeaderline 
+{
+
+  position:absolute;
+  z-index:9000;
+  top:0;
+  left:0;
+  right:0;
+
+  
+  background:black;
+  color:white;
+  font-size:16px;
+  line-height:32px;
+}
+.SheepTodayHeaderlineLogo,
+a.SheepTodayHeaderlineLogo
+{
+  display:inline-block;
+  vertical-align:middle;
+  padding:0 8px;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  line-height:1.2;
+}
+a.SheepTodayHeaderlineLogo:hover { color:orange; }
+#SheepTodayHeaderline .aLabel { 
+  color:#666666; 
+  display:inline-block;
+  vertical-align:middle;  
+}
+.SheepTodayHeaderlineLink
+{
+  display:inline-block;
+  vertical-align:middle;
+  padding:0 8px;
+  color:white;
+  text-decoration:underline;
+  cursor:pointer;
+  line-height:1.2;
+}
+.SheepTodayHeaderlineLink:hover { color:orange; }
+.SheepTodayHeaderlineLast { text-align:right; }
+.SheepTodayHeaderlineCurrent .aTitle { 
+  color:orange; 
+  display:inline-block;
+  vertical-align:middle;
+}
+@media all and (max-width:540px)
+{
+ #SheepTodayHeaderline .SheepTodayHeaderlineCurrent .aLabel { display:none; }
+}
+
+.SheepTodayHeadermenu 
+{
+  position:relative;
+  display:none;
+  padding:40px 8px;
+  background:black;
+}
+.SheepTodayHeadermenu .aClose
+{
+  position:absolute;
+  top:1rem;
+  right:1rem;
+  display:block;
+  width:1.5rem;
+  height:1.5rem;  
+  
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  background-image:url( ../img/icon-x-modal.svg );
+  
+  transition:transform .2s;  
+}
+
+.SheepTodayHeadermenu .aClose:hover {
+  transform: scale(1.2);
+}
+
+
+
+/* Wallksy */
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyBody
+{
+  background-color: #E8DDCB;
+  background-color: rgba( 232, 221, 203, 1 );
+  
+  color:            #191126;  
+  color:            rgba( 25, 17, 38, 1);
+  
+  background-image: url( ../img/Wallksy-Poster.svg );
+  background-position: center 10vh;
+  background-size: auto 60vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyHeader
+{
+  background-color:black;
+  color:#F1F1C1;
+}
+
+.KsyHeader h1
+{
+  color:#AC2005;
+  text-align:center;
+  font-size: 1.25rem;
+  line-height:2;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyHeaderContacts
+{
+  font-size:1rem;
+  line-height:1.5;
+  font-weight:bold;
+  text-align:center;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyCover
+{
+  min-height:90vh;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyWaterlinee
+{
+  position:relative;
+  padding-top:0vw;
+  padding-bottom:25vw;
+  
+  background-color: #031634;
+  background-image: linear-gradient(#031634, #3299BB);
+  
+  color: #CDB380;
+  color: rgba( 205, 179, 128, 1 );
+}
+.KsyWaterlinee:before
+{
+  content:'';
+  position:absolute;
+  top:-8vw;
+  left:0;
+  right:0;
+  height:8vw;
+  
+  background-image: url( ../img/waterlinee.svg );
+  background-position: center top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;  
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyMountains
+{
+  position:relative;
+  border-top:2vw solid #BCBCBC;
+  padding-bottom:10vw;
+  
+  background-color: #BCBCBC;
+  background-image: linear-gradient(#BCBCBC, #E9E9E9);
+  
+  color:            #191126;
+}
+.KsyMountains:before
+{
+  content:'';
+  position:absolute;
+  top:-25vw;
+  left:0;
+  right:0;
+  height:25vw;
+  
+  background-image: url( ../img/mountains.svg );
+  background-position: center top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;  
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyKittens
+{
+  position:relative; 
+  min-height:20vw;
+  background-color: black;  
+  background-image: url( ../img/Riga.svg );
+  background-size: 12vw auto;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+
+  color: #CDB380;
+  color: rgba( 205, 179, 128, 1 );  
+}
+.KsyKittens:before
+{
+  content:'';
+  position:absolute;
+  top:-9vw;
+  left:0;
+  right:0;
+  height:10vw;
+  
+  background-image: url( ../img/borders-cats.svg );
+  background-position: center top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;  
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyAvatar
+{
+  width: 20vw;
+  height: 20vw;
+  margin-left: 4vw; 
+  margin-right: 4vw;
+  margin-top: 2vw;
+}
+.KsyAvatar img 
+{
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  border: 4px solid black;
+}
+.KsyBrandTitle
+{
+  font-size: 2em;
+  text-transform: uppercase;  
+}
+.KsyBrandContacts .aTel
+{
+  white-space: nowrap;
+}
+.KsyBrandContacts .aEmail
+{
+  color: #CDB380;
+  text-decoration:none;
+}
+
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyGallery
+{
+  margin:4vw;
+  overflow-x:hidden;  
+}
+.KsyGallery header
+{
+  text-align:center;
+  margin-bottom:1em;
+}
+.ksyPhoto
+{
+  position: relative;
+  display:inline-block;
+  width:100%;
+  min-height:20vw;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;  
+}
+
+
+.ksyZoomer
+{
+  position:absolute;
+  bottom:1vw;  
+  right:2vw;
+  width:8.4vw;
+  height:10vw;
+  
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;    
+  background-image: url( ../img/zoom.svg );
+  
+  transition: all .2s;
+}
+.ksyZoomer:hover { transform: scale(1.2); }
+
+
+@media all and (max-width:786px)
+{
+  .ksyPhoto { min-height: 30vw; }
+  .ksyZoomer { width:16.8vw; height:20vw; }
+}
+@media all and (max-width:492px)
+{
+  .ksyPhoto { min-height: 56vw; }
+}
+
+.KsyGallery .owl-buttons
+{
+  text-align:center;
+  margin:20px 0;
+}
+.KsyGallery .owl-buttons > div
+{
+  display:inline-block;
+  vertical-align:top;
+  width:100px;
+  height:60px;
+  margin:0 20px;
+  background-size: 100px 60px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all .2s;
+}
+.KsyGallery .owl-buttons > div:hover { transform: scale(1.2); }
+.KsyGallery .owl-prev {   background-image: url( ../img/arrow-prev.svg ); }
+.KsyGallery .owl-next {   background-image: url( ../img/arrow-next.svg ); }
+
+
+.KsyInstagram
+{
+  padding: 0 4vw;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyArticle
+{
+  /* */
+}
+
+.KsyArticle .ksyText
+{
+  padding-left: 4vw;
+  padding-right: 4vw;  
+  padding-bottom:2em;
+}
+
+.KsyArticle .ksyTextTitle
+{
+  font-size:1.4rem;
+  text-align:left;
+  margin-bottom:1em;
+}
+
+.KsyArticleQuote 
+{ 
+  width:42%;   
+}
+.KsyArticleQuote .ksyText
+{
+  font-size:.75rem;  
+}
+
+@media all and (min-width:1000px)
+{
+  .KsyArticle { font-size:24px; }
+  .KsyArticleQuote .ksyText { font-size:18px; }
+}
+
+.KsyTeamImageBox { text-align:right; }
+.KsyTeamImage
+{
+  width:100%;
+  height:auto;
+}
+
+@media all and (max-width:485px)
+{
+  .KsyArticle.elMama
+  {
+    flex-direction: column;
+  }
+  .KsyArticle.elMama .elMamaCell,
+  .KsyArticle.elMama .KsyArticleQuote
+  {
+    width:100%;
+  }
+  .KsyTeamImage
+  {
+    width:40%;
+    height:auto;
+  }  
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyPreTicket
+{
+  padding-right:20vw;
+}
+
+.KsyPreTicket .ksyText
+{
+  padding:4vw;  
+}
+@media all and (min-width:1000px)
+{
+  .KsyPreTicket .ksyText { font-size:24px; }
+}
+.KsyPreTicket .ksyHighlight { color:#F59B71; }
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyModalContent 
+{
+  text-align:center;
+}
+.KsyModalImage
+{
+  max-width:92vw;
+  max-height:92vh;
+  margin:2vh 2vw;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+@media all and (min-width:700px)
+{
+
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+
+ 
+

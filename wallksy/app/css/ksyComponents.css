@@ -1,0 +1,353 @@
+/* Wallksy */
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyBody
+{
+  background-color: #E8DDCB;
+  background-color: rgba( 232, 221, 203, 1 );
+  
+  color:            #191126;  
+  color:            rgba( 25, 17, 38, 1);
+  
+  background-image: url( ../img/Wallksy-Poster.svg );
+  background-position: center 32px;
+  background-size: 75% auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyHeader
+{
+  background-color:black;
+  color:#F1F1C1;
+}
+
+.KsyHeader h1
+{
+  color:#AC2005;
+  text-align:center;
+  font-size: 1.25rem;
+  line-height:2;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyHeaderContacts
+{
+  font-size:1rem;
+  line-height:1.5;
+  font-weight:bold;
+  text-align:center;
+}
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyCover
+{
+  min-height:70vw;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyWaterlinee
+{
+  position:relative;
+  padding-top:0vw;
+  padding-bottom:25vw;
+  
+  background-color: #031634;
+  background-image: linear-gradient(#031634, #3299BB);
+  
+  color: #CDB380;
+  color: rgba( 205, 179, 128, 1 );
+}
+.KsyWaterlinee:before
+{
+  content:'';
+  position:absolute;
+  top:-8vw;
+  left:0;
+  right:0;
+  height:8vw;
+  
+  background-image: url( ../img/waterlinee.svg );
+  background-position: center top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;  
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyMountains
+{
+  position:relative;
+  border-top:2vw solid #BCBCBC;
+  padding-bottom:10vw;
+  
+  background-color: #BCBCBC;
+  background-image: linear-gradient(#BCBCBC, #E9E9E9);
+  
+  color:            #191126;
+}
+.KsyMountains:before
+{
+  content:'';
+  position:absolute;
+  top:-25vw;
+  left:0;
+  right:0;
+  height:25vw;
+  
+  background-image: url( ../img/mountains.svg );
+  background-position: center top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;  
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyKittens
+{
+  position:relative; 
+  min-height:20vw;
+  background-color: black;  
+  background-image: url( ../img/Riga.svg );
+  background-size: 12vw auto;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+
+  color: #CDB380;
+  color: rgba( 205, 179, 128, 1 );  
+}
+.KsyKittens:before
+{
+  content:'';
+  position:absolute;
+  top:-9vw;
+  left:0;
+  right:0;
+  height:10vw;
+  
+  background-image: url( ../img/borders-cats.svg );
+  background-position: center top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;  
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyAvatar
+{
+  width: 20vw;
+  height: 20vw;
+  margin-left: 4vw; 
+  margin-right: 4vw;
+  margin-top: 2vw;
+}
+.KsyAvatar img 
+{
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  border: 4px solid black;
+}
+.KsyBrandTitle
+{
+  font-size: 2em;
+  text-transform: uppercase;  
+}
+.KsyBrandContacts .aTel
+{
+  white-space: nowrap;
+}
+.KsyBrandContacts .aEmail
+{
+  color: #CDB380;
+  text-decoration:none;
+}
+
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyGallery
+{
+  margin:4vw;
+  overflow-x:hidden;  
+}
+.KsyGallery header
+{
+  text-align:center;
+  margin-bottom:1em;
+}
+.ksyPhoto
+{
+  position: relative;
+  display:inline-block;
+  width:100%;
+  min-height:20vw;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;  
+}
+
+
+.ksyZoomer
+{
+  position:absolute;
+  bottom:1vw;  
+  right:2vw;
+  width:8.4vw;
+  height:10vw;
+  
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;    
+  background-image: url( ../img/zoom.svg );
+  
+  transition: all .2s;
+}
+.ksyZoomer:hover { transform: scale(1.2); }
+
+
+@media all and (max-width:786px)
+{
+  .ksyPhoto { min-height: 30vw; }
+  .ksyZoomer { width:16.8vw; height:20vw; }
+}
+@media all and (max-width:492px)
+{
+  .ksyPhoto { min-height: 56vw; }
+}
+
+.KsyGallery .owl-buttons
+{
+  text-align:center;
+  margin:20px 0;
+}
+.KsyGallery .owl-buttons > div
+{
+  display:inline-block;
+  vertical-align:top;
+  width:100px;
+  height:60px;
+  margin:0 20px;
+  background-size: 100px 60px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: all .2s;
+}
+.KsyGallery .owl-buttons > div:hover { transform: scale(1.2); }
+.KsyGallery .owl-prev {   background-image: url( ../img/arrow-prev.svg ); }
+.KsyGallery .owl-next {   background-image: url( ../img/arrow-next.svg ); }
+
+
+.KsyInstagram
+{
+  padding: 0 4vw;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyArticle
+{
+  /* */
+}
+
+.KsyArticle .ksyText
+{
+  padding-left: 4vw;
+  padding-right: 4vw;  
+  padding-bottom:2em;
+}
+
+.KsyArticle .ksyTextTitle
+{
+  font-size:1.4rem;
+  text-align:left;
+  margin-bottom:1em;
+}
+
+.KsyArticleQuote 
+{ 
+  width:42%;   
+}
+.KsyArticleQuote .ksyText
+{
+  font-size:.75rem;  
+}
+
+@media all and (min-width:1000px)
+{
+  .KsyArticle { font-size:24px; }
+  .KsyArticleQuote .ksyText { font-size:18px; }
+}
+
+.KsyTeamImageBox { text-align:right; }
+.KsyTeamImage
+{
+  width:100%;
+  height:auto;
+}
+
+@media all and (max-width:485px)
+{
+  .KsyArticle.elMama
+  {
+    flex-direction: column;
+  }
+  .KsyArticle.elMama .elMamaCell,
+  .KsyArticle.elMama .KsyArticleQuote
+  {
+    width:100%;
+  }
+  .KsyTeamImage
+  {
+    width:40%;
+    height:auto;
+  }  
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyPreTicket
+{
+  padding-right:20vw;
+}
+
+.KsyPreTicket .ksyText
+{
+  padding:4vw;  
+}
+@media all and (min-width:1000px)
+{
+  .KsyPreTicket .ksyText { font-size:24px; }
+}
+.KsyPreTicket .ksyHighlight { color:#F59B71; }
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.KsyModalContent 
+{
+  text-align:center;
+}
+.KsyModalImage
+{
+  max-width:92vw;
+  max-height:92vh;
+  margin:2vh 2vw;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+@media all and (min-width:700px)
+{
+
+}
+
+/* o o o o o o o o o o o o o o o o o o */

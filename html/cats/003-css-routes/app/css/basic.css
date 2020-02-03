@@ -1,0 +1,14 @@
+html, body {
+    height:100%;
+    font-family: 'Open Sans', sans-serif;
+    background-color:rgba(237,201,81,1);
+    color:rgba(61,28,0,1);
+}            
+body {
+  overflow-x:hidden;
+}
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+} 

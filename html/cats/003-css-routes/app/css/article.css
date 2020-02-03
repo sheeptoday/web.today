@@ -1,0 +1,140 @@
+.Article
+{
+  width:90vw;
+  max-width:800px;
+  margin:5vw auto;
+}
+
+.Article h1 
+{
+  text-align:center;
+  font-size:2.5em;
+  font-weight:normal;
+  margin:1em 0;
+}
+.Article h2
+{
+  text-align:center;
+  font-size:2em;
+  font-weight:normal;
+  margin:1em 0;
+}
+.Article h4
+{
+  text-align:center;
+  font-size:1.6em;
+  font-weight:bold;
+  margin:1em 0;
+  color:rgba(83,119,122,1);
+}
+.Article h4 small 
+{
+  display:block;
+  font-size:.75em;
+  font-weight:normal;
+}
+.Article .textIntro {
+  text-align:center;
+  font-size:1.2em;
+  line-height:1.5em;
+}
+.Article .date {
+  font-size:.75em;
+}
+
+.Article .text {
+  line-height:1.5em;
+  margin:1em 0;
+}
+
+.Article .code {
+  line-height:1.5;
+  margin:1em -2vw;
+  padding:4vw;
+  background-color:rgba(236,208,120,.75);
+}
+
+.Article .code div {
+  white-space:nowrap;
+  font-size:2vw;
+}
+.Article .code .g {
+  display:block;
+  padding-left:4vw;
+  margin-top:.25em;
+  margin-bottom:.25em;
+}
+.Article .code [p] {
+  margin-left:4vw;
+}
+
+.Article b {
+  color:rgba(84,36,55,1);
+  font-size:1.2em;
+  font-weight:bold;
+}
+/*
+.Article .code [g1] {background:rgba(81,149,72,.1);}
+.Article .code [g2] {background: rgba(235,104,65,.1);}
+.Article .code [g3] {background: rgba(0,160,176,.1);}
+.Article .code [g4] {background-color:rgba(119,79,56,.1);}
+.Article .code [g5] {background-color:rgba(105,210,231,.1);}
+.Article .code [gc] {background-color:rgba(100,0,0,.1);}
+.Article .code [gm] {background-color:rgba(255,255,255,.1);}
+*/
+
+.bButtons 
+{
+  text-align:center;
+}
+
+a.aButton, 
+a.aButton:link
+{
+  display:inline-block;
+  background-color:rgba(192,41,66,1);
+  padding:1em 2em;
+  font-size:1.25em;
+  border-radius:.5em;
+  color:white;
+  text-decoration:none;
+}
+
+.ListRow 
+{
+  /*
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  */
+  border-top:.5em solid rgba(0,0,0,.25);
+  padding: 1em 1em 2em 1em;
+  position:relative;
+}
+.ListColSelector
+{
+  font-size:1.6em;
+  white-space:nowrap;
+  padding-right:120px;
+}
+.ListColDescription
+{
+  padding:.5em 0;
+  padding-right:120px;
+  font-size:.8em;
+}
+.ListColLinks {
+  position:absolute;
+  top:0;
+  right:0;
+}
+.ListColLinks a.aButton,
+.ListColLinks a.aButton:link {
+  padding:.2em 1em;
+  border-radius:0 0 .5em .5em;
+}
+
+
+
+
+#RoomN001 .Cup { animation: Pulse 2s infinite;}

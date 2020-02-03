@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title> CSS Selectors </title>
+    <script>
+    // hey google!
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-87015828-1', 'auto');
+    ga('send', 'pageview');
+    </script>      
+    
+    <!-- frontent settings -->
+    <meta charset="utf-8" charmark="з">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link  href="app/css/basic.css" rel="stylesheet"  media="all">
+    <link  href="app/css/article.css" rel="stylesheet"  media="all">    
+    <link  href="app/css/items.css" rel="stylesheet"  media="all">    
+    <link  href="app/css/labels.css" rel="stylesheet"  media="all">    
+    <link  href="app/css/animation.css" rel="stylesheet"  media="all">    
+    <!-- /frontent settings -->   
+
+    <style> 
+        .Room { height:auto; }
+    </style>
+    
+</head>
+<body class="">  
+
+  <article class="Article">
+    
+    <h1>Обучение CSS Selectors</h1>
+    <div class="textIntro">
+      <div class="date">11 dec 2016</div>
+      CSS доберется до любого HTML тега.<br>
+      Если разберетесь в CSS селекторах,<br>
+      то CSS доберется и до вас
+    </div>
+  
+  </article>
+
+  <article class="Room" id="RoomN000">    
+    <section class="Table">      
+      <div class="Cup">        
+        <div class="Liquid" type="Coffee"></div>
+        <div class="Liquid" type="Water"></div>
+      </div>      
+      <div class="Cup">
+        <div class="Liquid" type="Coffee"></div>
+        <div class="Liquid" type="Milk"></div>
+      </div>            
+      <div class="Cup RedColor">
+        <div class="Liquid" type="Milk"></div>
+      </div>           
+      <div class="Box RedColor">
+        <div class="Dry" type="Coffee"></div>
+      </div>           
+    </section>
+    <section class="WashingMachine">
+      <div class="Cup">        
+        <div class="Liquid" type="Water"></div>
+      </div>
+      <div class="Cup RedColor">
+        <div class="Liquid" type="Coffee"></div>
+        <div class="Liquid" type="Milk"></div>
+      </div>      
+      <div class="Liquid" type="Water"></div> 
+    </section>   
+    <div class="Cat" kot><img src="app/img/kot.svg"></div>
+  </article>
+
+  <article class="Article">
+    
+    <h2>1. Осмотр HTML кода</h2>
+    
+    <div class="text">
+      На картинке выше зеленая комната с предметами и котом. Для обучения важна вложенность предметов — жидкость внутри чашки, чашка внутри стола и так далее.
+      <br><br>
+      Список элементов:
+      <br><br>
+      — зеленая комната <b>.Room</b><br>
+      — красный стол <b>.Table</b><br>
+      — синяя посудомойка <b>.WashingMachine</b><br>
+      — чашки <b>.Cup</b> <small>(Внутри стола и посудомойки)</small><br>
+      — разная жидкость <b>.Liquid</b> <small>(Кофе, молоко и вода. В посудомойке есть вода без чашек.)</small><br>
+      — коробка <b>.Box</b><br>
+      — сыпучее <b>.Dry</b> <small>(Кофе в коробке)</small><br>
+      — две чашки красного цвета, коробка тоже <b>.RedColor</b><br>
+      <br>
+      Кот выполняет функции кота и для обучения не нужен.
+      <br><br>
+      HTML код для списка:
+      <br><br>
+    </div>
+
+    
+    <div class="code">
+      <div g1>&lt;article class="Room"&gt;</div>
+        <span class="g">
+        <div g2>&lt;section class="Table"&gt;</div>
+          <span class="g">
+          <div gc>&lt;div class="Cup"&gt;</div>
+            <div g4 p>&lt;div class="Liquid" type="Coffee"&gt;&lt;/div&gt;</div>
+            <div g5 p>&lt;div class="Liquid" type="Water"&gt;&lt;/div&gt;</div>
+          <div gc>&lt;/div&gt;</div>
+          </span>
+          <span class="g">
+          <div gc>&lt;div class="Cup"&gt;</div>
+            <div g4 p>&lt;div class="Liquid" type="Coffee"&gt;&lt;/div&gt;</div>
+            <div gm p>&lt;div class="Liquid" type="Milk"&gt;&lt;/div&gt;</div>
+          <div gc>&lt;/div&gt;</div>
+          </span>
+          <span class="g">          
+          <div gc>&lt;div class="Cup RedColor"&gt;</div>
+            <div gm p>&lt;div class="Liquid" type="Milk"&gt;&lt;/div&gt;</div>
+          <div gc>&lt;/div&gt;</div>
+          </span>
+          <span class="g">          
+          <div>&lt;div class="Box RedColor"&gt;</div>
+            <div g4 p>&lt;div class="Dry" type="Coffee"&gt;&lt;/div&gt;</div>
+          <div>&lt;/div&gt;</div>
+          </span>
+        <div g2>&lt;/section&gt;</div>
+        </span>
+        <span class="g">
+        <div g3>&lt;section class="WashingMachine"&gt;</div>
+          <span class="g">
+          <div gc>&lt;div class="Cup"&gt;</div>
+            <div g5 p>&lt;div class="Liquid" type="Water"&gt;&lt;/div&gt;</div>
+          <div gc>&lt;/div&gt;</div>
+          </span>
+          <span class="g">          
+          <div gc>&lt;div class="Cup RedColor"&gt;</div>
+            <div g5 p>&lt;div class="Liquid" type="Coffee"&gt;&lt;/div&gt;</div>
+            <div g5 p>&lt;div class="Liquid" type="Milk"&gt;&lt;/div&gt;</div>
+          <div gc>&lt;/div&gt;</div>
+          </span>
+          <span class="g">          
+          <div g5>&lt;div class="Liquid" type="Water"&gt;&lt;/div&gt;</div>
+          </span>
+        <div g3>&lt;/section&gt;</div>
+        </span>
+      <div g1>&lt;/article&gt;</div>
+    </div>
+    
+    <div class="bButtons">
+      <a class="aButton" href="room-000.html">отдельная комната</a>
+    </div>
+  
+  </article>
+  
+  <article class="Article">
+    <h2>2. Примеры селекторов</h2>
+    
+    Для демонстрации селекторов будет применяться команда CSS включающая пульсируюущую анимацию<br>
+    <div class="code">
+      <div>СЕЛЕКТОР</div>
+      <div>{</div>
+        <span class="g">
+          <div>animation: Pulse 2s infinite;</div>
+        </span>
+      <div>}</div>
+    </div>
+    <div class="bButtons">
+      <a class="aButton" href="room-001.html">посмотреть комнату</a>
+    </div>    
+    
+    <br><br>
+    <h2>2.1 Простые примеры</h2>    
+    
+    <div class="List">
+      
+      <div class="ListRow">
+        <div class="ListColSelector">
+          .Cup
+        </div>
+        <div class="ListColDescription">
+          Точка — специальный символ для класса (class)<br>
+          Без точки CSS будет искать HTML тег с таким названием
+        </div>        
+        <div class="ListColLinks">
+          <a class="aButton" href="room-001.html">комната №1</a>
+        </div>        
+      </div>
+      
+      <div class="ListRow">
+        <div class="ListColSelector">
+          .WashingMachine &nbsp; .Cup
+        </div>
+        <div class="ListColDescription">
+          CSS ищет чашки внутри посудомойки.<br>
+          Пробел означает «искать внутри»
+        </div>        
+        <div class="ListColLinks">
+          <a class="aButton" href="room-002.html">комната №2</a>
+        </div>        
+      </div>   
+
+      <div class="ListRow">
+        <div class="ListColSelector">
+          .Cup.RedColor
+        </div>
+        <div class="ListColDescription">
+          Искать чашки с красным цветом<br>
+          Составной селектор. Без пробела CSS ищет элемент у которого есть все перечисленные классы
+        </div>        
+        <div class="ListColLinks">
+          <a class="aButton" href="room-006.html">комната №6</a>
+        </div>        
+      </div>   
+
+      <div class="ListRow">
+        <div class="ListColSelector">
+          .WashingMachine &nbsp; .Cup.RedColor &nbsp; .Liquid
+        </div>
+        <div class="ListColDescription">
+          Жидкость внутри красной чашки, внутри посудомойки.<br>
+          Можно использовать несколько пробелов для создания цепочки. Каждое звено цепочки может быть составным селектором.
+        </div>        
+        <div class="ListColLinks">
+          <a class="aButton" href="room-003.html">комната №3</a>
+        </div>        
+      </div>      
+
+      <div class="ListRow">
+        <div class="ListColSelector">
+          .WashingMachine &gt; .Liquid
+        </div>
+        <div class="ListColDescription">
+          Выбрать жидкость которая находится прямо в посудомойке.<br>
+          Символ строгой вложенности. CSS ищет только среди детей, но не среди внуков.<br>
+        </div>        
+        <div class="ListColLinks">
+          <a class="aButton" href="room-004.html">комната №4</a>
+        </div>        
+      </div>   
+      
+      <div class="ListRow">
+        <div class="ListColSelector">
+          [type="Coffee"]
+        </div>
+        <div class="ListColDescription">
+          Все теги с атрибутом type="Coffee"<br>
+          Селекторы могут искать не только классы. Квадратные скобки означают поиск среди атрибутов.<br>
+        </div>        
+        <div class="ListColLinks">
+          <a class="aButton" href="room-005.html">комната №5</a>
+        </div>        
+      </div>         
+
+      <div class="ListRow">
+        <div class="ListColSelector">
+          .Liquid[type="Coffee"]
+        </div>
+        <div class="ListColDescription">
+          Выбрать только жидкий кофе<br>
+          Еще пример составного селектора без пробелов. Будет выбран только тот элемент, который удовлетворяет всем требованиям.<br>
+        </div>        
+        <div class="ListColLinks">
+          <a class="aButton" href="room-007.html">комната №7</a>
+        </div>        
+      </div>         
+      
+      <div class="ListRow">
+        <div class="ListColSelector">
+          .Cup + .Cup
+        </div>
+        <div class="ListColDescription">
+          Буквально — выбрать чашку, перед которой стоит чашка<br>
+          Символ плюс означает, что надо смотреть не внутри тега, а перейти к ближайшему соседу 
+        </div>        
+        <div class="ListColLinks">
+          <a class="aButton" href="room-008.html">комната №8</a>
+        </div>        
+      </div>         
+      
+      
+      
+    </div>
+    
+    
+
+   
+  </article>  
+  
+
+    
+</body>
+</html>
+        

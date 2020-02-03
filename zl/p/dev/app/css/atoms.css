@@ -1,0 +1,121 @@
+/* Basic elements */
+
+
+/* o o o o o o o o o o o o o o o o o o */
+
+@media screen {
+  .aPrint { display: none; }
+}
+
+.aNBR { white-space:nowrap; }
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.aIcon
+{
+  display:inline-block;
+  vertical-align: middle;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  
+}
+button.aIcon,
+button.aIcon:active
+{
+  border:0;
+  margin:0;
+  outline:0;
+  display:inline-block;
+  vertical-align: middle;
+  background-color:transparent;
+  box-shadow:none;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.aCaption
+{
+  font-weight:700;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.aText
+{
+  max-width:100%;
+}
+.aText p + p
+{
+  margin-top:1em;
+}
+.aText ul
+{
+  margin-top:1em;
+  margin-left:1.5em;
+}
+
+
+.aTextSublevel
+{
+  font-size:.8em;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.aIllustration img,
+.aIllustration svg
+{
+  max-width:100%;
+  height: auto;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+.aCharacterHover
+{
+  transition: transform .3s;  
+}
+svg.isCharacter:hover .aCharacterHover
+{
+  transform:none !important;
+  transition: transform .1s;  
+}
+svg.isCharacter:hover .aCharacterHover.isLazy
+{
+  transition-duration: .8s;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
+
+
+.bListOfComponents
+{
+  margin-bottom:1em;
+}
+.bListOfComponents .aCaption
+{
+  font-size:.8rem;
+  margin-left:1.5rem;
+}
+.bListOfComponents ul,
+.bListOfComponents ol
+{
+  font-size:.64em;
+  margin-left:1.5rem;
+}
+.bListOfComponents li
+{
+  position:relative;
+}
+.bListOfComponents .aSubcaption
+{
+  font-size:.75em;
+}
+.bListOfComponents .cHelpfullSheepIcon
+{
+  position:absolute;
+  bottom:0;
+}
+
+/* o o o o o o o o o o o o o o o o o o */
