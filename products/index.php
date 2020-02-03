@@ -1,1 +1,0 @@
-<? include("book-latvia-atlas-gazania.html") ?>
