@@ -1,0 +1,114 @@
+<!doctype html><!-- appart :: 8102 :: 2019.10.30 -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ========================================= HEAD CONTENT -->
+
+
+    <title>AppSeed</title>
+
+
+    <!-- ========================================= BOOT -->
+
+
+    <!-- ༼°▽°༽ style boot -->
+    <style>
+        body    { width: 100%; height: auto; overflow: hidden; }
+        img,svg { max-width: 100%; }
+    </style>
+
+    <!-- ༼°▽°༽ prefetch boot -->
+    <link rel="preconnect"   href="//fonts.gstatic.com">
+    <link rel="preload"      href="art/bergamot-just-browse-here.svg" as="image">
+    <!-- INFO: https://3perf.com/blog/link-rels/ -->
+
+    <!-- ༼°▽°༽ app boot -->
+    <script>
+        function AppBoot() {
+
+         // The Noble Blastula
+            let app = this
+            app.has = { memory: [], arrived:true }
+            app.has.queens = [ 'onload', 'mutate' ]
+            /*
+            King has arrived --- let app = new AppBoot()
+            Take the Queen ----- app.attach('queen_name')(function)
+            Keep in memory ----- app.queen_name(function_parameters)
+            Execute later ------ app.onload(function)
+            2019.9.15
+            */
+
+         // The Noble Provocator
+            const proteinProvoker = function ImitateCriticalTasks () {
+              let tpp = new this.__proto__.constructor()
+              let must_have_a_memory = tpp.has.memory.push('something')
+              let must_accept_queens = like_this_one => true
+              tpp.attach('queen_id')(must_accept_queens)
+              tpp.queen_id('try this')
+            }
+
+         // Define responsibility
+            const TakeTheQueen = (queen) =>
+                {
+                    app[queen] =  ExecuteLater(queen)
+                    return (f) => ExecuteLater('update')({name:queen,f})
+                }
+            const KeepInMemory = (dna) => app.has.memory.push(dna)
+            const ExecuteLater =
+                 (responsible) =>
+                         (dna) => KeepInMemory({dna,for:responsible})
+
+         // Apply responsibility
+            app.attach = TakeTheQueen
+            app.has.queens.map( queen => app.attach(queen) )
+            app.ForceErrorsIfShouldBe =  proteinProvoker
+        }
+
+     // Run Immediately
+        let app = new AppBoot()
+        app.ForceErrorsIfShouldBe()
+    </script>
+
+
+    <!-- ========================================= DESIGN -->
+
+
+    <link
+        href="app/styles/appart.css"
+        rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700&subset=cyrillic"
+        rel="stylesheet">
+
+
+    <!-- ========================================= APP -->
+
+
+    <!-- required core -->
+    <script defer src="app/script/app-core.js"></script>
+
+    <!-- interface libs -->
+    <script defer src="app/script/components/css-class-mutator.js"></script>
+    <script defer src="app/script/components/image-zzzoom.js"></script>
+    <script defer src="app/script/components/image-lazy-loader.js"></script>
+    <script defer src="app/script/components/scroll-to-var.js"></script>
+    <script>app.attach('wayway')</script>
+    <script defer src="app/script/components/headroom.js"></script>
+
+    <!-- dev libs -->
+    <script defer src="app/script/components/survival-test.js"></script>
+    <script defer src="app/script/components/autofill-paragraphs.js"></script>
+
+
+    <!-- ========================================= APP CUSTOM -->
+
+
+    <!-- ========================================== ʕ⊙ᴥ⊙ʔ = -->
+    <!-- ========================================= END HEAD -->
+</head>
+<body class="colors--primary">
+
+</body>
+</html>
