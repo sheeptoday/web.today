@@ -1,0 +1,557 @@
+@charset "UTF-8";
+/*
+v2017.10.15 MID OCT
+*/
+
+
+/** -------------------------------- improve design & UX */
+html {
+  scroll-behavior: smooth;
+  cursor: default;
+}
+
+/*
+--------------------------------------------------- default color theme
+*/
+/*
+a         { color: #0ABFBC; }
+a:visited { color: #6C5B7B; }
+a:hover   { color: #13747D; }
+a:active  { color: #F67280; }
+*/
+
+
+
+
+/*
+--------------------------------------------------- layout
+*/
+
+/*
+# Layout groundfloor
+*/
+
+.elBody {
+    min-height: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+.elView {
+    min-height:100vh;
+    position: relative;
+    overflow: hidden;
+}
+.elView__shadow {
+    background-color: rgba(0,0,0,.5);
+
+    position: absolute;
+    z-index: 11000;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    opacity: 0;
+}
+.elMenuTrigger {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.elMenuTrigger__readyToOpen,
+.elPageMenuTrigger__readyToOpen {
+    display: block;
+}
+.elMenuTrigger__readyToClose,
+.elPageMenuTrigger__readyToClose {
+    display: none;
+}
+.elPageMenuTrigger {
+    cursor: pointer;
+}
+.elPageMenuTrigger--isFloat {
+    position: fixed;
+    top:0;
+    right:0;
+    z-index: 19500;
+}
+/*
+## Layout action: mobile groundfloor
+*/
+
+.elMenuTrigger { display: none; }
+.elView__mobile { display: none; }
+
+@media screen and (max-width:768px) {
+    .elMenuTrigger { display: inline-block; }
+    .elHeaderMenu { display: none; }
+    .elView__mobile { display: block; }
+    .elView__desktop { display: none; }
+}
+
+
+/*
+--------------------------------------------------- layout atoms
+*/
+
+.elItem {
+    padding: 8px;
+}
+a.elItem,
+span.elItem {
+    display: inline-block;
+    vertical-align: baseline;
+}
+.elAntiItem {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+ul.aMarkonly {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0;
+    list-style: none;
+}
+ul.aMarkonly > li,
+ul.aMarkonly > li + li {
+    margin-top: 0;
+}
+
+body.hasFocusedShadow {
+    pointer-events:  none;
+}
+body.hasFocusedShadow .aFocusedShadow {
+    position: relative;
+    z-index: 9010;
+    pointer-events: auto;
+    box-shadow: 0 0 0 99999px rgba(0, 0, 0, .75);
+}
+body.hasFocusedShadow .aFocusedShadow__container {
+    transition: all .25s;
+}
+
+/**/
+
+
+/*
+--------------------------------------------------- layout key components
+*/
+
+/*
+# header layout
+*/
+
+.elHeader {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+.elHeader > .elMenuTrigger {
+    order: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.elHeader > .elLogo {
+    order: 2;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.elHeader > .elHeaderMenu {
+    order: 3;
+    flex-grow: 1;
+}
+.elHeader > .elMenuToolbar {
+    order: 90;
+}
+.elHeader > .elMenuMobileToolbar {
+    order: 100;
+    min-width: 40px;
+    min-height: 40px;
+}
+.elMenuToolbar--placeholder {
+    min-width: 40px;
+    min-height: 40px;
+}
+
+/*
+## logo
+*/
+
+.elLogo .aDisplayAlias {
+    display: none;
+}
+.elLogo img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*
+## menu
+*/
+
+.elHeaderMenu > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.elHeaderMenu a {
+    display: inline-block;
+    vertical-align: middle;
+    padding: .5rem;
+    font-size: 1.2rem;
+}
+.elMenuTrigger {
+    line-height: 1;
+}
+
+/*
+## Layout action: mobile header
+*/
+
+@media screen and (max-width:768px) {
+    .elHeader { display: none; }
+    .elHeader.elHeaderMobile { display:flex; }
+    .elHeaderMobile {
+        position: fixed;
+        z-index: 19000;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+    }
+    .elView {
+        padding-top: 40px;
+    }
+    .elHeaderMobile > .elLogo {
+        flex-grow: 1;
+        text-align:center;
+    }
+    .elHeaderMobile > .elLogo img {
+        max-height: 24px;
+    }
+    .elMain > [id] { /* anchor under fixed header */
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+/**/
+
+/*
+    v2017.10.10
+    - font-rus Vollkorn
+*/
+
+
+/* Tufte CSS styles */
+/* ZL: parent class added */
+.tufteDesign { font-size: 15px; }
+.tufteDesign__mama {
+    background-color: #fffff8;
+}
+
+.tufteDesign { width: 87.5%;
+       margin-left: auto;
+       margin-right: auto;
+       padding-left: 12.5%;
+       font-family: "Vollkorn", et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+       background-color: #fffff8;
+       color: #111;
+       max-width: 1400px;
+       counter-reset: sidenote-counter;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+}
+
+
+
+.tufteDesign h1 { font-weight: 400;
+     margin-top: 0rem;
+     padding-top: 4rem;
+     margin-bottom: 1.5rem;
+     font-size: 3.2rem;
+     line-height: 1; }
+
+.tufteDesign h2 { font-style: italic;
+     font-weight: 400;
+     margin-top: 2.1rem;
+     margin-bottom: 0;
+     font-size: 2.2rem;
+     line-height: 1; }
+
+.tufteDesign h3 { font-style: italic;
+     font-weight: 400;
+     font-size: 1.7rem;
+     margin-top: 2rem;
+     margin-bottom: 0;
+     line-height: 1; }
+
+.tufteDesign hr { display: block;
+     height: 1px;
+     width: 55%;
+     border: 0;
+     border-top: 1px solid #ccc;
+     margin: 1em 0;
+     padding: 0; }
+
+.tufteDesign p.subtitle { font-style: italic;
+             margin-top: 1rem;
+             margin-bottom: 1rem;
+             font-size: 1.8rem;
+             display: block;
+             line-height: 1; }
+
+.tufteDesign .numeral { font-family: et-book-roman-old-style; }
+
+.tufteDesign .danger { color: red; }
+
+.tufteDesign article { position: relative;
+          padding: 5rem 0rem; }
+
+.tufteDesign section { padding-top: 1rem;
+          padding-bottom: 1rem; }
+
+.tufteDesign p,
+.tufteDesign ol,
+.tufteDesign ul { font-size: 1.4rem; }
+
+.tufteDesign p { line-height: 2rem;
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: baseline; }
+
+/* Chapter Epigraphs */
+.tufteDesign div.epigraph { margin: 5em 0; }
+
+.tufteDesign div.epigraph > blockquote { margin-top: 3em;
+                            margin-bottom: 3em; margin-left: 3rem; }
+
+.tufteDesign div.epigraph > blockquote,
+.tufteDesign div.epigraph > blockquote > p { font-style: italic; }
+
+.tufteDesign div.epigraph > blockquote > footer { font-style: normal; }
+
+.tufteDesign div.epigraph > blockquote > footer > cite { font-style: italic; }
+/* end chapter epigraphs styles */
+
+.tufteDesign blockquote { font-size: 1.4rem; }
+
+.tufteDesign blockquote p { width: 55%;
+               margin-right: 40px; }
+
+.tufteDesign blockquote footer { width: 55%;
+                    font-size: 1.1rem;
+                    text-align: right; }
+
+.tufteDesign section>ol,
+.tufteDesign section>ul { width: 45%;
+                         -webkit-padding-start: 5%;
+                         -webkit-padding-end: 5%; }
+
+.tufteDesign li { padding: 0.5rem 0; }
+
+.tufteDesign figure { padding: 0;
+         border: 0;
+         font-size: 100%;
+         font: inherit;
+         vertical-align: baseline;
+         max-width: 55%;
+         -webkit-margin-start: 0;
+         -webkit-margin-end: 0;
+         margin: 0 0 3em 0; }
+
+.tufteDesign figcaption { float: none; margin-left: 20%;
+             margin-top: 0;
+             margin-bottom: 0;
+             font-size: 1.1rem;
+             line-height: 1.6;
+             vertical-align: baseline;
+             position: relative;
+             max-width: 100%; }
+
+/*.tufteDesign figure.fullwidth figcaption { margin-right: 24%; }*/
+
+/* Links: replicate underline that clears descenders */
+.tufteDesign a:link,
+.tufteDesign a:visited { color: inherit; }
+
+.tufteDesign a:link { text-decoration: none;
+         background: -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#333, #333);
+         background: linear-gradient(#fffff8, #fffff8), linear-gradient(#fffff8, #fffff8), linear-gradient(#333, #333);
+         -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+         background-repeat: no-repeat, no-repeat, repeat-x;
+         text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
+         background-position: 0% 93%, 100% 93%, 0% 93%; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .tufteDesign a:link { background-position-y: 87%, 87%, 87%; }
+}
+
+.tufteDesign a:link::selection { text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe;
+                    background: #b4d5fe; }
+
+.tufteDesign a:link::-moz-selection { text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe;
+                         background: #b4d5fe; }
+
+/* Sidenotes, margin notes, figures, captions */
+.tufteDesign img { max-width: 100%; }
+
+.tufteDesign .sidenote,
+.tufteDesign .marginnote { float: right;
+                         clear: right;
+                         margin-right: -60%;
+                         width: 50%;
+                         margin-top: 0;
+                         margin-bottom: 0;
+                         font-size: 1.1rem;
+                         line-height: 1.3;
+                         vertical-align: baseline;
+                         position: relative; }
+
+.tufteDesign .sidenote-number { counter-increment: sidenote-counter; }
+
+.tufteDesign .sidenote-number:after,
+.tufteDesign .sidenote:before { content: counter(sidenote-counter) " ";
+                                           font-family: et-book-roman-old-style;
+                                           position: relative;
+                                           vertical-align: baseline; }
+
+.tufteDesign .sidenote-number:after { content: counter(sidenote-counter);
+                         font-size: 1rem;
+                         top: -0.5rem;
+                         left: 0.1rem; }
+
+.tufteDesign .sidenote:before { content: counter(sidenote-counter) " ";
+                   top: -0.5rem; }
+
+.tufteDesign blockquote .sidenote,
+.tufteDesign blockquote .marginnote { margin-right: -82%;
+                                               min-width: 59%;
+                                               text-align: left; }
+
+.tufteDesign p,
+.tufteDesign footer,
+.tufteDesign table { width: 55%; }
+
+.tufteDesign div.fullwidth,
+.tufteDesign table.fullwidth { width: 100%; }
+
+.tufteDesign div.table-wrapper { overflow-x: auto;
+                    font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif; }
+
+.tufteDesign .sans { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+        letter-spacing: .03em; }
+
+.tufteDesign code { font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+       font-size: 1.0rem;
+       line-height: 1.42;
+}
+
+.tufteDesign .sans > code { font-size: 1.2rem; }
+
+.tufteDesign h1 > code,
+.tufteDesign h2 > code,
+.tufteDesign h3 > code { font-size: 0.80em; }
+
+.tufteDesign .marginnote > code,
+.tufteDesign .sidenote > code { font-size: 1rem; }
+
+.tufteDesign pre.code { font-size: 0.9rem;
+           width: 52.5%;
+           margin-left: 2.5%;
+           overflow-x: auto; }
+
+.tufteDesign pre.code.fullwidth { width: 90%; }
+
+.tufteDesign .fullwidth { max-width: 90%;
+             clear:both; }
+
+.tufteDesign span.newthought { font-variant: small-caps;
+                  font-size: 1.2em; }
+
+.tufteDesign input.margin-toggle { display: none; }
+
+.tufteDesign label.sidenote-number { display: inline; }
+
+.tufteDesign label.margin-toggle:not(.sidenote-number) { display: none; }
+
+.tufteDesign .iframe-wrapper { position: relative;
+                  padding-bottom: 56.25%; /* 16:9 */
+                  padding-top: 25px;
+                  height: 0; }
+
+.tufteDesign .iframe-wrapper iframe { position: absolute;
+                         top: 0;
+                         left: 0;
+                         width: 100%;
+                         height: 100%; }
+
+@media (max-width: 1000px) {
+    .tufteDesign { width: 84%;
+           padding-left: 8%;
+           padding-right: 8%; }
+    .tufteDesign p,
+    .tufteDesign footer { width: 100%; }
+    .tufteDesign pre.code { width: 97%; }
+    .tufteDesign section > ol { width: 90%; }
+    .tufteDesign section > ul { width: 90%; }
+    .tufteDesign figure { max-width: 90%; }
+    .tufteDesign figcaption,
+    .tufteDesign figure.fullwidth figcaption { margin-right: 0%;
+                                              max-width: none; }
+    .tufteDesign blockquote { margin-left: 1.5em;
+                 margin-right: 0em; }
+    .tufteDesign blockquote p,
+    .tufteDesign blockquote footer { width: 100%; }
+    .tufteDesign label.margin-toggle:not(.sidenote-number) { display: inline; }
+    .tufteDesign .sidenote,
+    .tufteDesign .marginnote { display: none; }
+    .tufteDesign .margin-toggle:checked + .sidenote,
+    .tufteDesign .margin-toggle:checked + .marginnote { display: block;
+                                           float: left;
+                                           left: 1rem;
+                                           clear: both;
+                                           width: 95%;
+                                           margin: 1rem 2.5%;
+                                           vertical-align: baseline;
+                                           position: relative;
+                                        padding: 1rem 2.5%;
+                                        margin:0;
+                                        background-color: azure; }
+    .tufteDesign label { cursor: pointer; }
+    .tufteDesign div.table-wrapper,
+    .tufteDesign table { width: 85%; }
+    .tufteDesign img { width: 100%; } }
+
+/*
+zl settings
+*/
+
+.tufteDesign > article:first-child {
+    padding-top: 0;
+}
+.tufteDesign ul {
+    list-style: disc;
+}
+.tufteDesign ol {
+    list-style: decimal;
+}
+@media (max-width: 1000px) {
+    .tufteDesign label.margin-toggle {
+        color: #0ABFBC;
+    }
+}

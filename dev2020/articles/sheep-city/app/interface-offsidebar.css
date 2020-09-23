@@ -1,0 +1,315 @@
+/** === ༼°▽°༽ === Offsidebar  *//*
+ *
+ *  Expandable side-panel
+ *  Prevents content jumps when appears
+ *  zl, 2019.12.18 "Contactia"
+ *
+ *  PURE CSS
+ *
+ */
+
+
+/** -------------------------------- offsidebar settings */
+
+
+.offsidebar {
+
+ /* space units */
+  --sx:   var(--col-space, 1.5rem);
+  --sy:   var(--row-space, 1.5rem);
+
+ /* color units */
+  --back-color--sidepanel: var(--back-color, white);
+  --text-color--sidepanel: var(--text-color, black);
+  --back-color--overlay:   hsla(0, 0%, 0%, 0.9);
+
+ /* remaining (outside sidebar) space min width  */
+  --empty-space-offset:  3rem;
+
+ /* open animation timing  */
+  --transition-duration--slidein: 160ms;
+  --transition-duration--content: 120ms;
+  --transition-duration--overlay: 160ms;
+
+ /* base properties */
+  --z-index--sidebar:    100;
+  --direction:           ltr;
+}
+
+
+/** -------------------------------- two sides difference */
+
+
+/* Eastside → default */
+
+.offsidebar {
+ /* bar position */
+  --left:                           var(--state-width, auto);
+  --right:                                                 0;
+  --transform-origin--horizontal:                      right;
+ /* scrollbar position */
+  --scroll-overflow-behavoir:                         scroll;
+  --scroll-direction:                                    ltr;
+ /* close-icon position */
+  --right--close-icon:                                  100%;
+}
+
+/* Westside ← */
+
+.offsidebar.from-westside {
+ /* bar position */
+  --left:                                                  0;
+  --right:                          var(--state-width, auto);
+  --transform-origin--horizontal:                       left;
+/* scrollbar position */
+  --scroll-overflow-behavoir:                           auto;
+  --scroll-direction:                                    rtl;
+ /* close-icon position */
+  --right--close-icon:  calc( -1*var(--empty-space-offset) );
+}
+
+
+/** -------------------------------- closed/active states */
+
+
+.offsidebar {
+  --state-event: none;
+  --state-value: 0;
+  --state-width: 0;
+}
+
+.offsidebar.is-active {
+  --state-event: all;
+  --state-value: 1;
+  --state-width: auto;
+}
+
+
+/** -------------------------------- layout & behavior */
+
+
+.offsidebar {
+    position:  fixed;
+    z-index:   var(--z-index--sidebar);
+    top:       0;
+    bottom:    0;
+    right:     var(--right);
+    left:      var(--left);
+
+    max-width:        calc( 100% - var(--empty-space-offset) );
+    color:            var(--text-color--sidepanel);
+    pointer-events:   var(--state-event);
+}
+.offsidebar-background {
+    position:  absolute;
+    z-index:  -1;
+    top:       0;
+    right:     0;
+    width:  100%;
+    height: 100%;
+
+    background-color: var(--back-color--sidepanel);
+}
+.offsidebar-overlay {
+    position:  fixed;
+    z-index:  -2;
+    top:       0;
+    bottom:    0;
+    left:      0;
+    right:     0;
+
+    background-color: var(--back-color--overlay);
+    opacity:          var(--state-value);
+}
+.offsidebar-container {
+    opacity:          var(--state-value);
+}
+
+/** -------------------------------- close icon */
+
+
+.offsidebar-background::before {
+    content:  '';
+    display:  block;
+    position: absolute;
+    top:      0;
+    right:    var(--right--close-icon);
+    width:    var(--empty-space-offset);
+    height:   var(--empty-space-offset);
+
+ /* click will be delegated to overlay div */
+    pointer-events:   none;
+
+ /* SVG: x-close — white */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>');
+    background-size:   contain;
+    background-repeat: no-repeat;
+}
+
+
+/** -------------------------------- content wrap */
+
+
+.offsidebar-container {
+    max-width:  100%;
+    height:     100%;
+    overflow-x: visible;
+    overflow-y: scroll;
+}
+
+/* scrollbar position */
+
+.offsidebar-container {
+    overflow-y: var(--scroll-overflow-behavoir, scroll);
+    direction:  var(--scroll-direction);
+}
+.offsidebar-header,
+.offsidebar-footer,
+.offsidebar-content {
+    direction:  var(--direction);
+}
+
+/* Sticky header/footer */
+
+.offsidebar-container {
+    position: relative;
+    z-index:  0;
+
+    display:         flex;
+    flex-direction:  column;
+    justify-content: flex-start;
+    align-content:   stretch;
+}
+.offsidebar-header {
+    margin-top:    0;
+    margin-bottom: 0;
+    position: sticky;
+    top:      0;
+    z-index:  1;
+}
+.offsidebar-footer {
+    margin-top: auto;
+    margin-bottom: 0;
+    position: sticky;
+    bottom:   0;
+    z-index:  1;
+}
+
+
+/** -------------------------------- Animation */
+
+
+ /* Animate overlay
+    Default: opacity fade in */
+
+    .offsidebar-overlay {
+        transition-property:        opacity;
+        transition-duration:        var(--transition-duration--overlay);
+        transition-timing-function: var(--timing-function--focusZoom);
+    }
+
+ /* Animate background */
+
+    .offsidebar-background {
+        transform:                  scaleX( var(--state-value) );
+        transform-origin:           var(--transform-origin--horizontal) center;
+        will-change:                transform;
+    }
+    .offsidebar.is-active .offsidebar-background {
+        transition-property:        transform;
+        transition-duration:        var(--transition-duration--slidein);
+        transition-timing-function: var(--timing-function--focusZoom, ease-out);
+    }
+
+ /* Animate close-icon */
+
+    .offsidebar-background::before {
+        opacity:                    var(--state-value);
+        transform:                  scale( var(--state-value) );
+        will-change:                transform;
+    }
+    .offsidebar.is-active .offsidebar-background::before {
+        transition-property:        opacity, transform;
+        transition-duration:        var(--transition-duration--content);
+        transition-delay:           var(--transition-duration--slidein);
+        transition-timing-function: ease-in;
+    }
+
+ /* Animate content */
+
+    .offsidebar-content{
+      --dy: 0.5rem;
+      --translate-y: calc( var(--dy)*var(--state-value) - var(--dy) );
+        transform:                  translateY( var(--translate-y) );
+        will-change:                transform;
+        opacity:                    var(--state-value);
+    }
+    .offsidebar.is-active .offsidebar-content {
+        transition-property:        opacity, transform;
+        transition-duration:        var(--transition-duration--content);
+        transition-delay:           var(--transition-duration--slidein);
+        transition-timing-function: ease-in;
+    }
+
+ /* Animate header */
+
+    .offsidebar-header {
+        opacity:                    var(--state-value);
+        transform:                  scaleY( var(--state-value) );
+        transform-origin:           top center;
+        will-change:                transform;
+    }
+    .offsidebar.is-active .offsidebar-header {
+        transition-property:        opacity, transform;
+        transition-duration:        var(--transition-duration--slidein);
+        transition-delay:           var(--transition-duration--slidein);
+        transition-timing-function: var(--timing-function--openJump, ease-out);
+    }
+
+ /* Animate footer */
+
+    .offsidebar-footer {
+        opacity:                    var(--state-value);
+    }
+    .offsidebar.is-active .offsidebar-footer {
+        transition-property:        opacity;
+        transition-duration:        var(--transition-duration--slidein);
+        transition-delay:           var(--transition-duration--slidein);
+        transition-timing-function: ease-in;
+    }
+
+
+/** -------------------------------- Design workers */
+
+
+.offsidebar .bar-header  { padding: 0.25em    var(--sx); }
+.offsidebar .bar-footer  { padding: 0.25em    var(--sx); }
+.offsidebar .bar-content { padding: var(--sy) var(--sx); }
+
+.offsidebar .bar-header,
+.offsidebar .bar-footer {
+ /* inverted colors for header & footer */
+    background-color: var(--text-color--sidepanel);
+               color: var(--back-color--sidepanel);
+}
+
+.offsidebar .bar-header {
+ /* visual harmony with closing icon */
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    align-content:   stretch;
+    align-items:     stretch;
+    min-height:      var(--empty-space-offset);
+}
+
+
+/** -------------------------------- Disable body scroll */
+
+
+/*html*/.has-offsidebar-overlay {
+    overflow: hidden;
+}
+
+
+/*  EOF offsidebar */

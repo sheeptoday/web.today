@@ -1,0 +1,3052 @@
+@charset "UTF-8";
+/*  Appart Styles
+ *  index file
+ *  2020.1.28
+ */
+/** Compilation shortcuts
+scss -C --sourcemap=none app/styles/appart.scss app/styles/appart-ready.css
+sass --no-source-map app/styles/appart.scss app/styles/appart-ready.css
+ */
+/** root css settings
+ *  2019.12.13
+ */
+:root,
+.root {
+  --line-height: 1.5;
+  /* Default spacing */
+  --row-space: 1.5rem;
+  /* Vertical */
+  --col-space: 1.5rem;
+  /* Horizontal */
+  --mid-space: 2.5rem;
+  /* Bigger 1 */
+  --big-space: 4rem;
+  /* Bigger 2 */
+  --all-space: var(--row-space) var(--col-space);
+  /* Combo Shortcode */
+}
+
+/*  EOF base css settings */
+/** All about css animation
+ *  easing functions, default keyframes, etc
+ *  2019.12.13
+ *
+ *  CSS
+ *
+ */
+/** -------------------------------- Easing */
+:root,
+.root {
+  --timing-function--focusZoom: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --timing-function--openJump: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  --timing-function--closeJump: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+  --timing-function--Welcome: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+}
+
+/** -------------------------------- Basic Animations */
+@keyframes SimpleRotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@keyframes SimpleDancer {
+  0% {
+    transform: rotate(13deg) scale(2);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-13deg) scale(2);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(13deg) scale(2);
+  }
+}
+.dance-like-happy {
+  animation: SimpleDancer 800ms linear infinite;
+  transform: rotate(0);
+  transform-origin: bottom center;
+}
+
+@keyframes ShakeLikeRefuse {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+.shake-like-refuse:hover {
+  animation: ShakeLikeRefuse 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/** Constructor
+             animation-name: my-animation;
+  animation-timing-function: cubic-bezier(0.4,0,0.2,1);
+         animation-duration: 1s;
+  animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-direction: normal;
+            animation-delay: 2s;
+       animation-play-state: initial;
+ */
+/** -------------------------------- animate.css */
+/*  Based on: animate.css, http://daneden.me/animate */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.pulse {
+  animation-name: pulse;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+/** -------------------------------- Snippets */
+@media screen and (prefers-reduced-motion: reduce) {
+  /* do less animations */
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  /* do animations */
+}
+/*  EOF Required animations */
+/** html-markup
+ *  2019.12.16
+ *
+ *  low level html markup
+ *  normalize
+ *
+ *  CSS
+ *
+ */
+/** -------------------------------- minimal box model */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/** full-height 2019
+    https://css-tricks.com/some-things-you-oughta-know-when-working-with-viewport-units/
+*/
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  min-height: -moz-available;
+  min-height: available;
+  min-height: -webkit-stretch;
+  min-height: -moz-stretch;
+  min-height: stretch;
+}
+
+/** -------------------------------- improve design & UX */
+html {
+  scroll-behavior: smooth;
+  cursor: default;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+/* Single taps are dispatched immediately on clickable elements */
+a, area, button, input, label, select, summary, textarea, [tabindex] {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+/** -------------------------------- semantic markup without design */
+figure, figcaption, fieldset, legend {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  white-space: normal;
+}
+
+main, article, section, aside, header, footer, nav {
+  display: block;
+}
+
+pre, code {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+p, blockquote {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+button {
+  padding: 0.25rem 1.5rem;
+  border: 0;
+  font: inherit;
+  --background-color: var(--back-color-accent, transparent);
+  background-color: var(--background-color);
+  --color: var(--text-color, inherit);
+  color: var(--color);
+}
+
+/** -------------------------------- images and media as illustrations */
+img, svg, canvas {
+  display: block;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+figure, figcaption {
+  display: block;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+iframe, embed, object {
+  display: block;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/** -------------------------------- default content */
+a {
+  color: inherit;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0;
+  margin-left: var(--col-space, 1.5rem);
+}
+
+hr {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  margin: 0;
+  /* used as empty space */
+  display: block;
+  font-size: inherit;
+  height: var(--mid-space, 2.5rem);
+}
+
+td, th {
+  text-align: left;
+  vertical-align: top;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  /* Table data default font settings: sans, 13/16 */
+  font-family: var(--font-family-interface, sans-serif);
+  --font-size: var(--dec-font-size, calc(13/16*1em));
+  font-size: var(--font-size);
+  --line-height: var(--dec-line-height, calc(16/13));
+  line-height: var(--line-height);
+}
+
+/** -------------------------------- markup workers */
+[hidden], .hidden {
+  display: none !important;
+}
+
+[markup], .markup {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+/*  EOF html wrap */
+/** typography
+ *  All about font and line-height
+ *  2019.12.13
+ *
+ *  CSS
+ *
+ */
+/** -------------------------------- system base */
+:root,
+.root {
+  --font-family: var(--font-family--tufte-serif);
+  --font-family-secondary: var(--font-family--tufte-sans);
+  --font-family-interface: var(--font-family--native-sans);
+  --font-weight: 400;
+  --line-height: 1.5;
+}
+
+body {
+  line-height: var(--line-height);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  /* font-size:   is unset by default */
+  /* store base values */
+  --base-font-size: 1rem;
+  --base-line-height: var(--line-height);
+  /* Decrease vertical padding on text paragraphs, to
+     make them visually equal with horizontal paddings.
+     Pixel-perfect value depends on font-family. */
+  --base-font-square-ratio: 0.25;
+}
+
+/** -------------------------------- Typeface collections */
+:root,
+.root {
+  /** Native font stack 2018 */
+  --font-family--native-sans:
+       -apple-system, /* Safari for macOS and iOS (San Francisco) */
+        system-ui, /* macOS Chrome, Windows Chrome */
+        BlinkMacSystemFont, /* Chrome < 56 for macOS (San Francisco) */
+       "Segoe UI", /* Windows */
+        Roboto, /* Android */
+        Oxygen, /* KDE */
+        Ubuntu, /* Ubuntu */
+        Cantarell, /* GNOME */
+       "Fira Sans", /* Firefox OS */
+       "Helvetica Neue", /* old macOS */
+        Arial, /* Basic web fallback */
+        sans-serif,
+       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /* Emoji */
+  /** Tufte 2018 */
+  /*
+      book-style design
+      @import url('https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700&subset=cyrillic');
+   */
+  --font-family--tufte-serif:
+        Vollkorn,
+        et-book,
+        Palatino,
+       "Palatino Linotype",
+       "Palatino LT STD",
+       "Book Antiqua",
+        Georgia,
+        serif,
+       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family--tufte-sans:
+       "Trebuchet MS",
+       "Gill Sans",
+       "Gill Sans MT",
+        sans-serif,
+       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/** Typeface atoms */
+.font-primary {
+  font-family: var(--font-family);
+}
+
+.font-secondary {
+  font-family: var(--font-family-secondary);
+}
+
+.native-sans {
+  font-family: var(--font-family--native-sans);
+}
+
+/** -------------------------------- paragraph component */
+/*
+    Readable text block has width limit,
+    approx ~ 42em in most typefaces, choise of design.
+
+    Minimal readable width for small paragraphs,
+    approx ~ 12em.
+
+    Additional mid-value for cards/descriptions.
+    approx ~ 24em, wide range.
+ */
+:root,
+.root {
+  --paragraph-width--max: 42em;
+  --paragraph-width--opt: 32em;
+  --paragraph-width--mid: 24em;
+  --paragraph-width--min: 12em;
+}
+
+@media all and (max-width: 12em) {
+  :root,
+.root {
+    --paragraph-width--min: 100%;
+  }
+}
+body {
+  --paragraph-width: var(--paragraph-width--opt);
+}
+
+.paragraph {
+  --max-width: var(--paragraph-width);
+  --min-width: var(--paragraph-width--min);
+  max-width: var(--max-width);
+  min-width: var(--min-width);
+}
+
+.maxi-paragraph {
+  --max-width: var(--paragraph-width--max);
+  --min-width: var(--paragraph-width--min);
+  max-width: var(--max-width);
+  min-width: var(--min-width);
+}
+
+.midi-paragraph {
+  --max-width: var(--paragraph-width--mid);
+  --min-width: var(--paragraph-width--min);
+  max-width: var(--max-width);
+  min-width: var(--min-width);
+}
+
+.mini-paragraph {
+  --max-width: var(--paragraph-width--min);
+  max-width: var(--max-width);
+}
+
+/** -------------------------------- font-size system LH 1.5 */
+:root,
+.root {
+  /* 64/80 */
+  --h1-font-size: 4rem;
+  --h1-line-height: 1.25;
+  /* 48/60 */
+  --h2-font-size: 3rem;
+  --h2-line-height: 1.25;
+  /* 36/48 */
+  --h3-font-size: 2.25rem;
+  --h3-line-height: calc(4/3);
+  /* 24/32 */
+  --h4-font-size: 1.5rem;
+  --h4-line-height: calc(4/3);
+  /* 20/24 */
+  --h5-font-size: 1.25rem;
+  --h5-line-height: 1.2;
+  /* 16/24 */
+  --h6-font-size: 1rem;
+  --h6-line-height: 1.5;
+  --p-font-size: 1rem;
+  --p-line-height: 1.5;
+  /* 20/24 */
+  --inc-font-size: 1.25em;
+  --inc-line-height: 1.2;
+  /* 16/24 */
+  --def-font-size: 1em;
+  --def-line-height: 1.5;
+  /* 13/16 */
+  --dec-font-size: calc(13/16*1em);
+  --dec-line-height: calc(16/13);
+  /* 12/16 */
+  --doz-font-size: 0.75em;
+  --doz-line-height: calc(4/3);
+}
+
+@media all and (max-width: 42em) {
+  :root,
+.root {
+    /* 36/40 */
+    --h1-font-size: 2.25rem;
+    --h1-line-height: calc(40/36);
+    /* 32/36 */
+    --h2-font-size: 2rem;
+    --h2-line-height: calc(36/32);
+    /* 28/32 */
+    --h3-font-size: 1.75rem;
+    --h3-line-height: calc(32/28);
+  }
+}
+.h1, h1 {
+  font-size: var(--h1-font-size);
+  line-height: var(--h1-line-height);
+}
+
+.h2, h2 {
+  font-size: var(--h2-font-size);
+  line-height: var(--h2-line-height);
+}
+
+.h3, h3 {
+  font-size: var(--h3-font-size);
+  line-height: var(--h3-line-height);
+}
+
+.h4, h4 {
+  font-size: var(--h4-font-size);
+  line-height: var(--h4-line-height);
+}
+
+.h5, h5 {
+  font-size: var(--inc-font-size);
+  line-height: var(--inc-line-height);
+}
+
+.h6, h6 {
+  font-size: var(--p-font-size);
+  line-height: var(--p-line-height);
+}
+
+/** Font-size atoms */
+.text-inline-bigger, big {
+  /* 20/24 */
+  --font-size: var(--inc-font-size, 1.25em);
+  --line-height: var(--inc-line-height, 1.2);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+.text-block-bigger, .big {
+  /* 20/32 */
+  --font-size: var(--inc-font-size, 1.25em);
+  --line-height: calc(32/20);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+.text-inline-smaller, small,
+.text-block-smaller,
+.chapter-note,
+.small {
+  /* 13/16 */
+  --font-size: var(--dec-font-size, calc(13/16*1em));
+  --line-height: var(--dec-line-height, calc(16/13));
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+/** Reset em-value in element */
+.em-reset {
+  font-size: var(--base-font-size, 1rem);
+  line-height: var(--base-line-height, 1.5);
+}
+
+/** -------------------------------- extra features */
+@supports (hanging-punctuation: first) {
+  * {
+    hanging-punctuation: first;
+  }
+}
+/** Font rendering */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/** Features Inspector: wakamaifondue.com */
+.font-feature-digital {
+  font-feature-settings: "lnum" on, "ss14" on, "ss17" on;
+}
+
+.sup-num {
+  font-size: inherit;
+  vertical-align: text-top;
+  font-feature-settings: "sups" on;
+}
+
+.sub-num {
+  font-size: inherit;
+  vertical-align: text-bottom;
+  font-feature-settings: "subs" on;
+}
+
+/*  EOF Typography */
+/** Hosted Fonts
+ *  2019.12.30
+ *
+ *  CSS
+ *  Default path: ../fonts/
+ */
+/** -------------------------------------------- Serif Texts  */
+@font-face {
+  font-family: "Vollkorn";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/Vollkorn-R.eot?#iefix") format("embedded-opentype"), url("../fonts/Vollkorn-R.woff2") format("woff2"), url("../fonts/Vollkorn-R.woff") format("woff"), url("../fonts/Vollkorn-R.ttf") format("truetype"), url("../fonts/Vollkorn-R.svg#Vollkorn-Regular") format("svg");
+}
+@font-face {
+  font-family: "Vollkorn";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/Vollkorn-B.eot?#iefix") format("embedded-opentype"), url("../fonts/Vollkorn-B.woff2") format("woff2"), url("../fonts/Vollkorn-B.woff") format("woff"), url("../fonts/Vollkorn-B.ttf") format("truetype"), url("../fonts/Vollkorn-B.svg#Vollkorn-Bold") format("svg");
+}
+@font-face {
+  font-family: "Vollkorn";
+  font-weight: normal;
+  font-style: italic;
+  src: url("../fonts/Vollkorn-I.eot?#iefix") format("embedded-opentype"), url("../fonts/Vollkorn-I.woff2") format("woff2"), url("../fonts/Vollkorn-I.woff") format("woff"), url("../fonts/Vollkorn-I.ttf") format("truetype"), url("../fonts/Vollkorn-I.svg#Vollkorn-Italic") format("svg");
+}
+/** -------------------------------------------- Mono Codeblock */
+@font-face {
+  font-family: "VT323";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/VT323-CODE.eot?#iefix") format("embedded-opentype"), url("../fonts/VT323-CODE.woff") format("woff"), url("../fonts/VT323-CODE.ttf") format("truetype"), url("../fonts/VT323-CODE.svg#VT323-Regular") format("svg");
+}
+/** -------------------------------------------- Fonts Hosted at Google */
+/*
+
+    <link rel="preconnect"   href="//fonts.gstatic.com" crossorigin>
+
+    <link
+        media="none" onload="if(media!='all')media='all'"
+        href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700&subset=cyrillic"
+        rel="stylesheet">
+    <link
+        media="none" onload="if(media!='all')media='all'"
+        href="https://fonts.googleapis.com/css?family=VT323"
+        rel="stylesheet">
+
+<noscript>
+    <link
+        media="all"
+        href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700&subset=cyrillic"
+        rel="stylesheet">
+    <link
+        media="all"
+        href="https://fonts.googleapis.com/css?family=VT323"
+        rel="stylesheet">
+</noscript>
+
+*/
+/*  EOF Hosted Fonts */
+/** Color Model 3x3+2
+ *  System based on nine color values and two shadows
+ *  zl, 2019.8.14
+ *
+ *  CSS
+ *
+ */
+/** -------------------------------- base */
+:root,
+.root,
+.color-model,
+.colors--root {
+  --back-color: white;
+  --back-color-accent: snow;
+  --back-color-descent: whitesmoke;
+  --text-color: black;
+  --text-color-accent: darkslategray;
+  --text-color-descent: lightslategray;
+  --link-color: firebrick;
+  --link-color-accent: darkred;
+  --link-color-descent: lightsteelblue;
+  --shadow-color: var(--shadow-color--for-light-base);
+  --light-shadow: var(--light-shadow--for-light-base);
+}
+
+:root,
+.root,
+.color-model {
+  --shadow-color--for-light-base: hsla( 0, 0%, 0%, 0.3 );
+  --light-shadow--for-light-base: hsla( 0, 0%, 0%, 0.05);
+  --shadow-color--for-dark-base: hsla( 0, 0%, 100%, 0.2 );
+  --light-shadow--for-dark-base: hsla( 0, 0%, 100%, 0.05);
+}
+
+/** -------------------------------- autorun */
+body {
+  background-color: var(--back-color);
+  color: var(--text-color);
+}
+
+/** -------------------------------- atom classes */
+.use-colors {
+  background-color: var(--back-color);
+  color: var(--text-color);
+}
+
+.text-color {
+  color: var(--text-color);
+}
+
+.text-color-accent {
+  color: var(--text-color-accent);
+}
+
+.text-color-descent {
+  color: var(--text-color-descent);
+}
+
+.back-color {
+  background-color: var(--back-color);
+}
+
+.back-color-accent, .color-box-accent {
+  background-color: var(--back-color-accent);
+}
+
+.back-color-descent, .color-box-descent {
+  background-color: var(--back-color-descent);
+}
+
+.link-color {
+  color: var(--link-color);
+}
+
+.link-color-accent {
+  color: var(--link-color-accent);
+}
+
+.link-color-descent {
+  color: var(--link-color-descent);
+}
+
+.back-color-transparent {
+  --back-color: transparent;
+  background-color: var(--back-color);
+}
+
+.back-color-hover:hover {
+  --back-color-hover: var(--back-color-accent);
+  background-color: var(--back-color-hover);
+}
+
+.text-color-hover:hover {
+  --text-color-hover: var(--text-color-accent);
+  color: var(--text-color-hover);
+}
+
+.link-color-hover:hover {
+  --link-color-hover: var(--link-color-accent);
+  color: var(--link-color-hover);
+}
+
+/** === ༼°▽°༽ === Color Model Presets
+ *
+ *  zl, 2019.8.14
+ *
+ */
+/** -------------------------------- skup palettes */
+/* noble-age 2020 */
+:root,
+.root,
+.color-model {
+  /* Noble Palette */
+  --c--NobleBlack: hsl(226, 15%, 12%);
+  --c--NobleWhite: hsl(226, 27%, 90%);
+  --c--NobleNight: hsl(226, 17%, 20%);
+  --c--NobleDay: hsl(226, 32%, 75%);
+  --c--NobleSky: hsl(204, 22%, 55%);
+  --c--NobleSea: hsl(212, 34%, 29%);
+  --c--NobleSunset: hsl(359, 28%, 82%);
+  --c--NobleAccent: hsl(359, 54%, 53%);
+  --c--NobleAction: hsl(359, 59%, 43%);
+  /* Ivory Palette */
+  --c--Ivory: hsl( 53, 66%, 80%);
+  --c--IvoryAccent: hsl( 53, 70%, 76%);
+  --c--IvoryDark: hsl(204, 4%, 22%);
+  --c--IvoryGray: hsl(204, 8%, 38%);
+}
+
+:root,
+.root,
+.color-model {
+  /* App Palette */
+  --c--AppBlue: hsl(202, 81%, 23%);
+  --c--AppGreen: hsl(155, 31%, 62%);
+  --c--AppGold: hsl( 42, 79%, 53%);
+  --c--AppRed: hsl( 15, 75%, 30%);
+  --c--AppBrown: hsl( 34, 20%, 33%);
+}
+
+/** -------------------------------- color themes */
+.colors--template {
+  --back-color: white;
+  --back-color-accent: var(--back-color);
+  --back-color-descent: var(--light-shadow);
+  --text-color: black;
+  --text-color-accent: var(--text-color);
+  --text-color-descent: var(--text-color);
+  --link-color: firebrick;
+  --link-color-accent: var(--link-color);
+  --link-color-descent: var(--link-color);
+  /* Dark Base*/
+  --shadow-color: var(--shadow-color--for-dark-base);
+  --light-shadow: var(--light-shadow--for-dark-base);
+  /* Light Base*/
+  --shadow-color: var(--shadow-color--for-light-base);
+  --light-shadow: var(--light-shadow--for-light-base);
+}
+
+.colors--primary,
+.colors--swed {
+  --back-color: var(--c--NobleBlack);
+  --back-color-accent: var(--c--NobleNight);
+  --back-color-descent: var(--light-shadow);
+  --text-color: var(--c--NobleWhite);
+  --text-color-accent: var(--c--NobleAccent);
+  --text-color-descent: var(--c--NobleDay);
+  --link-color: var(--c--NobleAccent);
+  --link-color-accent: var(--c--NobleAction);
+  --link-color-descent: var(--c--NobleAction);
+  --shadow-color: var(--shadow-color--for-dark-base);
+  --light-shadow: var(--light-shadow--for-dark-base);
+}
+
+.colors--secondary,
+.colors--swed-secondary {
+  --back-color: var(--c--NobleSea);
+  --back-color-accent: var(--light-shadow);
+  --back-color-descent: var(--light-shadow);
+  --text-color: var(--c--NobleWhite);
+  --text-color-accent: var(--c--NobleAccent);
+  --text-color-descent: var(--c--NobleDay);
+  --link-color: var(--c--NobleAccent);
+  --link-color-accent: var(--c--NobleAction);
+  --link-color-descent: var(--c--NobleAction);
+  --shadow-color: var(--shadow-color--for-light-base);
+  --light-shadow: var(--light-shadow--for-light-base);
+}
+
+.colors--swed-third {
+  --back-color: var(--c--NobleSky);
+  --back-color-accent: var(--light-shadow);
+  --back-color-descent: var(--light-shadow);
+  --text-color: var(--c--NobleBlack);
+  --text-color-accent: var(--c--NobleNight);
+  --text-color-descent: var(--c--NobleNight);
+  --link-color: var(--c--NobleWhite);
+  --link-color-accent: var(--c--NobleDay);
+  --link-color-descent: var(--c--NobleDay);
+  --shadow-color: var(--shadow-color--for-light-base);
+  --light-shadow: var(--light-shadow--for-light-base);
+}
+
+.colors--action {
+  --back-color: var(--c--NobleAccent);
+  --back-color-accent: var(--c--NobleAction);
+  --back-color-descent: var(--light-shadow);
+  --text-color: var(--c--NobleWhite);
+  --text-color-accent: var(--c--NobleSunset);
+  --text-color-descent: var(--c--NobleSunset);
+  --link-color: var(--c--NobleWhite);
+  --link-color-accent: var(--c--NobleSunset);
+  --link-color-descent: var(--c--NobleSunset);
+  --shadow-color: var(--shadow-color--for-light-base);
+  --light-shadow: var(--light-shadow--for-light-base);
+}
+
+.colors--ivory {
+  --back-color: var(--c--Ivory);
+  --back-color-accent: var(--c--IvoryAccent);
+  --back-color-descent: var(--light-shadow);
+  --text-color: var(--c--IvoryDark);
+  --text-color-accent: var(--c--NobleAction);
+  --text-color-descent: var(--c--IvoryGray);
+  --link-color: var(--c--NobleAccent);
+  --link-color-accent: var(--c--NobleAction);
+  --link-color-descent: var(--c--NobleAction);
+  --shadow-color: var(--shadow-color--for-light-base);
+  --light-shadow: var(--light-shadow--for-light-base);
+}
+
+/*  EOF color model */
+/** grid-queen
+ *  newspaper-looking site layout
+ *  2019.12.8, Kari
+ *
+ *  CSS
+ *
+ */
+/* -------------------------------- Grid Setup */
+.grid-queen, .grid-king {
+  /* vertical and horizontal space */
+  --sy: var(--row-space, 1.5rem);
+  --sx: var(--col-space, 1.5rem);
+  /* five columns */
+  --width-root: 1fr;
+  --width-menu: 14rem;
+  --width-main: 32rem;
+  --width-note: 14rem;
+  --width-roof: 1fr;
+  /* customization settings */
+  --grid-row-gap: var(--sy);
+  --align-items: start;
+  --justify-content: start;
+  --column-width-main: minmax(0, var(--width-main));
+}
+
+/* -------------------------------- Grid Definition */
+.grid-queen, .grid-king,
+.grid-queen *,
+.grid-king * {
+  --grid-template-columns:
+      var(--column-root--show) /* left space   */
+      var(--column-west--show) /* left column  */
+      var(--column-main--full) /* main column  */
+      var(--column-east--show) /* right column */
+      var(--column-roof--show);
+  /* right space  */
+}
+
+/* -------------------------------- Layout System */
+.grid-queen, .grid-king {
+  /* default full size layout */
+  --column-main--full: var(--grid-main-full);
+  --column-main--west: var(--grid-main-join-west);
+  --column-main--east: var(--grid-main-join-east);
+  --column-main--both: var(--grid-main-join-both);
+  --column-root--show: var(--grid-root-show);
+  --column-west--show: var(--grid-west-show);
+  --column-east--show: var(--grid-east-show);
+  --column-roof--show: var(--grid-roof-show);
+  --column-root--skip: var(--grid-root-skip);
+  --column-west--skip: var(--grid-west-skip);
+  --column-east--skip: var(--grid-east-skip);
+  --column-roof--skip: var(--grid-roof-skip);
+  --grid-is-default: 1;
+  --grid-is-reduced: 0;
+  --grid-is-compact: 0;
+  --grid-is-not-default: 0;
+  --grid-is-not-reduced: 1;
+  --grid-is-not-compact: 1;
+}
+
+@media (max-width: 60rem) {
+  .grid-queen, .grid-king {
+    /* reduced layout */
+    --column-main--full: var(--grid-main-join-west);
+    --column-main--east: var(--grid-main-join-both);
+    --column-root--show: var(--grid-root-skip);
+    --column-west--show: var(--grid-west-skip);
+    --column-roof--show: var(--grid-roof-skip);
+    --setWNWC: var(--grid-column--west-wide);
+    /*set-west-norm-wide-column*/
+    --setMNWC: var(--grid-column--menu-wide);
+    /*set-menu-norm-wide-column*/
+    --setMMWC: var(--grid-column--main-wide);
+    /*set-main-norm-wide-column*/
+    --setMTWC: var(--grid-column--text-wide);
+    /*set-text-norm-wide-column*/
+    --setWSWC: var(--grid-column--west-side-wide);
+    /*set-west-side-wide-column*/
+    --setWHWC: var(--grid-column--west-half-wide);
+    /*set-west-half-wide-column*/
+    --setESWC: var(--grid-column--east-side-wide);
+    /*set-east-side-wide-column*/
+    --setEHWC: var(--grid-column--east-half-wide);
+    /*set-east-half-wide-column*/
+    --column-width-main: 1fr;
+    --grid-is-default: 0;
+    --grid-is-reduced: 1;
+    --grid-is-compact: 0;
+    --grid-is-not-default: 1;
+    --grid-is-not-reduced: 0;
+    --grid-is-not-compact: 1;
+  }
+}
+@media (max-width: 42rem) {
+  .grid-queen, .grid-king {
+    /* compact layout */
+    --column-main--full: var(--grid-main-join-both);
+    --column-main--west: var(--grid-main-join-both);
+    --column-east--show: var(--grid-east-skip);
+    --grid-is-default: 0;
+    --grid-is-reduced: 0;
+    --grid-is-compact: 1;
+    --grid-is-not-default: 1;
+    --grid-is-not-reduced: 1;
+    --grid-is-not-compact: 0;
+  }
+}
+/* -------------------------------- CSS Structure */
+.grid-queen, .grid-king,
+.grid-queen *,
+.grid-king * {
+  /* Greed Seed */
+  grid-auto-flow: row;
+  grid-auto-rows: min-content;
+  grid-column-gap: 0;
+  grid-row-gap: var(--grid-row-gap);
+  align-items: var(--align-items);
+  justify-content: var(--justify-content);
+  grid-template-columns: var(--grid-template-columns);
+}
+
+.grid-queen, .grid-king {
+  display: grid;
+}
+
+.grid-queen *, .grid-king * {
+  grid-column: var(--grid-column--default, text);
+}
+
+.grid-queen, .grid-king {
+  grid-column: full;
+}
+
+/* -------------------------------- Grid Constructor */
+.grid-queen, .grid-king {
+  /* main column */
+  --grid-main-full:
+          [main-start] 0 var(--sx)
+              [text-start] 0 var(--column-width-main)
+              [text-end] 0 var(--sx)
+          [main-end] 0 ;
+  --grid-main-join-both:
+          [west-start] 0
+          [east-start] 0
+          [main-start] 0 var(--sx)
+              [menu-start] 0
+              [note-start] 0
+              [text-start] 0 var(--column-width-main)
+              [menu-end] 0
+              [note-end] 0
+              [text-end] 0 var(--sx)
+          [main-end] 0
+          [west-end] 0
+          [east-end] 0 ;
+  --grid-main-join-east:
+          [east-start] 0
+          [main-start] 0 var(--sx)
+              [note-start] 0
+              [text-start] 0 var(--column-width-main)
+              [note-end] 0
+              [text-end] 0 var(--sx)
+          [main-end] 0
+          [east-end] 0 ;
+  --grid-main-join-west:
+          [west-start] 0
+          [main-start] 0 var(--sx)
+              [menu-start] 0
+              [text-start] 0 var(--column-width-main)
+              [menu-end] 0
+              [text-end] 0 var(--sx)
+          [main-end] 0
+          [west-end] 0 ;
+  /* side columns */
+  --grid-west-show:
+          [west-start] 0 var(--sx)
+              [menu-start] 0 var(--width-menu)
+              [menu-end] 0 var(--sx)
+          [west-end] 0 ;
+  --grid-east-show:
+          [east-start] 0 var(--sx)
+              [note-start] 0 var(--width-note)
+              [note-end] 0 var(--sx)
+          [east-end] 0 ;
+  --grid-west-skip: 0;
+  --grid-east-skip: 0;
+  /* space columns */
+  --grid-root-skip:
+      [full-start] 0
+      [root-start] 0
+      [roof-start] 0 ;
+  --grid-roof-skip:
+      [root-end] 0
+      [roof-end] 0
+      [full-end] ;
+  --grid-root-show:
+      [full-start] 0
+      [root-start] 0 var(--width-root)
+      [root-end] 0 ;
+  --grid-roof-show:
+      [roof-start] 0 var(--width-roof)
+      [roof-end] 0
+      [full-end] ;
+}
+
+/* -------------------------------- Grid Templates */
+.grid-queen, .grid-king {
+  --grid--box:
+      [full-start] 0
+      [root-start] 0
+      [roof-start] 0
+          [west-start] 0
+          [east-start] 0
+          [main-start] 0 var(--sx)
+              [menu-start] 0
+              [note-start] 0
+              [text-start] 0 1fr
+              [menu-end] 0
+              [note-end] 0
+              [text-end] 0 var(--sx)
+          [main-end] 0
+          [west-end] 0
+          [east-end] 0
+      [root-end] 0
+      [roof-end] 0
+      [full-end] ;
+  --grid--block:
+      [full-start] 0
+      [root-start] 0
+      [roof-start] 0
+          [west-start] 0
+          [east-start] 0
+          [main-start] 0
+              [menu-start] 0
+              [note-start] 0
+              [text-start] 0 1fr
+              [menu-end] 0
+              [note-end] 0
+              [text-end] 0
+          [main-end] 0
+          [west-end] 0
+          [east-end] 0
+      [root-end] 0
+      [roof-end] 0
+      [full-end] ;
+  --grid--full:
+      [full-start] 0
+      [root-start] 0 var(--width-root)
+      [root-end] 0
+          [west-start] 0 var(--sx)
+              [menu-start] 0 var(--width-menu)
+              [menu-end] 0 var(--sx)
+          [west-end] 0
+          [main-start] 0 var(--sx)
+              [text-start] 0 var(--column-width-main)
+              [text-end] 0 var(--sx)
+          [main-end] 0
+          [east-start] 0 var(--sx)
+              [note-start] 0 var(--width-note)
+              [note-end] 0 var(--sx)
+          [east-end] 0
+      [roof-start] 0 var(--width-root)
+      [roof-end] 0
+      [full-end] ;
+}
+
+/* -------------------------------- Combined Columns Names */
+.grid-queen, .grid-king {
+  --grid-column--default: text;
+  --grid-column--west-wide: west-start / east-end;
+  --grid-column--menu-wide: menu-start / note-end;
+  --grid-column--main-wide: west-start / east-end;
+  --grid-column--text-wide: menu-start / note-end;
+  --grid-column--wrap: west-start / east-end;
+  --grid-column--wrap-west: west-start / main-end;
+  --grid-column--wrap-east: main-start / east-end;
+  --grid-column--wrap-text: menu-start / note-end;
+  --grid-column--wrap-text-west: menu-start / text-end;
+  --grid-column--wrap-text-east: text-start / note-end;
+  --grid-column--east-side: east-start / full-end;
+  --grid-column--west-side: full-start / west-end;
+  --grid-column--west-half: full-start / main-end;
+  --grid-column--east-half: main-start / full-end;
+  --grid-column--west-side-wide: full;
+  --grid-column--west-half-wide: full;
+  --grid-column--east-side-wide: full;
+  --grid-column--east-half-wide: full;
+}
+
+/* -------------------------------- / end of core */
+/* -------------------------------- Column Workers */
+/*   Atomic Cells     */
+.grid-column--full {
+  grid-column: full;
+}
+
+.grid-column--root {
+  grid-column: root;
+}
+
+.grid-column--west {
+  grid-column: west;
+}
+
+.grid-column--menu {
+  grid-column: menu;
+}
+
+.grid-column--main {
+  grid-column: main;
+}
+
+.grid-column--text {
+  grid-column: text;
+}
+
+.grid-column--east {
+  grid-column: east;
+}
+
+.grid-column--note {
+  grid-column: note;
+}
+
+.grid-column--roof {
+  grid-column: foof;
+}
+
+/*   Merge main cells     */
+.grid-column--wrap {
+  grid-column: var(--grid-column--wrap);
+}
+
+.grid-column--wrap-west {
+  grid-column: var(--grid-column--wrap-west);
+}
+
+.grid-column--wrap-east {
+  grid-column: var(--grid-column--wrap-east);
+}
+
+/*   Merge text-areas without paddings     */
+.grid-column--wrap-text {
+  grid-column: var(--grid-column--wrap-text);
+}
+
+.grid-column--wrap-text-west {
+  grid-column: var(--grid-column--wrap-text-west);
+}
+
+.grid-column--wrap-text-east {
+  grid-column: var(--grid-column--wrap-text-east);
+}
+
+/*   Merge aside with screen corner     */
+.grid-column--west-side {
+  grid-column: var(--grid-column--west-side);
+}
+
+.grid-column--east-side {
+  grid-column: var(--grid-column--east-side);
+}
+
+/*   Merge content with screen corner     */
+.grid-column--west-half {
+  grid-column: var(--grid-column--west-half);
+}
+
+.grid-column--east-half {
+  grid-column: var(--grid-column--east-half);
+}
+
+/* Responsive Columns - are full-width with reduced layout */
+.grid-column--west-rw {
+  grid-column: var(--setWNWC, west);
+}
+
+.grid-column--menu-rw {
+  grid-column: var(--setMNWC, menu);
+}
+
+.grid-column--main-rw {
+  grid-column: var(--setMMWC, main);
+}
+
+.grid-column--text-rw {
+  grid-column: var(--setMTWC, text);
+}
+
+.grid-column--west-side-rw {
+  grid-column: var(--setWSWC, var(--grid-column--west-side));
+}
+
+.grid-column--west-half-rw {
+  grid-column: var(--setWHWC, var(--grid-column--west-half));
+}
+
+.grid-column--east-side-rw {
+  grid-column: var(--setESWC, var(--grid-column--east-side));
+}
+
+.grid-column--east-half-rw {
+  grid-column: var(--setEHWC, var(--grid-column--east-half));
+}
+
+/* -------------------------------- Grid Modifications */
+.grid-queen.is-without-root, .is-without-root.grid-king {
+  --width-root: 0;
+}
+
+.grid-queen.is-without-roof, .is-without-roof.grid-king {
+  --width-roof: 0;
+}
+
+.grid-queen.is-without-room, .is-without-room.grid-king {
+  --width-root: 0;
+  --width-roof: 0;
+  --column-width-main: 1fr;
+}
+
+.grid-queen.is-without-west, .is-without-west.grid-king {
+  --grid-west-show: var(--grid-west-skip);
+  --grid-main-full: var(--grid-main-join-west);
+  --grid-main-join-east: var(--grid-main-join-both);
+}
+
+.grid-queen.is-without-east, .is-without-east.grid-king {
+  --grid-east-show: var(--grid-east-skip);
+  --grid-main-full: var(--grid-main-join-east);
+  --grid-main-join-west: var(--grid-main-join-both);
+}
+
+.grid-queen.is-without-side, .is-without-side.grid-king {
+  --grid-west-show: var(--grid-west-skip);
+  --grid-east-show: var(--grid-east-skip);
+  --grid-main-full: var(--grid-main-join-both);
+  --grid-main-join-east: var(--grid-main-join-both);
+  --grid-main-join-west: var(--grid-main-join-both);
+}
+
+/* -------------------------------- Component Snippets */
+/* operation cells */
+.inngrid-main,
+.inngrid-west,
+.inngrid-east,
+.inngrid-wrap,
+.inngrid-wrap-west,
+.inngrid-wrap-east,
+.chapter-header,
+.inngrid-west-side,
+.inngrid-east-side,
+.inngrid-west-half,
+.inngrid-east-half,
+.inngrid-main-rw,
+.inngrid-west-rw,
+.inngrid-east-rw,
+.inngrid-west-side-rw,
+.inngrid-west-half-rw,
+.inngrid-east-side-rw,
+.inngrid-east-half-rw,
+.inngrid-root,
+.inngrid-roof,
+.inngrid-full,
+.inngrid {
+  display: grid;
+  grid-column: var(--grid-column, main);
+  --grid-template-columns: var(--grid--box);
+}
+
+.inngrid-wrap-text,
+.inngrid-wrap-text-west,
+.inngrid-wrap-text-east,
+.inngrid-menu-rw,
+.inngrid-text-rw,
+.inngrid-menu,
+.inngrid-text,
+.inngrid-note,
+.chapter-note {
+  display: grid;
+  grid-column: var(--grid-column, main);
+  --grid-template-columns: var(--grid--block);
+}
+
+.inngrid-full {
+  --grid-column: full;
+}
+
+.inngrid-root {
+  --grid-column: root;
+}
+
+.inngrid-west {
+  --grid-column: west;
+}
+
+.inngrid-main {
+  --grid-column: main;
+}
+
+.inngrid-east {
+  --grid-column: east;
+}
+
+.inngrid-roof {
+  --grid-column: roof;
+}
+
+.inngrid {
+  --grid-column: main;
+}
+
+.inngrid-menu {
+  --grid-column: menu;
+}
+
+.inngrid-text {
+  --grid-column: text;
+}
+
+.inngrid-note, .chapter-note {
+  --grid-column: note;
+}
+
+.inngrid-wrap {
+  --grid-column: var(--grid-column--wrap);
+}
+
+.inngrid-wrap-west {
+  --grid-column: var(--grid-column--wrap-west);
+}
+
+.inngrid-wrap-east, .chapter-header {
+  --grid-column: var(--grid-column--wrap-east);
+}
+
+.inngrid-wrap-text {
+  --grid-column: var(--grid-column--wrap-text);
+}
+
+.inngrid-wrap-text-west {
+  --grid-column: var(--grid-column--wrap-text-west);
+}
+
+.inngrid-wrap-text-east {
+  --grid-column: var(--grid-column--wrap-text-east);
+}
+
+.inngrid-west-side {
+  --grid-column: var(--grid-column--west-side);
+}
+
+.inngrid-east-side {
+  --grid-column: var(--grid-column--east-side);
+}
+
+.inngrid-west-half {
+  --grid-column: var(--grid-column--west-half);
+}
+
+.inngrid-east-half {
+  --grid-column: var(--grid-column--east-half);
+}
+
+.inngrid-west-rw {
+  --grid-column: var(--setWNWC, west);
+}
+
+.inngrid-menu-rw {
+  --grid-column: var(--setMNWC, menu);
+}
+
+.inngrid-main-rw {
+  --grid-column: var(--setMMWC, main);
+}
+
+.inngrid-text-rw {
+  --grid-column: var(--setMTWC, text);
+}
+
+.inngrid-west-side-rw {
+  --grid-column: var(--setWSWC, var(--grid-column--west-side));
+}
+
+.inngrid-west-half-rw {
+  --grid-column: var(--setWHWC, var(--grid-column--west-half));
+}
+
+.inngrid-east-side-rw {
+  --grid-column: var(--setESWC, var(--grid-column--east-side));
+}
+
+.inngrid-east-half-rw {
+  --grid-column: var(--setEHWC, var(--grid-column--east-half));
+}
+
+/* subgrid workers */
+.join-layers {
+  --grid-row-gap: 0;
+}
+
+.gap-layers {
+  --grid-row-gap: var(--sy);
+}
+
+.first-grid-row {
+  grid-row: 1;
+}
+
+.subgrid {
+  display: grid;
+}
+
+.sublayer {
+  display: grid;
+  grid-column: full;
+}
+
+.subgrid-container {
+  display: grid;
+  --grid-template-columns: var(--grid--box);
+}
+
+.subgrid-content {
+  display: grid;
+  --grid-template-columns: var(--grid--block);
+}
+
+/* subgrids for merged columns */
+.subgrid-wrap {
+  display: grid;
+  grid-column: var(--grid-column--wrap);
+  --grid-template-columns:
+        var(--column-root--skip)
+        var(--column-west--show)
+        var(--column-main--full)
+        var(--column-east--show)
+        var(--column-roof--skip);
+}
+
+.subgrid-wrap-east {
+  display: grid;
+  grid-column: var(--grid-column--wrap-east);
+  --grid-template-columns:
+        var(--column-root--skip)
+        var(--column-west--skip)
+        var(--column-main--west)
+        var(--column-east--show)
+        var(--column-roof--skip);
+}
+
+.subgrid-wrap-west {
+  display: grid;
+  grid-column: var(--grid-column--wrap-west);
+  --grid-template-columns:
+        var(--column-root--skip)
+        var(--column-west--show)
+        var(--column-main--east)
+        var(--column-east--skip)
+        var(--column-roof--skip);
+}
+
+.subgrid-west-side {
+  display: grid;
+  grid-column: var(--grid-column--west-side);
+  --column-width-main: var(--width-menu);
+  --grid-template-columns:
+        var(--column-root--show)
+        var(--column-west--skip)
+        var(--column-main--both)
+        var(--column-east--skip)
+        var(--column-roof--skip);
+}
+
+.subgrid-east-side {
+  display: grid;
+  grid-column: var(--grid-column--east-side);
+  --column-width-main: var(--width-note);
+  --grid-template-columns:
+        var(--column-root--skip)
+        var(--column-west--skip)
+        var(--column-main--both)
+        var(--column-east--skip)
+        var(--column-roof--show);
+}
+
+.subgrid-west-half {
+  display: grid;
+  grid-column: var(--grid-column--west-half);
+  --grid-template-columns:
+        var(--column-root--show)
+        var(--column-west--show)
+        var(--column-main--east)
+        var(--column-east--skip)
+        var(--column-roof--skip);
+}
+
+.subgrid-east-half {
+  display: grid;
+  grid-column: var(--grid-column--east-half);
+  --grid-template-columns:
+        var(--column-root--skip)
+        var(--column-west--skip)
+        var(--column-main--west)
+        var(--column-east--show)
+        var(--column-roof--show);
+}
+
+/* -------------------------------- Deprecated */
+.subgrid-main {
+  display: grid;
+  grid-column: main;
+  --grid-template-columns: var(--grid--box);
+}
+
+.subgrid-west {
+  display: grid;
+  grid-column: west;
+  --grid-template-columns: var(--grid--box);
+}
+
+.subgrid-east {
+  display: grid;
+  grid-column: east;
+  --grid-template-columns: var(--grid--box);
+}
+
+/** EOF greed-queen */
+/** === ༼°▽°༽ === Offsidebar  */
+/*
+*
+*  Expandable side-panel
+*  Prevents content jumps when appears
+*  zl, 2019.12.18 "Contactia"
+*
+*  PURE CSS
+*
+*/
+/** -------------------------------- offsidebar settings */
+.offsidebar {
+  /* space units */
+  --sx: var(--col-space, 1.5rem);
+  --sy: var(--row-space, 1.5rem);
+  /* color units */
+  --back-color--sidepanel: var(--back-color, white);
+  --text-color--sidepanel: var(--text-color, black);
+  --back-color--overlay: hsla(0, 0%, 0%, 0.9);
+  /* remaining (outside sidebar) space min width  */
+  --empty-space-offset: 3rem;
+  /* open animation timing  */
+  --transition-duration--slidein: 160ms;
+  --transition-duration--content: 120ms;
+  --transition-duration--overlay: 160ms;
+  /* base properties */
+  --z-index--sidebar: 100;
+  --direction: ltr;
+}
+
+/** -------------------------------- two sides difference */
+/* Eastside → default */
+.offsidebar {
+  /* bar position */
+  --left: var(--state-width, auto);
+  --right: 0;
+  --transform-origin--horizontal: right;
+  /* scrollbar position */
+  --scroll-overflow-behavoir: scroll;
+  --scroll-direction: ltr;
+  /* close-icon position */
+  --right--close-icon: 100%;
+}
+
+/* Westside ← */
+.offsidebar.from-westside {
+  /* bar position */
+  --left: 0;
+  --right: var(--state-width, auto);
+  --transform-origin--horizontal: left;
+  /* scrollbar position */
+  --scroll-overflow-behavoir: auto;
+  --scroll-direction: rtl;
+  /* close-icon position */
+  --right--close-icon: calc( -1*var(--empty-space-offset) );
+}
+
+/** -------------------------------- closed/active states */
+.offsidebar {
+  --state-event: none;
+  --state-value: 0;
+  --state-width: 0;
+}
+
+.offsidebar.is-active {
+  --state-event: all;
+  --state-value: 1;
+  --state-width: auto;
+}
+
+/** -------------------------------- layout & behavior */
+.offsidebar {
+  position: fixed;
+  z-index: var(--z-index--sidebar);
+  top: 0;
+  bottom: 0;
+  right: var(--right);
+  left: var(--left);
+  max-width: calc( 100% - var(--empty-space-offset) );
+  color: var(--text-color--sidepanel);
+  pointer-events: var(--state-event);
+}
+
+.offsidebar-background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--back-color--sidepanel);
+}
+
+.offsidebar-overlay {
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--back-color--overlay);
+  opacity: var(--state-value);
+}
+
+.offsidebar-container {
+  opacity: var(--state-value);
+}
+
+/** -------------------------------- close icon */
+.offsidebar-background::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: var(--right--close-icon);
+  width: var(--empty-space-offset);
+  height: var(--empty-space-offset);
+  /* click will be delegated to overlay div */
+  pointer-events: none;
+  /* SVG: x-close — white */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/** -------------------------------- content wrap */
+.offsidebar-container {
+  max-width: 100%;
+  height: 100%;
+  overflow-x: visible;
+  overflow-y: scroll;
+}
+
+/* scrollbar position */
+.offsidebar-container {
+  overflow-y: var(--scroll-overflow-behavoir, scroll);
+  direction: var(--scroll-direction);
+}
+
+.offsidebar-header,
+.offsidebar-footer,
+.offsidebar-content {
+  direction: var(--direction);
+}
+
+/* Sticky header/footer */
+.offsidebar-container {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: stretch;
+}
+
+.offsidebar-header {
+  margin-top: 0;
+  margin-bottom: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.offsidebar-footer {
+  margin-top: auto;
+  margin-bottom: 0;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+}
+
+/** -------------------------------- Animation */
+/* Animate overlay
+   Default: opacity fade in */
+.offsidebar-overlay {
+  transition-property: opacity;
+  transition-duration: var(--transition-duration--overlay);
+  transition-timing-function: var(--timing-function--focusZoom);
+}
+
+/* Animate background */
+.offsidebar-background {
+  transform: scaleX(var(--state-value));
+  transform-origin: var(--transform-origin--horizontal) center;
+  will-change: transform;
+}
+
+.offsidebar.is-active .offsidebar-background {
+  transition-property: transform;
+  transition-duration: var(--transition-duration--slidein);
+  transition-timing-function: var(--timing-function--focusZoom, ease-out);
+}
+
+/* Animate close-icon */
+.offsidebar-background::before {
+  opacity: var(--state-value);
+  transform: scale(var(--state-value));
+  will-change: transform;
+}
+
+.offsidebar.is-active .offsidebar-background::before {
+  transition-property: opacity, transform;
+  transition-duration: var(--transition-duration--content);
+  transition-delay: var(--transition-duration--slidein);
+  transition-timing-function: ease-in;
+}
+
+/* Animate content */
+.offsidebar-content {
+  --dy: 0.5rem;
+  --translate-y: calc( var(--dy)*var(--state-value) - var(--dy) );
+  transform: translateY(var(--translate-y));
+  will-change: transform;
+  opacity: var(--state-value);
+}
+
+.offsidebar.is-active .offsidebar-content {
+  transition-property: opacity, transform;
+  transition-duration: var(--transition-duration--content);
+  transition-delay: var(--transition-duration--slidein);
+  transition-timing-function: ease-in;
+}
+
+/* Animate header */
+.offsidebar-header {
+  opacity: var(--state-value);
+  transform: scaleY(var(--state-value));
+  transform-origin: top center;
+  will-change: transform;
+}
+
+.offsidebar.is-active .offsidebar-header {
+  transition-property: opacity, transform;
+  transition-duration: var(--transition-duration--slidein);
+  transition-delay: var(--transition-duration--slidein);
+  transition-timing-function: var(--timing-function--openJump, ease-out);
+}
+
+/* Animate footer */
+.offsidebar-footer {
+  opacity: var(--state-value);
+}
+
+.offsidebar.is-active .offsidebar-footer {
+  transition-property: opacity;
+  transition-duration: var(--transition-duration--slidein);
+  transition-delay: var(--transition-duration--slidein);
+  transition-timing-function: ease-in;
+}
+
+/** -------------------------------- Design workers */
+.offsidebar .bar-header {
+  padding: 0.25em var(--sx);
+}
+
+.offsidebar .bar-footer {
+  padding: 0.25em var(--sx);
+}
+
+.offsidebar .bar-content {
+  padding: var(--sy) var(--sx);
+}
+
+.offsidebar .bar-header,
+.offsidebar .bar-footer {
+  /* inverted colors for header & footer */
+  background-color: var(--text-color--sidepanel);
+  color: var(--back-color--sidepanel);
+}
+
+.offsidebar .bar-header {
+  /* visual harmony with closing icon */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: stretch;
+  align-items: stretch;
+  min-height: var(--empty-space-offset);
+}
+
+/** -------------------------------- Disable body scroll */
+/*html*/
+.has-offsidebar-overlay {
+  overflow: hidden;
+}
+
+/*  EOF offsidebar */
+/** myocard
+ *  responsive solution for cards with 2 childs
+ *  2019.12.15
+ *
+ *  CSS
+ *
+ */
+/*
+    <article class="myocard">
+        <div>
+            <div>
+                <p>...</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>...</p>
+            </div>
+        </div>
+    </article>
+
+    CSS Classnames
+
+    myocards-wrapper
+        myocard align-top
+        myocard is-banner
+        myocard is-layout
+        myocard wrap-order-reverse
+*/
+/* -------------------------------- Settings */
+.myocard {
+  --sx: var(--col-space ,1.5rem );
+  /* horizontal space unit */
+  --sy: var(--row-space ,1.5rem );
+  /* vertical space unit */
+  /* Private */
+  --card-padding: calc( 0.5*var(--sy) ) 0;
+  --item-padding: calc( 0.5*var(--sy) ) var(--sx);
+  --item-max-width: 28rem;
+  /* Public options
+  
+    --card-max-width:      100%;
+  
+    --card-wrap-order:     wrap-reverse;
+    --card-wrap-order:     wrap;
+  
+    --card-centering:      0;
+    --card-centering:      auto;
+  
+    --item-vertical-align: center;
+    --item-vertical-align: flex-end;
+    --item-vertical-align: flex-start;
+  
+      */
+}
+
+/* -------------------------------- Layout */
+.myocard {
+  --width: 100%;
+  width: var(--width);
+  --max-width-xx: calc( 2*var(--item-max-width) + var(--sx) );
+  --max-width: var(--card-max-width, var(--max-width-xx) );
+  max-width: var(--max-width);
+  --margin-left: var(--card-centering, auto );
+  margin-left: var(--margin-left);
+  --margin-right: var(--card-centering, auto );
+  margin-right: var(--margin-right);
+}
+
+/* Flex Half-Grow Technique */
+.myocard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: var(--card-wrap-order, wrap);
+}
+
+.myocard > * {
+  flex-grow: 0.5;
+}
+
+.myocard > *:nth-child(odd) {
+  margin-left: auto;
+}
+
+.myocard > *:nth-child(even) {
+  text-align: right;
+}
+
+/* Paddings Around Card and Items */
+.myocard {
+  --padding: var(--card-padding ,0 );
+  padding: var(--padding);
+}
+
+.myocard > * > * {
+  --padding: var(--item-padding ,0 );
+}
+
+.myocard > * > * {
+  padding: var(--padding);
+}
+
+/* Inserted Child */
+.myocard > .myocard {
+  padding: 0;
+  width: auto;
+}
+
+.myocard > .myocard > * {
+  padding: 0;
+}
+
+/* Item Box Model */
+.myocard > * {
+  --max-width: var(--item-max-width ,100% );
+}
+
+.myocard > * > * {
+  max-width: var(--max-width);
+}
+
+.myocard > *:nth-child(even) > * {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* Vertical Align */
+.myocard {
+  --align-items: var(--item-vertical-align, center );
+  align-items: var(--align-items);
+}
+
+/* -------------------------------- Addons */
+.myocards-wrapper.align-top,
+.myocard.align-top {
+  --item-vertical-align: flex-start;
+}
+
+.myocards-wrapper.is-banner,
+.myocard.is-banner {
+  --item-max-width: 40rem;
+  --card-max-width: 57.5rem;
+}
+
+.myocards-wrapper.is-layout,
+.myocard.is-layout {
+  --card-padding: calc( 0.5*var(--sy) ) calc( 0.5*var(--sx) );
+  --item-padding: calc( 0.5*var(--sy) ) calc( 0.5*var(--sx) );
+  --item-max-width: 42rem;
+  --card-max-width: 100%;
+  --card-centering: 0;
+  --item-vertical-align: flex-start;
+}
+
+.myocards-wrapper.wrap-order-reverse,
+.myocard.wrap-order-reverse {
+  /* second child goes first,
+     when wrapping */
+  --card-wrap-order: wrap-reverse;
+  --align-items: var(--item-vertical-align ,flex-end );
+}
+
+/** EOF Myocards */
+/** contact form design
+ *  2019.12.19
+ *
+ *  CSS
+ *
+ */
+/* -------------------------------- Define Layout */
+.form-design {
+  --max-width: 24rem;
+  --sx: 1.5rem;
+  /* x-space unit */
+  --sy: 1rem;
+  /* y-space unit */
+  --form-field-paddings: 0.25rem 0.5rem;
+}
+
+/* -------------------------------- Define Colors */
+.form-design {
+  /* Form */
+  /* Preffered Theme:    Ivory
+  
+    --back-color:         hsl(  53, 66%, 80% );
+    --back-color-accent:  hsl(  53, 70%, 76% );
+    --back-color-descent: var(--light-shadow);
+  
+    --text-color:         hsl( 204,  4%, 22% );
+    --text-color-accent:  hsl( 359, 59%, 43% );
+    --text-color-descent: hsl( 204,  4%, 42% );
+  
+    --link-color:         hsl( 359, 54%, 53% );
+    --link-color-accent:  hsl( 359, 59%, 43% );
+    --link-color-descent: var(--link-color);
+  
+    --shadow-color: var(--shadow-color--for-light-base);
+    --light-shadow: var(--light-shadow--for-light-base);
+  
+   */
+  /* Fields */
+  --field-back-color: white;
+  --field-back-color-accent: white;
+  --field-back-color-descent: lightslategray;
+  --field-text-color: black;
+  --field-text-color-accent: black;
+  --field-text-color-descent: darkslategray;
+  --focus-mark-color: lightsteelblue;
+  /* Button */
+  --submit-back-color: firebrick;
+  --submit-back-color-accent: darkred;
+  --submit-back-color-descent: lightslategray;
+  --submit-text-color: white;
+  --submit-text-color-accent: white;
+  --submit-text-color-descent: darkslategray;
+}
+
+.form-design.theme--white {
+  --field-back-color: gainsboro;
+  --field-back-color-accent: gainsboro;
+  --field-back-color-descent: lightslategray;
+}
+
+/* -------------------------------- Color System */
+.form-design input:not([type=submit]):not([type=reset]):not([type=button]),
+.form-design select,
+.form-design textarea {
+  --back-color: var(--field-back-color);
+  --back-color-accent: var(--field-back-color-accent);
+  --back-color-descent: var(--field-back-color-descent);
+  --text-color: var(--field-text-color);
+  --text-color-accent: var(--field-text-color-accent);
+  --text-color-descent: var(--field-text-color-descent);
+  --mark-color: var(--focus-mark-color);
+}
+
+.form-design .form-design-button {
+  --back-color: var(--submit-back-color);
+  --back-color-accent: var(--submit-back-color-accent);
+  --back-color-descent: var(--submit-back-color-descent);
+  --text-color: var(--submit-text-color);
+  --text-color-accent: var(--submit-text-color-accent);
+  --text-color-descent: var(--submit-text-color-descent);
+  --mark-color: var(--focus-mark-color);
+}
+
+/* -------------------------------- HTML Form Elements */
+.form-design label {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+/* content fields only */
+.form-design textarea,
+.form-design select,
+.form-design input:not([type=submit]):not([type=reset]):not([type=button]) {
+  display: block;
+  width: 100%;
+  padding: var(--form-field-paddings);
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: var(--line-height);
+  box-shadow: none;
+  border: 0;
+  --border-radius: 0;
+  border-radius: var(--border-radius);
+  --background-color: var(--back-color);
+  --color: var(--text-color);
+  background-color: var(--background-color);
+  color: var(--color);
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  resize: vertical;
+}
+
+/* custom select */
+.form-design select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-position: calc(100% - 0.5rem) center;
+  background-repeat: no-repeat;
+  background-size: 0.75rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="black"><polygon points="0,25 100,25 50,75"/></svg>');
+}
+
+/* focus decoration */
+.form-design textarea,
+.form-design select,
+.form-design input {
+  transition: outline 0.24s var(--timing-function--openJump);
+  outline: 0 solid var(--mark-color);
+}
+
+.form-design textarea:focus,
+.form-design select:focus,
+.form-design input:focus {
+  --background-color: var(--back-color-accent);
+  --color: var(--text-color-accent);
+  outline: 0.25rem solid var(--mark-color);
+  border-radius: 0;
+}
+
+/* -------------------------------- Form Layout */
+.wrap-form {
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+.wrap-form-fields {
+  padding: var(--sy) var(--sx);
+  /* vertical grid */
+  display: grid;
+  grid-template-columns: auto;
+  grid-row-gap: var(--sy);
+  grid-column-gap: 0;
+}
+
+.wrap-field {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap-form-feedback {
+  padding: var(--sy) var(--sx);
+  width: 100vh;
+  max-width: var(--max-width);
+}
+
+/* -------------------------------- States */
+.form-design .wrap-form-feedback {
+  display: none;
+}
+
+.form-design.has-state-response .wrap-form-fields {
+  display: none;
+}
+
+.form-design.has-state-response .wrap-form-feedback {
+  display: block;
+}
+
+/* -------------------------------- Components */
+/* label */
+.field-label {
+  display: inline-block;
+}
+
+.field-label i {
+  opacity: 0.64;
+}
+
+/* label focus */
+.wrap-field .field-label {
+  transform-origin: left bottom;
+  transition: transform 0.24s;
+  transition-timing-function: var(--timing-function--focusZoom);
+}
+
+.wrap-field:focus-within .field-label {
+  color: var(--text-color-accent);
+  transform: translateY(-0.25rem);
+}
+
+/* submit area */
+.wrap-submit {
+  --vertical-margin: calc( var(--sx) - var(--sy) );
+  margin-top: var(--vertical-margin);
+  margin-bottom: var(--vertical-margin);
+}
+
+/* default submit button */
+.form-design .form-design-button {
+  display: inline-block;
+  width: auto;
+  padding: 0.5em 1.5em;
+  border: 0;
+  --border-radius: 4px;
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  resize: vertical;
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: var(--line-height);
+  --background-color: var(--back-color);
+  --color: var(--text-color);
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
+.form-design .form-design-button:hover,
+.form-design .form-design-button:focus {
+  --background-color: var(--back-color-accent);
+  --color: var(--text-color-accent);
+}
+
+/* -------------------------------- Status Components */
+/* invalid field marker */
+.form-design textarea.is-not-valid,
+.form-design input.is-not-valid {
+  padding-right: 2rem;
+  background-size: 2rem;
+  background-position: right top;
+  background-repeat: no-repeat;
+  /* invalid for SCSS
+     background-image:    var(--invalid-marker); */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="lightsalmon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="-4 -4 32 32"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>');
+}
+
+/* invalid field tip */
+.not-valid-tip {
+  display: block;
+  padding: 0.25rem;
+  color: var(--text-color);
+  background-color: var(--back-color-accent);
+}
+
+.not-valid-tip::before {
+  content: "▴";
+  color: var(--link-color);
+  display: inline-block;
+  vertical-align: baseline;
+  padding-right: 0.25rem;
+}
+
+/* form loader */
+.form-loader {
+  visibility: hidden;
+  background-image: none;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.form-loader::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.85;
+  --background-color: transparent;
+  background-color: var(--background-color);
+}
+
+.form-loader.is-active {
+  visibility: visible;
+  pointer-events: all;
+}
+
+.form-loader.is-active::before {
+  background-color: var(--back-color);
+}
+
+.form-loader.is-active::after {
+  --size: 6rem;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: calc( 50% - 0.5*var(--size) );
+  right: calc( 50% - 0.5*var(--size) );
+  width: var(--size);
+  height: var(--size);
+  background-size: var(--size);
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* SVG: arrows circle loading */
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>');
+  animation: FormLoaderRotation 1s linear infinite;
+}
+
+@keyframes FormLoaderRotation {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(1deg);
+  }
+}
+/* -------------------------------- WPCF7 Integration */
+.form-design .wpcf7 {
+  /* @extend .wrap-form; */
+  max-width: var(--max-width);
+}
+
+.form-design .wpcf7-response-output {
+  padding: var(--sy) var(--sx);
+  margin: 0;
+  border: 0;
+  background-color: var(--back-color-accent);
+  color: var(--text-color-accent);
+}
+
+.form-design .wrap-validation-response .wpcf7-response-output {
+  margin: 0 calc( -1 * var(--sx) );
+}
+
+/* invalid tips */
+.form-design textarea.wpcf7-not-valid,
+.form-design input.wpcf7-not-valid {
+  /* @extend .form-design input.is-not-valid; */
+  padding-right: 32px;
+  background-size: 32px;
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-image: var(--invalid-marker);
+  /* invalid for SCSS
+     background-image:    var(--invalid-marker); */
+  /* SVG: i-info circle */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="lightsalmon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="-4 -4 32 32"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>');
+}
+
+.form-design .wpcf7-not-valid-tip {
+  /* @extend .not-valid-tip; */
+  display: block;
+  padding: 0.25rem;
+  color: var(--text-color);
+  background-color: var(--back-color-accent);
+}
+
+.form-design .wpcf7-not-valid-tip::before {
+  /* @extend .not-valid-tip::before; */
+  content: "▴";
+  color: var(--link-color);
+  display: inline-block;
+  vertical-align: baseline;
+  padding-right: 0.25rem;
+}
+
+/* ajax loader */
+.form-design .wpcf7 .ajax-loader {
+  background-image: none;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.form-design .wpcf7 .ajax-loader::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.85;
+  --background-color: transparent;
+  background-color: var(--background-color);
+}
+
+.form-design .wpcf7 .ajax-loader.is-active {
+  visibility: visible;
+  pointer-events: all;
+}
+
+.form-design .wpcf7 .ajax-loader.is-active::before {
+  background-color: var(--back-color);
+}
+
+.form-design .wpcf7 .ajax-loader.is-active::after {
+  --size: 6rem;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: calc( 50% - 0.5*var(--size) );
+  right: calc( 50% - 0.5*var(--size) );
+  width: var(--size);
+  height: var(--size);
+  background-size: var(--size);
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* SVG: arrows circle loading */
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>');
+  animation: FormLoaderRotation 1s linear infinite;
+}
+
+/* phone field */
+.form-design .intl-tel-input.allow-dropdown input.form-control {
+  padding-left: 52px;
+}
+
+.form-design .intl-tel-input .country-list {
+  max-width: calc( var(--max-width) - 1.75*var(--sx) );
+  overflow-x: hidden;
+}
+
+/* -------------------------------- Offsidebar Integration */
+.form-design.offsidebar-content {
+  position: relative;
+  padding: 0;
+  flex-grow: 2;
+}
+
+.offsidebar:not(.is-active) .form-loader.is-active {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.offsidebar:not(.is-active) .form-design .wpcf7 .ajax-loader.is-active {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* -------------------------------- Required System Vars */
+html:not(.root) {
+  --line-height: 1.5;
+  --timing-function--focusZoom: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --timing-function--openJump: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  --shadow-color--for-light-base: hsla( 0, 0%, 0%, 0.3 );
+  --light-shadow--for-light-base: hsla( 0, 0%, 0%, 0.05);
+}
+
+/** EOF contact form */
+/** === ༼°▽°༽ ===
+ *   CSS Varriors
+ *
+ *  add safely custom value
+ *  «Var never changes»
+ *  zl, 2019.12.13
+ *  update: 2020.1.2
+ *
+ */
+.width {
+  width: var(--width, auto);
+}
+
+.max-width {
+  max-width: var(--max-width, 100%);
+}
+
+.min-width {
+  min-width: var(--min-width, 0);
+}
+
+.height {
+  height: var(--height, auto);
+}
+
+.max-height {
+  max-height: var(--max-height, 100%);
+}
+
+.min-height {
+  min-height: var(--min-height, 0);
+}
+
+.padding {
+  padding: var(--padding, var(--row-space, 1rem) var(--col-space, 1rem));
+}
+
+.padding-top {
+  padding-top: var(--padding-top, var(--row-space, 1rem));
+}
+
+.padding-bottom {
+  padding-bottom: var(--padding-bottom, var(--row-space, 1rem));
+}
+
+.padding-left {
+  padding-left: var(--padding-left, var(--col-space, 1rem));
+}
+
+.padding-right {
+  padding-right: var(--padding-right, var(--col-space, 1rem));
+}
+
+.margin {
+  margin: var(--margin, var(--row-space, 1rem) var(--col-space, 1rem));
+}
+
+.margin-top {
+  margin-top: var(--margin-top, var(--row-space, 1rem));
+}
+
+.margin-bottom {
+  margin-bottom: var(--margin-bottom, var(--row-space, 1rem));
+}
+
+.margin-left {
+  margin-left: var(--margin-left, var(--col-space, 1rem));
+}
+
+.margin-right {
+  margin-right: var(--margin-right, var(--col-space, 1rem));
+}
+
+.align-self {
+  align-self: var(--align-self, center);
+}
+
+.justify-self {
+  justify-self: var(--justify-self, center);
+}
+
+.text-align {
+  text-align: var(--text-align, center);
+}
+
+.font-size {
+  font-size: var(--font-size, 1rem);
+}
+
+.line-height {
+  line-height: var(--line-height, var(--line-height, 1.5));
+}
+
+.opacity {
+  opacity: var(--opacity, 0);
+}
+
+.color {
+  color: var(--color, inherit);
+}
+
+.background-color {
+  background-color: var(--background-color, transparent);
+}
+
+/*  EOF CSS Varriors */
+/** Universal helpers
+ *  2019.8.22
+ *
+ *  CSS
+ *
+ */
+/** -------------------------------- elements */
+.text-link {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.is-icon {
+  --l: var(--line-height, 1.5);
+  --u: 1em;
+  --w: calc( var(--u) * var(--l) );
+  --h: calc( var(--width) * var(--ratio) );
+  --s: calc( var(--width) * ( var(--zoom) - 1 ) * 0.5 );
+  /** API */
+  --width: var(--w);
+  --height: var(--h);
+  --space: var(--s);
+  --ratio: 1;
+  /* h=w*ratio */
+  --zoom: 1;
+  /** DOM Element */
+  width: var(--width);
+  height: var(--height);
+  display: inline-flex;
+  vertical-align: sub;
+  /* bg */
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* zoom */
+  margin-right: var(--s);
+  margin-left: var(--s);
+  transform: scale(var(--zoom));
+  transform-origin: center center;
+}
+
+.menulist {
+  --pv: calc( 0.5 * var(--row-space, 1.5rem) );
+  --ph: 0;
+  margin: 0;
+  padding: var(--pv) var(--ph);
+  list-style: none;
+}
+
+.menulist > li > * {
+  --pv: calc( 0.25 * var(--row-space, 1.5rem) );
+  --ph: var(--col-space, 1.5rem);
+  display: block;
+  margin: 0;
+  padding: var(--pv) var(--ph);
+  --background-color: transparent;
+  background-color: var(--background-color);
+}
+
+.menulist > li > *:hover,
+.menulist > li > *:focus {
+  --background-color: var(--light-shadow);
+}
+
+/** -------------------------------- layout */
+.group-wide {
+  --vertical-align: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: var(--vertical-align);
+  align-content: var(--vertical-align);
+}
+
+.group-center {
+  --vertical-align: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: var(--vertical-align);
+  align-content: var(--vertical-align);
+}
+
+.group-rows {
+  display: grid;
+  align-items: start;
+  justify-content: start;
+  grid-auto-flow: row;
+  grid-auto-rows: min-content;
+  grid-row-gap: var(--row-space, 1.5rem);
+  grid-column-gap: 0;
+  grid-template-columns: [full main text] auto;
+}
+
+.group-rows > * {
+  grid-column: text;
+}
+
+.group-banner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: stretch;
+  --v: var(--row-space, 1.5rem);
+  --h: var(--col-space, 1.5rem);
+  padding-top: var(--v);
+}
+
+.group-banner > * {
+  margin: 0 var(--h) var(--v) var(--h);
+}
+
+.group-collisting {
+  --max-columns: 5;
+  --column-width: var(--paragraph-width--min);
+  --gap-space: calc(var(--col-space) * 2);
+  --max-width: calc((var(--column-width) + var(--gap-space)) * var(--max-columns));
+  max-width: var(--max-width, 100%);
+  column-width: var(--column-width, 12em);
+  column-gap: var(--gap-space, 3em);
+  padding: var(--all-space, 1.5em);
+}
+
+.group-collisting.type2 {
+  --max-columns: 3;
+  --column-width: 16em;
+}
+
+.group-collisting > * {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin-bottom: var(--row-space);
+}
+
+/** Collisting Template
+
+    <ul class="group-collisting auto-margin">
+        <li>
+            <h4>Rich Article Grid Layout</h4>
+            <p>CSS grid template for big articles with a lot of content, illustrations and creative visuals.</p>
+        </li>
+        <li>
+            <h4>Banners</h4>
+            <p>Wrapper for content grouping</p>
+        </li>
+        <li>
+            <h4>Catgrounds</h4>
+            <p>Design trick to make boring content more interesting</p>
+        </li>
+    </ul>
+
+*/
+/** -------------------------------- padding shortcuts */
+.pt, .pv {
+  --padding-top: var(--row-space, 1.5rem);
+  padding-top: var(--padding-top);
+}
+
+.pb, .pv {
+  --padding-bottom: var(--row-space, 1.5rem);
+  padding-bottom: var(--padding-bottom);
+}
+
+.mt, .mv {
+  --margin-top: var(--row-space, 1.5rem);
+  margin-top: var(--margin-top);
+}
+
+.mb, .mv {
+  --margin-bottom: var(--row-space, 1.5rem);
+  margin-bottom: var(--margin-bottom);
+}
+
+.pt-text, .pv-text {
+  --font-offset: calc( 1em * var(--base-font-square-ratio, 0.25) );
+  --padding-top: calc( var(--col-space, 1.5rem) - var(--font-offset) );
+  padding-top: var(--padding-top);
+}
+
+.pb-text, .pv-text {
+  --font-offset: calc( 1em * var(--base-font-square-ratio, 0.25) );
+  --padding-bottom: calc( var(--col-space, 1.5rem) - var(--font-offset) );
+  padding-bottom: var(--padding-bottom);
+}
+
+/** -------------------------------- align compass */
+.s-align {
+  align-self: end;
+}
+
+.n-align {
+  align-self: start;
+}
+
+.w-align {
+  justify-self: start;
+}
+
+.e-align {
+  justify-self: end;
+}
+
+.se-align {
+  align-self: end;
+  justify-self: end;
+}
+
+.ne-align {
+  align-self: start;
+  justify-self: end;
+}
+
+.sw-align {
+  align-self: end;
+  justify-self: start;
+}
+
+.nw-align {
+  align-self: start;
+  justify-self: start;
+}
+
+.sc-align {
+  align-self: end;
+  justify-self: center;
+}
+
+.nc-align {
+  align-self: start;
+  justify-self: center;
+}
+
+.wc-align {
+  align-self: center;
+  justify-self: start;
+}
+
+.ec-align {
+  align-self: center;
+  justify-self: end;
+}
+
+.cc-align {
+  align-self: center;
+  justify-self: center;
+}
+
+.vc-align {
+  align-self: center;
+}
+
+.hc-align, .c-align {
+  justify-self: center;
+}
+
+/** -------------------------------- univeral helpers */
+.is-centered {
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.auto-margin {
+  --margin-left: auto;
+  --margin-right: auto;
+  margin-left: var(--margin-left);
+  margin-right: var(--margin-right);
+}
+
+.layer {
+  grid-column: full;
+}
+
+/*  EOF Universal helpers */
+/** Icon helpers
+ *  2020.1.15
+ *
+ *  CSS
+ *
+ */
+/** -------------------------------- SVG Color Filters */
+/** Generate Colors from Black:
+    https://codepen.io/sosuke/full/Pjoqqp
+*/
+.use-filter--black-is-white {
+  filter: invert(100%);
+}
+
+/** -------------------------------- SVG Backgrounds */
+.background-image--close {
+  /* SVG: x-close */
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>');
+}
+
+.background-image--loading {
+  /* SVG: arrows circle loading-refresh */
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>');
+}
+
+.background-image--info {
+  /* SVG: i-info circle */
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>');
+}
+
+.background-image--menu {
+  /* SVG: hamburger */
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>');
+}
+
+/** EOF Icon helpers */
+/** Article markup
+ *  Shortcuts for faster coding
+ *  2019.8.22
+ *
+ *  SCSS
+ *
+ */
+mark, .mark, [mark] {
+  color: var(--text-color-accent, inherit);
+  background-color: transparent;
+  /* remove defaults */
+}
+
+/* link decoration */
+.link-inline {
+  text-decoration: underline;
+  --text-decoration-color: currentColor;
+  text-decoration-color: var(--text-decoration-color);
+}
+
+.link-inline:hover {
+  --text-decoration-color: var(--link-color-accent, currentColor);
+}
+
+.book-of-chapters {
+  grid-row-gap: 0;
+}
+
+.chapter {
+  --padding-top: var(--big-space, 4rem);
+  padding-top: var(--padding-top);
+  --padding-bottom: var(--big-space, 4rem);
+  padding-bottom: var(--padding-bottom);
+  position: relative;
+}
+
+.chapter.isontop {
+  --padding-top: 0;
+}
+
+.chapter.isonbot {
+  --padding-bottom: 0;
+}
+
+.chapter-header {
+  grid-row-gap: 0;
+}
+.chapter-header h1, .chapter-header h2, .chapter-header h3,
+.chapter-header .h1, .chapter-header .h2, .chapter-header .h3, .chapter-headerh1, .chapter-headerh2, .chapter-headerh3, .chapter-header.h1, h1.chapter-header, .chapter-header.h2, h2.chapter-header, .chapter-header.h3, h3.chapter-header {
+  transform: translateX(-0.25rem);
+}
+
+.chapter-note {
+  --padding-left: calc( 2.5rem * var(--grid-is-not-default, 0) );
+  padding-left: var(--padding-left);
+}
+
+.color-box, .color-box-accent, .color-box-descent {
+  --padding-top: var(--row-space, 1.5rem);
+  --padding-bottom: var(--row-space, 1.5rem);
+  --background-color: var(--back-color-descent, transparent);
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
+  background-color: var(--background-color);
+}
+
+.devbox {
+  background-color: var(--back-color-descent);
+  color: var(--text-color-descent);
+  min-height: 6rem;
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.grid-king {
+  --width-root: 0;
+  --width-menu: 4rem;
+}
+
+/*  EOF Article markup */
+/*  EOF Appart style index */

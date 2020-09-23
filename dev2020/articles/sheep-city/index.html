@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- appseed 2020.2.22 ninini -->
+
+    <!-- ===================================== HEAD CONTENT -->
+
+
+    <title>Sheep City</title>
+    <meta name="description" content="Овечки — культурное и образованное общество. В почёте театр, библиотеки и школы. Эти заведения овечки с удовольствием посещают, чтобы посмотреть на что-то новое.">
+    <meta name="author"      content="zl">
+
+
+    <!-- ## MICRODATA -->
+    <meta property="og:url"          content="">
+    <meta property="og:image"        content="http://sheep.today/data/gallery/sheep/SheepGalleryPromo.jpg">
+    <meta property="og:image:width"  content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:type"         content="article">
+    <meta property="og:locale"       content="en_US">
+
+
+    <!-- ===================================== FAVICON -->
+
+
+    <meta name="theme-color"             content="#314159">
+    <meta name="msapplication-TileColor" content="#314159">
+    <meta name="msapplication-TileImage" content="art/icon192.png">
+    <link type="image/png" rel="icon"       href="art/icon192.png">
+    <link rel="apple-touch-icon"            href="art/icon192.png">
+
+
+    <!-- ===================================== BOOT SERVICE -->
+
+
+    <!-- ༼°▽°༽ style boot -->
+    <style>
+        html       { margin:0; padding:0  0.25rem; }
+        body       { margin:0; padding:0; width:100%; height:auto; }
+        img,svg,hr { margin:0; border: 0; max-width:100%; }
+        body       { overflow-y:scroll; }
+    </style>
+
+
+    <!-- ༼°▽°༽ screen von loader -->
+    <style id="von-loader-style">
+        #von-loader { /* settings */
+          --back-color:       hsl(212, 34%, 29%);
+          --text-color:       hsl(226, 27%, 90%);
+          --icon-size:        6rem;
+         /* SVG: arrows circle loading */
+          --icon-image: url('data:image/svg+xml;utf8,<svg fill="white" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>'); }
+        #von-loader {
+          --state-opacity:    0;
+          --state-pointer:    none;
+            transition:       opacity 240ms ease-out;
+            background-color: var(--back-color);
+            color:            var(--text-color);
+            pointer-events:   var(--state-pointer);
+            opacity:          var(--state-opacity);         
+            position: fixed;  z-index: 100;
+            top:      0;
+            right:    0;
+            bottom:   0;
+            left:     0; }
+        #von-loader.is-active {
+          --state-opacity:    1;
+          --state-pointer:    all; }
+        #von-loader::after {
+            content:  '';
+            position: absolute; z-index: 1;
+            top:      calc(40% - 0.5*var(--icon-size));
+            left:     calc(50% - 0.5*var(--icon-size));
+            width:    var(--icon-size);
+            height:   var(--icon-size);
+            background-image:    var(--icon-image);
+            background-size:     var(--icon-size);
+            background-repeat:   no-repeat;
+            background-position: center center;
+            animation: VonLoaderRotation 1s linear infinite; }
+            @keyframes VonLoaderRotation {
+                from { transform: rotate(360deg); }
+                to   { transform: rotate(  1deg); }
+            }
+    </style>
+    <script id="von-loader-script">
+        function vonLoader ( autostart = true ) {
+            let screen = document.querySelector('body')
+            let loader = document.createElement('div')
+                loader.id = "von-loader"
+                screen.appendChild(loader)
+            let ACTIVE = 'is-active'
+            let show   = () => { loader.classList.add(ACTIVE); }
+            let hide   = () => { loader.classList.remove(ACTIVE) }
+            let action = () => {
+                if (window.addEventListener) window.addEventListener("load", hide, false)
+                else if (window.attachEvent) window.attachEvent(   "onload", hide)
+                else hide() }
+            let start = () => {
+                show()
+                action() }
+            let init = autostart => {
+                if (autostart) start()
+                return { loader, show, hide, start } }
+            return init(autostart)
+        }
+    </script>
+
+
+    <!-- ===================================== GOOGLE FONTS -->
+
+
+    <!-- ༼°▽°༽ prefetch boot -->
+    <link rel="preconnect"   href="//fonts.gstatic.com" crossorigin>
+
+    <link
+        media="none" onload="if(media!='all')media='all'"
+        href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700&subset=cyrillic"
+        rel="stylesheet">
+    <link
+        media="none" onload="if(media!='all')media='all'"
+        href="https://fonts.googleapis.com/css?family=VT323"
+        rel="stylesheet">
+
+<noscript>
+        <link
+        media="all"
+        href="https://fonts.googleapis.com/css?family=Vollkorn:400,400i,700&subset=cyrillic"
+        rel="stylesheet">
+    <link
+        media="all"
+        href="https://fonts.googleapis.com/css?family=VT323"
+        rel="stylesheet">
+</noscript>
+
+
+    <!-- ===================================== DESIGN -->
+
+
+        <link
+        media="none" onload="if(media!='all')media='all'"
+        href="app/app-design.css"
+        rel="stylesheet" type="text/css">
+        <link
+        media="none" onload="if(media!='all')media='all'"
+        href="app/interface-offsidebar.css"
+        rel="stylesheet" type="text/css">
+
+<noscript>
+    <link
+        media="all"
+        href="app/app-design.css"
+        rel="stylesheet" type="text/css">
+    <link
+        media="all"
+        href="app/interface-offsidebar.css"
+        rel="stylesheet" type="text/css">
+</noscript>
+
+
+    <!-- ===================================== APP -->
+
+    <!-- ༼°▽°༽ app boot -->
+    <script>
+        function AppBoot() {
+
+         // The Noble Blastula
+            let app = this
+            app.has = { memory: [], arrived:true }
+            app.has.queens = [ 'onload', 'mutate' ]
+            /*
+            King has arrived --- let app = new AppBoot()
+            Take the Queen ----- app.attach('queen_name')(function)
+            Keep in memory ----- app.queen_name(function_parameters)
+            Execute later ------ app.onload(function)
+            2019.9.15
+            */
+
+         // The Noble Provocator
+            const proteinProvoker = function ImitateCriticalTasks () {
+              let tpp = new this.__proto__.constructor()
+              let must_have_a_memory = tpp.has.memory.push('something')
+              let must_accept_queens = like_this_one => true
+              tpp.attach('queen_id')(must_accept_queens)
+              tpp.queen_id('try this')
+            }
+
+         // Define responsibility
+            const TakeTheQueen = (queen) =>
+                {
+                    app[queen] =  ExecuteLater(queen)
+                    return (f) => ExecuteLater('update')({name:queen,f})
+                }
+            const KeepInMemory = (dna) => app.has.memory.push(dna)
+            const ExecuteLater =
+                 (responsible) =>
+                         (dna) => KeepInMemory({dna,for:responsible})
+
+         // Apply responsibility
+            app.attach = TakeTheQueen
+            app.has.queens.map( queen => app.attach(queen) )
+            app.ForceErrorsIfShouldBe =  proteinProvoker
+        }
+
+     // Run Immediately
+        let app = new AppBoot()
+        app.ForceErrorsIfShouldBe()
+    </script>
+
+    <script defer src="app/app-core.js"></script>
+
+    <!-- optimization -->
+    <script defer src="app/image-lazy-loader.js"></script>
+
+    <!-- interface -->
+    <script defer src="app/interface-offsidebar.js"></script>
+    <script defer src="app/image-zzzoom.js"></script>
+
+
+    <!-- ===================================== CUSTOM -->
+
+
+    <!-- ===================================== HEAD END -->
+</head>
+<body class="colors--primary">
+<script>vonLoader()</script>
+
+
+<!-- =================================================== ʕ⊙ᴥ⊙ʔ  -->
+<!-- =================================================== [CONTENT START] -->
+
+
+<section id="Start" class="tufteDesign__mama" style="position: relative;">
+    <figure class="fullwidth" style="opacity:.32;margin:0;">
+        <picture>
+            <source media="(min-width:600px)" srcset="art/sheepcity__cover.svg">
+            <img src="art/min/sheepcity__cover.png" alt="Sheep City" class="" />
+        </picture>
+    </figure>
+    <div class="cPageMenuHelper js-for-ChaptersMenuBar" style="
+           position:absolute;
+           top: 2em;
+           right: 0;
+           padding: 1rem;
+           padding-right: 0.5rem;
+           font-size: 2rem;
+           color: brown;
+           text-shadow: 2px 2px #ffffff;
+           cursor: pointer;
+       ">
+        <em>Содержание</em> ↑
+    </div>
+</section>
+
+<!-- ========================================= Von Burger -->
+
+<div>
+
+    <!-- Hamburger -->
+
+    <style>
+        #von-burger {
+          --background-color: gold;
+          --color:           black;
+            position: fixed;
+            z-index:  3;
+            top:      0;
+            right:    0;
+            width:  3em;
+            height: 3em;
+            cursor: pointer;
+         /* SVG: hamburger */
+            background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>');
+            background-size:     24px;
+            background-repeat:   no-repeat;
+            background-position: center center;
+            background-color:    var(--background-color);
+            color:               var(--color);
+            border-radius: 0 0 0 4px;
+        }
+        #von-burger:hover {
+            transition: background 120ms ease-in;
+          --background-color: goldenrod;
+        }
+    </style>
+    <button markup id="von-burger"></button>
+
+    <!-- Menu Bar -->
+
+    <aside   class="offsidebar ChaptersMenuBar colors--ivory">
+        <div class="offsidebar-container">
+            <nav    class="offsidebar-content">
+                <ul class="menulist js-for-ChaptersMenuBar"
+                    style="
+                       font-family: Vollkorn, Georgia, serif;
+                       list-style: none;
+                       padding-right: 2em;
+                       line-height: 1.8;
+                    ">
+                <li><a href="#Start">Начало</a></li>
+                <li><a href="#Characters">Персонажи</a></li>
+                <li><a href="#City">Город</a></li>
+                <li><a href="#Culture">Культура города</a></li>
+                <li><a href="#Social">Социальная сторона</a></li>
+                <li><a href="#DrawingLines">Линии рисунка</a></li>
+                <li><a href="#ImageDetails">Детализация</a></li>
+                <li><a href="#DigitalImage">Цифровое изображение</a></li>
+                <li><a href="#Summary">Эпилог</a></li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Menu scripting -->
+
+    <script>
+        function Activate___ChaptersMenuBar() {
+            let  barName = 'ChaptersMenuBar'
+            let  bar_api = InterfaceOffsideBar(barName)
+            if (!bar_api)  return false
+            bar_api.delegateToggle(document.getElementById('von-burger'))
+        }
+        app.onload(Activate___ChaptersMenuBar)
+    </script>
+
+</div>
+
+
+<!-- =================================================== tufte -->
+<div class="tufteDesign__mama">
+<div class="tufteDesign">
+<article id="SheepCity">
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <h1 style="padding-top:0;">
+        Городовец / Sheep City
+    </h1>
+    <p class="subtitle">
+        web gallery
+    </p>
+    <section>
+        <figure class="fullwidth">
+          <img
+              src="art/newton.svg"
+              alt="Newton Sheep"
+              class="" />
+        </figure>
+    </section>
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <section id="Characters">
+
+        <h2>Персонажи</h2>
+        <p>
+            У овечек всегда есть занятие. Некоторые овечки трудолюбивы и пользуются инструментами. Другие заняты наблюдением за окружающим миром.
+        </p>
+        <p>
+            Чаще всего наблюдатели — это ключевые персонажи в городе.
+        </p>
+        <p>
+             На&nbsp;рисунке в гостинице, все овцы заняты своими делами кроме одной. Овечка-портье отстранилась от суеты вокруг и решает важный вопрос.
+        </p>
+        <figure>
+            <label
+                for="sheepcity-hotel" class="margin-toggle"
+                ><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="sheepcity-hotel" class="margin-toggle"/><span class="marginnote">
+                — <em>Посадила ли я горошек? Или нет?</em><br><br>
+                Один из вероятных вопросов, решаемый овечкой.<br><br>
+                Картинка серии <em>семья Барановых</em>, 2016. Одна из младших сестёр работала в гостиничном бизнесе. Ежедневно погружаясь во всё это.
+                </span>
+        <picture>
+            <source media="(min-width:600px)" srcset="art/sheepcity-hotel.png">
+            <img
+                src="art/min/sheepcity-hotel.png"
+                alt="Sheep in the Hotel"
+                class="zzz" />
+        </picture>
+        </figure>
+        <p>
+            Овечка не использует разговоры для общения. Своё мнение овечка выражает взглядом или его отсутствием. Положение зрачка играет важную роль в понимании собеседника, но надо угадать, когда овечка общается, а когда просто смотрит.
+        </p>
+        <p>
+            Зрачок и мысли овечки влияют друг на друга. У глубоко задумчивой овцы зрачки опускаются вниз. И обратное действие — если приподнять овце зрачки, она покинет грёзы и вернётся в окружающий быт.
+        </p>
+        <figure>
+            <label
+               for="Recall__Preview"
+               class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+               id="Recall__Preview"
+               class="margin-toggle"/><span class="marginnote">
+               
+                   Взгляд овечек во многом совпадает с человеческим, поэтому студенты тренируются на овцах<br><br>
+
+                   Шпаргалка для определения <em>эмоционального состояния по положению зрачка</em>, Рига 2017
+                
+            </span>
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/Recall-Preview.png" />
+                <img
+                    src="art/min/Recall-Preview.png"
+                    alt="Psyhology hint to detect emotional state by eyeboll"
+                    class="zzz" />
+            </picture>
+        </figure>
+        <p>
+            Вежливая овца чтит этикет. Внимательно следит за выражением своих эмоций и не допускает двойственного толкования внешних признаков.
+        </p>
+        <p>
+            Внутренние революционные порывы — в те редкие моменты, когда они появляются у овечки — провоцируют её сознательно нарушать каноны.  Нарушение традиций — это поиски нового, попытка сделать шаг в развитии. Овечки резко бросаются из консерваторов в новаторы, но быстро остывают и возвращаются обратно.
+        </p>
+        <figure class="fullwidth2">
+            <label
+                for="Recall-sheepinfo"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="Recall-sheepinfo"
+                class="margin-toggle"/><span class="marginnote">
+
+                    Описание овцы из дневника <em>Once upon a time.... I was a tyre!!!</em>, 2014
+
+                </span>
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/sheepinfo.png" />
+                <img
+                    src="art/min/sheepinfo.png"
+                    alt="Sheeping description and details"
+                    class="zzz" />
+            </picture>
+        </figure>
+
+    </section>
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <section id="City">
+
+        <h2>Город</h2>
+        <p>
+            Овечки поселяются в любом городе. Быстро осваиваются, заполняют улицы и становятся фоном городской жизни.
+        </p>
+        <p>
+            Родной город овечек — баварский Мюнхен. Неофициальная столица овечьего царства — город Рига в Прибалтике.
+        </p>
+        <figure class="fullwidth">
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/riga-2016-preview.jpg" />
+                <img
+                    src="art/min/riga-2016-preview.jpg"
+                    alt="Riga is the sheep capital of Latvia"
+                    class="zzz" />
+            </picture><br>
+            <figcaption>
+                Открытка Риги с видом старого города в летний день,
+                <em>акварель на картоне</em>, 2016<br>
+            </figcaption>
+        </figure>
+        <p>
+            Архитектура города овец рисуется по правилам — окна, стены и крыша с котами. Планировка улиц часто копирует реальный город, иногда подчиняется овечьим нуждам:
+        </p>
+        <p>
+            — Улицы необходимы, чтобы бродить по бульварам; сбегать в булочную; заходить в кафе. В домах надо жить и выглядывать из окон. Деревья дают тень. Крыши не текут и не едут. Это важно в городе овец.
+        </p>
+        <figure>
+            <label
+                for="sheepcity-roof-builders"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="sheepcity-roof-builders"
+                class="margin-toggle"/><span class="marginnote">
+
+                    В создании города используется математическая точность. Для доставки 17 рулонов требуется два с половиной грузовика — столько и нарисовано. Не больше, не меньше.<br><br>
+
+                    Картинка из серии <em>семья Барановых</em>, 2016
+                </span>
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/sheepcity-roof-builders.png" />
+                <img
+                    src="art/min/sheepcity-roof-builders.png"
+                    alt="Sheep are roof builders"
+                    class="zzz" />
+            </picture><br>
+
+        </figure>
+        <p>
+            Город овец перенимает характер своих жителей. Для овечек город — <em>отара</em> — символ единого целого, состоящего из множества.
+        </p>
+        <p>
+            Разрушить до камня город овец нельзя. У овечек миролюбивый характер. Но если за стенами города стоит угроза — каждая овечка самоотверженно бросится вперёд с горящими глазами и криком:
+        </p>
+        <div class="epigraph">
+            <blockquote>
+                — Отара!
+            </blockquote>
+        </div>
+        <figure class="fullwidth">
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/ag-chess.svg" />
+                <img
+                    src="art/min/ag-chess.png"
+                    alt="Sheep as chess figure"
+                    class="zzz" />
+            </picture><br>
+            <figcaption>
+                Непримиримый дух борьбы внутри маленькой овечки, Рига 2015
+            </figcaption>
+        </figure>
+
+    </section>
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <section id="Culture">
+
+        <h2>Культура города</h2>
+        <p class="subtitle"></p>
+        <figure>
+            <label
+                for="sheep-Theater"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="sheep-Theater"
+                class="margin-toggle"/><span class="marginnote">
+                    <picture>
+                        <source media="(min-width:600px)"
+                            srcset="art/mois11-nov.jpg" />
+                        <img
+                            src="art/min/mois11-nov.jpg"
+                            alt="Sheep in the Theater"
+                            class="zzz" /><br>
+                    </picture>
+                    Культура овец <em>красит</em> улицы города в буквальном смысле<br><br>
+                    Иллюстрация ноября в настольном календаре, 2015
+                </span>
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/mois11-nov.svg" />
+                <img
+                    src="art/min/mois11-nov.png"
+                    alt="Sheep in the Theater"
+                    class="zzz" />
+            </picture>
+        </figure>
+        <p>
+            Овечки — культурное и образованное общество. В почёте театр, библиотеки и школы. Эти заведения овечки с удовольствием посещают, чтобы посмотреть. Овечки любят смотреть.
+        </p>
+        <p>
+            Спортивные мероприятия занимают особое место в жизни овец. Любой спорт можно не только смотреть огромными глазами, но и почтить своим участием.
+        </p>
+        <p>
+            Из видов спорта овечки предпочитают теннис, волейбол, футбол, бокс — игры, где можно стоять и безучастно наблюдать за соперником или мячиком, летящим в цель. Легкоатлетические дисциплины популярны среди овечек, потому что бег и прыжки заложены в их дикой натуре.
+        </p>
+        <figure>
+            <label
+                for="sheepcity-sholympics"
+                class="margin-toggle" ><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="sheepcity-sholympics"
+                class="margin-toggle"/><span class="marginnote">
+                    На летней олимпиаде в Рио-де-Жанейро 2016 года, овечки поддерживали Лауру Икауниеце — латвийскую спортсменку в семиборье.<br><br>
+                    <em>Акварель на картоне</em>, 2016
+                </span>
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/sholympics-preview.jpg" />
+                <img
+                    src="art/min/sholympics-preview.jpg"
+                    alt="Sholympics: sheep at the Olympic hexathlon"
+                    class="zzz" />
+            </picture>
+        </figure>
+        <p>
+            Однако ни театр, ни спорт не вызывают такого безудержного восторга у овечек, какой вызывает добрая вечеринка в кругу друзей.
+        </p>
+        <p>
+            Овечки умеют и любят отдыхать. Любая дискотека наполняется весельем, шумом и активным действием.
+        </p>
+        <figure class="fullwidth">
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/sheep_partyFiesta.svg" />
+                <img
+                    src="art/min/sheep_partyFiesta.png"
+                    alt="Party Sheep"
+                    class="zzz" />
+            </picture>
+            <figcaption>
+                Вечеринка с участием овец в рижской винотеке <em>Fiesta</em>, <em>Gertrudes 19/21</em> 2014
+            </figcaption>
+        </figure>
+
+        <!-- =================================================== -->
+        <!-- =================================================== -->
+        <!-- =================================================== -->
+
+        <h3 id="Social">Социальная сторона культуры</h3>
+        <p>
+            <label
+                for="sheep-psyhology"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="sheep-psyhology"
+                class="margin-toggle"/><span class="marginnote">
+                    <strong>Овцы и люди</strong>
+                    не общаются друг с другом. Но не редкость совместное участие в опросах или межвидовых диалогах.
+                    <picture>
+                        <source media="(min-width:600px)"
+                            srcset="art/psyhology.png" />
+                        <img
+                            src="art/min/psyhology.png"
+                            alt="Psyhology thinking with sheep opinion included"
+                            class="zzz" /><br>
+                    </picture>
+                    Стенограмма из дневника <em>Once upon a time.... I was a tyre!!!</em>, 2014
+                </span>
+
+            Как социально развитые существа овечки одинаково относятся ко всем окружающим. Гармония общества построена на принципах каждой отдельно взятой овечки — <em>Я королева, а остальные... Вы кто?</em> — когда каждая овца придерживается принципа, всё общество в целом становится равным.
+        </p>
+        <p>
+            В обществе овец нет места нетерпимости. Любой конфликт с окружающими овца решает внутри себя.
+        </p>
+        <figure>
+            <img
+                src="art/ovca-society.png"
+                alt="Sheep compared with society"
+                class="zzz" /><br>
+            <figcaption>
+                Примерное отношение овцы к окружающим,
+                заметка из дневника <em>Once upon a time.... I was a tyre!!!</em>, 2014
+            </figcaption>
+        </figure>
+        <p>
+            Раз в сезон у отдельно взятой овечки просыпается гражданская позиция. Овечка организовывает митинги, на которых выкрикивает призывы к переменам. К обеду всё проходит, и овечки возвращаются к бытовым заботам.
+        </p>
+        <p>
+            Овечки знают, что такое пропоганда, и умело ей пользуются. Широко распространены современные интернет- и медиа-технологии.
+        </p>
+        <figure>
+            <figcaption>
+                Дизайн веб сайта,<br>
+                <em>цветные карандаши на бумаге</em>, 2012
+            </figcaption>
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/ovcesait.jpg" />
+                <img
+                    src="art/min/ovcesait.jpg"
+                    alt="Sheep web page template"
+                    class="zzz" />
+            </picture>
+        </figure>
+        <p>
+             В городе овец всегда рады другим животным.
+        </p>
+
+    </section>
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <section id="DrawingLines">
+
+        <h2>Линии рисунка</h2>
+        <p>
+            <label
+                for="sheep-pushkin"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="sheep-pushkin"
+                class="margin-toggle"/><span class="marginnote">
+                    <img
+                        src="art/sheep-pushkin.svg"
+                        alt="Pushkin cosplay by a sheep"
+                        class="zzz" style="max-height:8rem"/><br>
+                    Косплей под Пушкина, 2014</span>
+
+            Линии контрастные и плоские. Протяжённость и изгиб линии диктуется формой. Толщина линии может символизировать что угодно, от игры светотени до случайного утолщения во время рисования.
+        </p>
+        <p>
+            Многомерный объем рисунка создаётся и художественными приёмами, и сюжетными.
+        </p>
+        <p>
+            На картинке пекарни есть геометрическая перспектива — уменьшенный в размерах комбайн работает на дальнем фоне. В дополнение к перспективе — переплетение труб создаёт форму, которая показывает где перед, а где зад.
+            Звёздочки отделяют реальное от сказочного.
+        </p>
+        <figure>
+            <label
+                for="sheepcity-boulangerie"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="sheepcity-boulangerie"
+                class="margin-toggle"/><span class="marginnote">
+                    Пекарня. Картинка из серии <em>семья Барановых</em>, 2016.
+                </span>
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/sheepcity-boulangerie.png" />
+                <img
+                    src="art/min/sheepcity-boulangerie.png"
+                    alt="Sheep in Boulangerie"
+                    class="zzz" />
+            </picture>
+        </figure>
+        <p>
+            <label
+                for="Bulka-Animation"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="Bulka-Animation"
+                class="margin-toggle"/><span class="marginnote">
+                    <img
+                        src="art/Bulka-Animation.gif"
+                        alt="Two steps of sheep drawing"
+                        class="zzz"/>
+                    Первый штрих и вторичная обводка с добавлением воробушка
+                </span>
+
+            Изображение рисуется сначала одной линией. Затем повторной закраской дорабатываются пересечения линий. Первые штрихи наносятся тонко, чтобы осталась возможность добавить мелкие детали.
+        </p>
+        <p>
+            Ключевые элементы — например овечья морда — заслоняются только по требованию сюжета. Другие элементы — например волнистое туловище — наоборот, желательно чем-нибудь пересечь поверху.
+        </p>
+        <p>
+            Чем больше пересекающихся слоёв, тем интереснее история на картинке. Для создания большого количества пересечений удобно пользоваться карандашным наброском. На котором приблизительно расположить персонажей и найти лучшие точки соприкосновения.
+        </p>
+        <figure>
+            <label
+                for="Bulka-Animation-Tree"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="Bulka-Animation-Tree"
+                class="margin-toggle"/><span class="marginnote">
+                    Булки в тележке не мешают разглядеть пуговицы
+                </span>
+            <img
+                src="art/Bulka-Animation-Tree.gif"
+                alt="Three steps of fox drawing"
+                class="zzz" />
+        </figure>
+        <p>
+            Линии создают пустые области неправильной формы. Внутренние «белые» пятна дорисовываются следующим шагом — корректируется форма белого пространства. Когда белые пятна обрисованы, линии врываются в пустые области. Появляется либо штриховка, либо лёгкие контуры теней.
+        </p>
+        <figure>
+            <label
+                for="island-with-crabbian-pearls"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="island-with-crabbian-pearls"
+                class="margin-toggle"/><span class="marginnote">
+                    Популярный рождественский сюжет в Германии, Берлин 2014
+                </span>
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/island-with-crabbian-pearls.png" />
+                <img
+                    src="art/min/island-with-crabbian-pearls.png"
+                    alt="Sheep on the crabbian island with pearls"
+                    class="zzz" />
+            </picture>
+        </figure>
+
+    </section>
+    <!-- =================================================== -->
+    <section id="ImageDetails">
+
+        <h2>
+            Детализация
+        </h2>
+        <p>
+            <label
+                for="vipasi_nas"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="vipasi_nas"
+                class="margin-toggle"/><span class="marginnote">
+                    <img
+                        src="art/vipasi_nas.jpg"
+                        alt="Sheep detalization zoomed to evil mode"
+                        class="zzz"/><br>
+                    Ирония над низкой детализацией рисунка. Использован фрагмент иллюстрации к <a href="http://sheep.today/is/texts2014/horek_polzunok/">сказке про <em>короля-ползунка</em></a>, Берлин, 2014
+                </span>
+
+            Некоторые детали рисунка требуют аккуратной и тщательной работы. Особенно глаза — любая помеха в овальном контуре или мутный зрачок делают всю овечку мутной в психологическом восприятии.
+        </p>
+        <p>
+            Другие детали требуют <em>обязательной неаккуратности</em>. Это помогает создать контраст и выделить важное на пёстром фоне. Пример использования — облачные контуры овец. Они рисуются экспрессивно, хаотичными дугами. Альтернативный подход к рисунку — имитировать неаккуратность через нарочное искажение формы, избегая правильных дуг, прямых углов и другой математической строгости<span class="newthought"><label for="labelMathIsIrrational" class="margin-toggle sidenote-number"></label></span><input type="checkbox" id="labelMathIsIrrational" class="margin-toggle"/><span class="sidenote">Кроме иррацинальных чисел, которыми не следует пренебрегать никогда</span>.
+        </p>
+        <p>
+            Детализация и тщательность обработки мелких деталей зависят от количества информации, которую передаёт задуманный рисунок. Чем больше посыл, тем больше элементов и тем тоньше они прорисованы.
+        </p>
+        <p>
+            Сравните на двух картинках — развлечение с одним луком и сражение с тысячами лучников на одном поле:
+        </p>
+        <figure>
+            <label
+                for="sheepcity-Archery"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="sheepcity-Archery"
+                class="margin-toggle"/><span class="marginnote">
+                    Примитивный рисунок с пасторальной сценой<br><br>
+                    <em>Цветные карандаши на плотной бумаге</em>, Франция, 2012
+                </span>
+            <img
+                src="art/Archery.jpg"
+                alt="Sheep doing archery"
+                class="zzz" />
+        </figure>
+        <figure class="fullwidth">
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/Battle-of-Marathon-preview.png" />
+                <img
+                    src="art/min/Battle-of-Marathon-preview.png"
+                    alt="Battle of Marathon between sheep and lobster"
+                    class="zzz" />
+            </picture>
+            <figcaption>
+                Марафонское сражение<br>
+                Греция, 490 год до нашей эры
+            </figcaption>
+        </figure>
+
+    </section>
+    <!-- =================================================== -->
+    <section id="DigitalImage">
+
+        <h2>
+            Цифровое изображение
+        </h2>
+        <p>
+            Овечки не стесняются современных технологий и легко поддаются оцифровке. Нарисованное изображение сканируется и переводится в <em>векторы</em> — цифровой формат, который математическими формулами описывает линии рисунка.
+        </p>
+        <figure>
+            <div style="text-align: center;">
+           <style>
+                /* loading spinner */
+                #LoadingSVG,
+                #Loading {
+                    max-width:100%;
+                }
+                .aLoadingIcon {
+                    display:inline-block;
+                    vertical-align:middle;
+                    min-width:25px;
+                    min-height:25px;
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                    -webkit-animation: keyframeSimpleRotation 2.4s infinite linear;
+                    animation: keyframeSimpleRotation 2.4s infinite linear;
+                }
+                @-webkit-keyframes keyframeSimpleRotation {
+                    from {-webkit-transform: rotate(359deg);}
+                    to   {-webkit-transform: rotate(0deg);}
+                }
+                @keyframes keyframeSimpleRotation {
+                    from {transform: rotate(359deg);}
+                    to   {transform: rotate(0deg);}
+                }
+            </style>
+            <span id="Loading" class="aLoadingIcon">
+              <svg version="1.1" id="LoadingSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="199.5px" height="170px" viewBox="0 0 199.5 170" enable-background="new 0 0 199.5 170" xml:space="preserve">
+              <path fill="#FFFFFF" d="M46,41.5c2.3-6.1,5.8-12.1,12-15.3c2-1,9.8-2.7,9.2-3.5c-1.5-1.1,0.9-4-1.1-3.4c8.1-19.8,44.7-21.7,55.6-1.3
+                c-1.8,0.3-2.3,0.2-3.5,1.6c-0.1-0.2,10.1,0.4,12.2,1c8.3,2.4,16.6,4.8,21.3,12.3c4.3,6.9,8.6,17.7,3.8,25.4c-3.1,4.9-4.2,0.8-8,3.6
+                c17.7,8.3,22.5,15.5,13.4,35c-2.5,5.4-4.1,9.6-7.6,14.4c-2.8,3.8-20.4,14.8-25,10.8c0.6-0.4-0.2-1.1-0.6-2c-4.3,2.1-2,3.8-2.1,3.9
+                c-6.6,5.9-12.6,6.6-21.4,7.7c-4.5,0.6-17,1.1-20.8-2.3c-2.6-2.3-9.8-11.5-12.4-11.5c-3.1,3.7,1.9,4.7-5.8,4
+                c-5.2-0.4-11.3-0.6-16-3.1c-4.9-2.6-5-8.9-8.7-12.4c-3.2-8.2,9.6-8,10.5-8.3c8.9-2.4,15.8-4.6,22.7-10.8c6-5.5,14.5-23,5.7-29.6
+                c4.9-2.3,12.1-8.2,17.6-5.3c3.6,1.9,6.7,10.1,11.3,8.5c8.1-2.8-1.6-11.1-4.4-14.2c-7.8-8.7-17,11.3-25.1,8.1c-4.8-1.9-8.4-8-14-8.1
+                c-4.9-0.2-11.2-2.3-15.9-3.8C49.4,40.8,46.8,41.8,46,41.5z"/>
+              <path d="M166.4,73.6c0,18.3-4.9,29.5-16.1,43c-4.3,5.2-12.2,7.4-15.9,12.8c-4.5,6.4-1.8,16.5-7.1,21.4c-1.1-4.4-1.6-15.5-6.1-18
+                c-1.9,2.4-8.6,19.7-10.4,19.3c-0.1,0-2.3-8.4-2.5-9.9c-0.8-8.9-3-6-10.5-7.7c-7.5-1.8-14.6-4.3-17.5,4.8c-0.8,2.5-2.3,15.6-5.8,12.7
+                c-0.8-8.9-2.8-18.2-6.6-26.4c-3.3,4.6-10.8,23.8-15.6,23.8c1.3-6.3,2.5-25.6-1.9-27.2c-7.1-2.6-9.9-8.3-11.9-14.9
+                c-2.3-7.7-8.4-3.7-14.5-8.3C5.3,84.5-1.2,42.9,29.2,38.4c-3.3-3.1-7.8-6-12.6-6.1c-4.9-0.1-5.4,5-10.1,4.6
+                c-18.6-1.6,7.2-25.5,18.2-13.8c4.8,5.1,0.6,9.2,6.7,13.5c5.1,3.6,12.6,3,15.4-1.5c2.1-3.5,4-5.8,7.1-8.4c2.3-1.9,6.9-2.4,8.4-5.1
+                c3.9-7,5.7-12.6,13.5-16.9c8.7-4.8,22.4-6.2,31.9-2.7c3.6,1.4,13.7,6.8,13.8,11.6c0.1,2.7,12.4,4.9,15.7,5.8
+                c12.8,3.2,21.7,15.3,23.4,28.1c0.3,2.5,0,13.6-2,15.2C158,63.2,165.2,71.7,166.4,73.6C166.4,77.8,165.8,72.7,166.4,73.6z M48.4,40.9
+                c4.7,1.5,10.8,4.4,15.7,4.6c5.6,0.2,10.1,6.5,14.9,8.3c8.1,3.1,17-18.4,24.8-9.7c2.7,3.1,13.8,15.6,5.7,18.5
+                c-4.6,1.6-10.3-6.2-13.9-8.1c-5.5-2.9-10.6,0.5-15.5,2.8c8.8,6.6,0.7,25.3-5.4,30.7c-6.9,6.2-13.5,10.3-22.4,12.7
+                c-1.9,0.5-11.2,1-11.5,2.8c-0.6,3.7,5.5,12.2,8.8,14c3.5,1.9,8.8,3.2,12.8,3.2c1.2-0.2,2.3-0.1,3.4,0.3c7.2-2.6-0.1-2.9,3.9-7.7
+                c2.5,0,8.8,10,11,12c5.7,5.2,15.4,6.7,22.9,5.7c6.4-0.8,13.8-2.2,18.2-7.5c0.8-1,7.6-11.6,9.3-8.4c0.5,0.9-2.1,4.4-2.7,4.8
+                c5.2,4.6,17.6-4.7,21.7-7.4c5.7-3.7,6.5-9.4,9.1-15c9.1-19.5,1.5-28.5-16.2-36.7c3.2-2.4,7.7,1.6,10.3-1.9c5-6.7,2.7-13.1,0-20.3
+                c-3.1-8.5-11.4-12.9-19-16.3c-2.5-1.1-20.4-2.3-19.9-1.4c1.2-1.4,2.7-2.3,4.5-2.5C108.2-2.1,75.5,1,67.4,20.8c2-0.7,3.7-0.5,5.2,0.6
+                c1.3,1.8-8.8,3.4-10.8,4.3c-7.4,3.4-11.5,7.6-14.3,15C48.4,40.9,48,40.8,48.4,40.9z"/>
+              <g>
+                <path fill="#FFFFFF" d="M46,44.5c0.3,1.3-2.6,5.8-3.5,6.5c-7.9,6.7-11.9,18.2-9.7,28.3C19.1,80.2,6.7,68.7,12,54.2
+                  C15.7,44,37.6,33.7,45.6,43.7C45.9,44,45.6,43.9,46,44.5z"/>
+                <path d="M32.7,53.7c2.1,4.8,0,11.6-6.9,8.8c-5.5-2.2,0.7-10.9,6.4-8.9C32.5,53.5,32.2,53.4,32.7,53.7z"/>
+              </g>
+              <g>
+                <path fill="#FFFFFF" d="M37.9,83.8C22.7,60.4,53.3,35.2,74.6,52.3c11.5,9.3,9.8,30.8-4.7,37c-8,3.4-13.9,2.9-21.9,0.5
+                  c-1.5-0.5-8.8-4.1-9.9-5.6C37.6,83.4,37.8,83.9,37.9,83.8z"/>
+                <path d="M61.3,62c5.3,5.1-0.7,14.6-7.1,9.4C46.5,65.1,56.3,62,61.3,62C62.1,62.8,61.1,62,61.3,62z"/>
+              </g>
+              </svg>
+            </span>
+            </div>
+            <figcaption>
+                Иконка для загрузки<br>
+                <em>svg path</em>, <em>css keyframes</em>, Рига 2016
+            </figcaption>
+        </figure>
+        <p>
+            Совпадать с оригинальной картинкой цифровое изображение не обязано. Картинка как бы переходит в другое агрегатное состояние для новых задач.
+        </p>
+        <p>
+            <label
+                for="wooden_sheep_photo"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="wooden_sheep_photo"
+                class="margin-toggle"/><span class="marginnote">
+                    <picture>
+                        <source media="(min-width:600px)"
+                            srcset="art/wooden_sheep_photo.jpg" />
+                        <img
+                            src="art/min/wooden_sheep_photo.jpg"
+                            alt="Wooden sheep magnet"
+                            class="zzz"/>
+                    </picture>
+                    Автоматизированный лобзик-выжигатель превращает векторы в деревянные сувениры<br><br>
+                    Вырезка и фотография <em>Татьяны Ершовой</em>, Берлин 2017
+                </span>
+
+            Векторы удобно использовать, чтобы напечатать изображение на одежде или предмете. Вещи с рисунками — помимо эстетики — становятся еще и носителями бренда. Преимущество печати перед ручной работой — это большие объёмы и, как следствие, доступность для ценителей.
+        </p>
+        <p>
+            Самое востребованное использование цифровых изображений — в индустрии информационных технологий. Простыми словами, это — аппки на смартфонах, веб-сайты, игры и анимация.
+        </p>
+        <p>
+            Аккуратных овечек удобно брать на роль иконок в интерфейсах. Нарисованные оцифрованные персонажи участвуют в компьютерных играх и в анимационных роликах.
+        </p>
+        <figure>
+            <img
+                 src="art/swimming-sheep.svg"
+                 alt="Swimming sheep svg icon"
+                 class="zzz"
+                 style="width:2rem">
+            <img
+                 src="art/swimming-sheep.svg"
+                 alt="Swimming sheep svg icon"
+                 class="zzz"
+                 style="width:3rem">
+            <img
+                 src="art/swimming-sheep.svg"
+                 alt="Swimming sheep svg icon"
+                 class="zzz"
+                 style="width:6rem">
+            <img
+                 src="art/swimming-sheep.svg"
+                 alt="Swimming sheep svg icon"
+                 class="zzz"
+                 style="width:12rem"><br>
+            <img
+                 src="art/swimming-sheep.svg"
+                 alt="Swimming sheep svg icon"
+                 class="zzz"><br>
+            <figcaption>
+                Векторная овечка в формате SVG — популярный формат, который умеют показать все современные браузеры. Можно увеличить иконки и рассмотреть большое изображение.
+            </figcaption>
+        </figure>
+        <!-- =================================================== -->
+        <!-- =================================================== -->
+        <!-- =================================================== -->
+        <h3 id="Animation">В анимации</h3>
+        <p>
+            <label
+                for="Loading_demo_animation"
+                class="margin-toggle"><span class="aIcon aIcon--info"></span></label><input type="checkbox"
+                id="Loading_demo_animation"
+                class="margin-toggle"/><span class="marginnote">
+                    На YouTube можно посмотреть <a href="https://www.youtube.com/watch?v=myU94k1Q__E">мультипликационный ролик про летящую овечку</a>. Оцифрованный город овец закольцован в бесконечную ленту на горизонте.
+                </span>
+
+            Векторные изображения удобно анимировать на компьютере. Овечки и город могут не только переживать геометрические искажения на плоскости, — крутиться, вертеться, дёргаться, — но и плавно трансформироваться в новые формы.
+        </p>
+        <p>
+            Анимация города овец началась сравнительно недавно, по сравнению с общей историей города. Но все предпосылки сводятся к тому, что за анимированными цифровыми изображениями — будущее.
+        </p>
+
+    </section>
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <!-- =================================================== -->
+    <section id="Summary">
+
+        <h2>
+            Эпилог
+        </h2>
+        <p class="subtitle">
+            Sheep City Summary
+        </p>
+        <p>
+            Любой город может стать городом овец. Достаточно нарисовать одну овечку на старом заборе, как вскоре появится ещё одна и ещё.
+        </p>
+        <p>
+            Рано или поздно овечки заполнят весь город. Будут занимать столики в кафе, создавать пробки на дорогах, ждать автобуса и голосовать за консерваторов.
+        </p>
+        <figure class="fullwidth">
+            <picture>
+                <source media="(min-width:600px)"
+                    srcset="art/sheepcity-gigants.svg" />
+                <img
+                    src="art/min/sheepcity-gigants.png"
+                    alt="Sheep friends in Riga"
+                    class="zzz" />
+            </picture>
+        </figure>
+        <p>
+            Жить с овечками в одном городе — очень весело!
+        </p>
+        <p>
+            <em>Рига, октябрь 2017</em><br>
+            zl<br>
+        </p>
+
+    </section>
+    <!-- =================================================== -->
+
+</article>
+</div>
+</div>
+<!-- =================================================== end tufte -->
+
+
+
+<!-- =========================================== ʕ⊙ᴥ⊙ʔ -->
+<!-- ========================================= BODY END -->
+
+</body>
+</html>
