@@ -1,0 +1,8 @@
+/* changes for compact layout */
+@media (max-width:60rem) {
+    .article-chapter-header>* {
+      --grid-column:  full;
+        justify-self: center;
+        text-align:   center;
+    }
+}
