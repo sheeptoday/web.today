@@ -159,6 +159,13 @@
         rel="stylesheet" type="text/css">
 </noscript>
 
+    <style>
+        /* appart update, 2020.9.30 */
+        .chapter-header.gap-layers {
+          grid-row-gap: var(--grid-row-gap);
+        }
+    </style>
+
 
     <!-- ===================================== APP -->
 
@@ -224,9 +231,6 @@
 <body class="colors--">
 <script>vonLoader()</script>
 
-<!-- ========================================= CONTENT -->
-
-
 <style>
     .screen {
       --screen-height: 100vh;
@@ -236,10 +240,14 @@
     }}
     .screen {
         position:   relative;
-        z-index:    1;
+        z-index:    0;
         display:    block;
         width:      100%;
         min-height: var(--screen-height, 100vh);
+    }
+    .relative-section {
+        background-color: var(--back-color, white);
+                   color: var(--text-color, black);
     }
     .screen-wrap {
         position:   relative;
@@ -276,11 +284,15 @@
 </style>
 
 
-<!-- COLOR MAP -->
+<!-- ========================================= COLOR MAP -->
+
 
 <section>
     <style>
-        .elCovermap { --scale-default: 1.2; }
+        .elCovermap {
+          --scale-default: 1.2;
+            z-index:    -2;
+        }
         .elCovermap .cover-image { background-image: url(art/map-l.jpg); }
     </style>
     <div class="screen elCovermap">
@@ -308,7 +320,9 @@
     </script>
 </section>
 
-<!-- AFTER MAP -->
+
+<!-- ========================================= AFTER MAP -->
+
 
 <section>
     <style>
@@ -336,8 +350,8 @@
                 height: 40vmin;
             }
         </style>
-        <figure id="WelcomeCharacter" class="elWelcomeCharacter">
-        <a href="#WelcomeCharacter">
+        <figure id="Welcome" class="elWelcomeCharacter">
+        <a href="#Welcome">
         <svg id="svg-sheep-with-map" width="1000" height="824" viewBox="0 0 1000 824" xmlns="http://www.w3.org/2000/svg" version="1.1">
         <style>
             .path-b { fill: black; }
@@ -522,23 +536,26 @@
         </script>
     </section>
 
-<!-- ========================================= INTRO TEXT -->
+    <!-- CONTENT HEADER -->
 
     <article class="grid-queen is-without-root">
-        <header class="chapter-header">
+        <header class="chapter-header inngrid gap-layers">
             <h1>Путешествие по сказочным странам</h1>
+            <p>Рисунки и рассказы 1995—2020</p>
         </header>
-        <p>Рисунки и рассказы 1995—2020</p>
     </article>
 
-<!-- ========================================= INTRO CARDS -->
+    </div>
+    </div>
+</section>
+
+
+<!-- ========================================= LONG STORIES -->
+
+
+<section class="chapter relative-section colors--root">
 
     <article class="chapter grid-queen is-without-root">
-
-            <picture class="inngrid-full">
-                <source media="(min-width:600px)" srcset="articles/sheep-city/art/sheepcity__cover.svg">
-                <img src="articles/sheep-city/art/min/sheepcity__cover.png" alt="Sheep City" class="" />
-            </picture>
 
         <header class="article-chapter-header sublayer join-layers">
             <div class="inngrid-west e-align h2">※</div>
@@ -547,32 +564,78 @@
             </div>
         </header>
 
-        <figure class="subgrid-wrap-east">
+        <picture class="inngrid-full">
+            <source media="(min-width:600px)" srcset="articles/sheep-city/art/sheepcity__cover.svg">
+            <img src="articles/sheep-city/art/min/sheepcity__cover.png" alt="Sheep City" class="" />
+        </picture>
 
+        <figure class="subgrid-wrap-east join-layers">
             <figcaption>
-              <h4><a href="articles/sheep-city/">Город овец</a></h4>
-              <p>Разрушить до камня город овец нельзя. У овечек миролюбивый характер. Но если за стенами города стоит угроза — каждая овечка самоотверженно бросится вперёд с горящими глазами и криком: <i style="white-space:nowrap">— Отара!</i></p>
-              <p>2017</p>
+
+                <h4>
+                    <a href="articles/sheep-city/">
+                    Город овец
+                    </a>
+                </h4>
+
+                <p>
+                    Разрушить до камня город овец нельзя. У овечек миролюбивый характер. Но если за стенами города стоит угроза — каждая овечка самоотверженно бросится вперёд с горящими глазами и криком:
+                    <i style="white-space:nowrap">— Отара!</i>
+                </p>
+
+                <p>2017</p>
+
            </figcaption>
             <div class="inngrid-east">
                 <a href="articles/sheep-city/">
-                <img src="articles/sheep-city/page-preview.png" alt="Article preview">
+                <img
+                    src="articles/sheep-city/page-preview.png"
+                    alt="Article preview">
                 </a>
             </div>
         </figure>
 
-        <figure class="subgrid-wrap-east color-box"  style="--background-color:white">
+        <figure class="subgrid-wrap-east join-layers">
             <figcaption>
+
+                <h4>
+                    <a href="articles/olechka-yascherki/">
+                    Олечка в стране ящерок
+                    </a>
+                </h4>
+
+                <p>
+                    «Делай что хочешь, живи как знаешь. Но закончи учебу, начни работать и заработай миллион евро. Тогда мы вернем твоих родителей. С любовью, мафия.»
+                </p>
+
+                <p>2017</p>
+
+           </figcaption>
+            <div class="inngrid-east">
+                <a href="articles/olechka-yascherki/">
+                <img
+                    src="articles/olechka-yascherki/page-preview.jpg"
+                    alt="Article preview">
+                </a>
+            </div>
+        </figure>
+
+        <figure class="subgrid-wrap-east">
+            <figcaption>
+
               <h4><a href="articles/kandavane/">Кандава — Ване</a></h4>
+
               <p>Шел я ночью из Кандавы в Ване. А ночь была такая темная, что если выпустить на дорогу черную кошку и черную крысу, то по черным сугробам крыса всю ночь будет гоняться за кошкой. Потому что в такой темноте они сами запутаются кто есть кто.</p>
+
               <p>2010</p>
+
            </figcaption>
             <div class="inngrid-east">
                 <a href="articles/kandavane/">
                 <img src="articles/kandavane/preview.png" alt="Article preview">
                 </a>
             </div>
-            <picture class="inngrid-wrap-east">
+            <picture class="inngrid">
                 <img srcset="articles/kandavane/art/abavas-Ieleja--image-m.jpg 1500w,
                              articles/kandavane/art/abavas-Ieleja--image-s.jpg 1000w"
                      sizes="(max-width: 1000px) 1000px, 1500px"
@@ -580,20 +643,164 @@
                      class="zzz"
                      alt="Abava river valley, illustrated map"/>
             </picture>
+            <div class="chapter-note sw-align">
+                <p>
+                    Долина реки Абава между городами Кандава и Ване.<br>
+                    Рисунок, 2018</p>
+            </div>
         </figure>
     </article>
 
-
-<!-- ========================================= AFTER MAP END -->
-
-        <div style="height:200vh;"></div>
-
-    </div>
-    </div>
 </section>
 
 
-<div class="screen" style="height:200vh;background-color: slategray;"></div>
+<!-- ========================================= Animals love something -->
+
+
+<section class="chapter relative-section colors--root">
+    <article class="grid-queen is-without-root">
+        <div class="inngrid wc-align">
+            <h2>Зверская любовь</h2>
+            <ul class="h4">
+                <li>
+                    <a href="stories/animals_sobaka/">
+                    Собака, которая любила редис</a>
+                <li>
+                    <a href="stories/animals_belka/">
+                    Белка, которая любила метать</a>
+                <li>
+                    <a href="stories/animals_loshad/">
+                    Лошадь, которая любила танцевать</a>
+                <li>
+                    <a href="stories/animals_enot/">
+                    Енот, который любил выемки</a>
+                <li>
+                    <a href="stories/animals_begemot/">
+                    Бегемот, который любил летать</a>
+            </ul>
+        </div>
+        <figure class="inngrid-east-side-rw wc-align">
+            <a href="stories/animals_belka/">
+            <img
+                src="stories/animals_belka/belka2.jpg"
+                alt="Наталья Никольцева">
+            </a>
+        </figure>
+    </article>
+</section>
+
+
+<!-- ========================================= GOOD STORIES -->
+
+
+<section class="chapter relative-section" style="background:white">
+
+  <section class="articles">
+  
+    <header>
+      <h1><a name="favorites">Добрые истории</a></h1>
+    </header>
+
+    <article>
+      <h1><a href="prostuda/">Случай с Мари пасмурным вечером</a></h1>
+      Этим пасмурным вечером Мари сидела дома и обучала своего ежа алфавиту. Еж уже давно свернулся в клубок и пытался игнорировать все на свете, но Мари была настойчива и упряма.
+    </article>
+    
+    <article>
+      <img src="okroshka/koshka.png" style="float:right;">
+      <h1><a href="okroshka/">Про кошку которая ела окрошку</a></h1>
+      (удивительная история в картинках)
+    </article>
+    
+    <article>
+      <img src="helovesme/helovesme.png" style="float:right;">
+      <h1><a href="helovesme/">Любит не любит</a></h1>
+      Каждый экземпляр рисовался вручную и имел свою собственную историю. Кто-то рисовался на горных вершинах. Кто-то в марсельских подворотнях. Была даже книжка, половина которой нарисована в баварской тюрьме.
+    </article>
+  
+  </section>
+
+  
+  <section class="articles with-right-collumn" >
+    
+    <section class="collumn-right">
+      <h1>Зверская любовь</h1>
+      <ul>
+        <li><a href="animals_sobaka/">Собака, которая любила редис</a>
+        <li><a href="animals_belka/">Белка, которая любила метать</a>
+        <li><a href="animals_loshad/">Лошадь, которая любила танцевать</a>
+        <li><a href="animals_enot/">Енот, который любил выемки</a>
+        <li><a href="animals_begemot/">Бегемот, который любил летать</a>
+      </ul>
+      <img src="animals_belka/belka2.jpg" class="instead-of-text"><br>
+    </section> 
+    
+       
+    <article>
+      <h1><a href="horek_polzunok/">Хорек-ползунок</a></h1>      
+      «Эта сказка шизеет на глазах», — хотел сказать хорек-ползунок, но у него получилось — «Эта сказка шерстеет»
+    </article>
+    
+    <article>
+      <h1><a href="kolbaska/">Белкина колбаска</a></h1>
+      Однажды купила белка на базаре колбаску. Вот такую: )))))))))))))))))))))))))))))))))))
+    </article>
+    
+    <article>
+      <h1><a href="sarana-sova/">Еще раз о снах и совах</a></h1>
+      <img src="sarana-sova/owly-1.png" style="float:right;max-width:40%;">
+      Сон одолевал зверюшек<br>
+      Всяких хрюшек и индюшек<br>
+      Повалил всех за диван<br>
+      И накрыл дремотой.<br>
+      Даже буйного енота<br />
+      Уморил<br />
+      Усыпил...<br>
+    </article>
+    
+    <article>
+      <h1><a href="cherepaha-farmaceft/">Про черепаху-фармацевта, чихающего медвежонка и крысу Тамару</a></h1>
+      Я знал одну черепаху, которая устроилась работать курьером в лесной аптеке. Звери сидели дома и заказывали лекарства по телефону, а черепаха на велосипеде их доставляла по месту назначения.
+    </article>
+    
+    <article>
+      <h1><a href="kosenozhka/">Фея-косеножка</a></h1>
+      Когда она спала, к ней приходила ночная фея и делала радости.<br>
+    </article>
+    
+    <article>
+      <h1><a href="superbuterbrod/">Самый вкусный бутерброд</a></h1>
+      Белка посмотрела на бутерброд и сказала:<br>
+      — Неполноценно!<br>
+      И чтобы сделать простой бутерброд полноценным, намазала сверху малиновое варенье.
+    </article>
+    
+    <article>
+      <h1><a href="cherepaha-farmaceft/">Истории про снеговика Женю</a></h1>
+      Однажды в середине февраля ворона Элеонора сидела неподалёку от снеговика Жени и лепила маленьких вуду-снеговичков
+    </article>
+    
+    <article>
+      <h1><a href="pritchi-mudrogo-filina/">Рассказы мудрого филина</a></h1>
+      Внутри камня-отца великая мудрость. Говорят сам Лунный Дракон в древние времена подлетал к камню и спрашивал совета, как ему поделить небо с солнечным братом. Так на земле появились день и ночь.
+    </article>
+    
+    
+  </section>
+
+</section>
+
+<!-- ========================================= FOOTER -->
+
+
+<footer class="relative-section" style="background:white">
+    <picture>
+        <img
+            src="art/fields-of-sheep.jpg"
+            alt="450 sheep illustrated"
+            style="width:100%">
+    </picture>
+</footer>
 
 <!-- ========================================= DEV -->
 

@@ -1,0 +1,92 @@
+/* text2014 */
+
+/* ******************************************************** */
+/* ARTICLE LAYOUT */
+
+header.topHeader
+{
+  max-width:720px;
+  display:block;
+  padding:8px 4% 8px 4%;
+  margin:0%;
+}
+
+article
+{
+  max-width:720px;
+  display:block;
+  padding:4%;
+  margin:0%;
+}
+article:after
+{
+  content:'\2740  \2740  \2740';
+  display:block;
+  text-align:center;
+  margin-top:3em;
+  font-size:2rem;
+  color:coral;
+}
+article section:before
+{
+  content:'\2740  \2740  \2740';
+  display:block;
+  text-align:center;
+  margin-top:2em;
+  margin-bottom:2em;
+  font-size:2rem;
+  color:coral;
+}
+
+article.nodots:after,
+article section.nodots:before
+{
+  display:none;
+}
+
+/* ******************************************************** */
+/* DEF TAGS */
+
+article h1
+{
+  margin:0;
+  margin-bottom:2rem;
+  font-weight:normal;
+  font-size:2em;
+  line-height:1.25em;
+  font-style:normal;
+  letter-spacing:1px;
+}
+
+article h2
+{
+  margin:2rem 0 1rem 0;
+  padding:0;
+}
+
+.w100
+{
+  max-width:100%;
+}
+
+
+/* ******************************************************** */
+/* HEADER */
+
+article header
+{
+  margin:2em 0;
+  font-style:italic;
+  letter-spacing:1px;
+}
+article header:first-of-type { margin-top:0; }
+
+article header h1
+{
+  margin:0;
+}
+
+article header h2
+{
+  margin:0;
+}

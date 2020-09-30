@@ -6,3 +6,116 @@
         text-align:   center;
     }
 }
+
+
+
+/* Layout 2013 */
+
+section.articles {
+  margin-bottom:2em;
+}
+section.with-right-collumn:after {
+  content:'';
+  display:block;
+  clear:both;
+}
+section.collumn-right {
+  width:31%;
+  padding:.8em 2% 3em 0;
+  float:right;
+}
+
+
+section.articles > header h1 {
+  position: relative;
+  overflow: hidden;
+  font-size: 1.8em;
+  font-weight: normal;
+  text-align: center;
+  margin:0 0 1em 0;
+}
+section.articles > header h1 > a {
+  display: inline-block;
+  margin: 0 .4em;
+  color:inherit;
+  border-bottom:0;
+}
+section.articles > header h1 > a:before,
+section.articles > header h1 > a:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  border-top: 2px solid #999;
+  margin-top: .65em;
+}
+section.articles > header h1 > a:before {
+  margin-left: -102%;
+}
+section.articles > header h1 > a:after {
+  margin-left: 2%;
+}
+
+section.articles article
+{
+  font: normal .8em/1.25em sans-serif;
+  width:29%;
+  padding:1em 1% 3em 2%;
+  display:inline-block;
+  vertical-align:top;
+}
+
+section.articles article > h1
+{
+  margin:0 0 .25em 0;
+  font: normal 1.75em/1.25em serif;
+}
+section.articles article > h1 > a
+{
+  padding-bottom:1px;
+}
+
+section.articles article > blockquote
+{
+  font-size:1.25em;
+  line-height:1.4em;
+}
+
+section.articles article .instead-of-text
+{
+  width:100%;
+  display:block;
+  max-width:400px;
+  margin:-1em auto 0 auto;
+}
+
+@media all and (max-width: 760px) {
+section.articles article 
+{
+  width:43%;
+  padding-right:4%;
+}
+section.articles section.collumn-right
+{
+  width:44%;
+}
+}
+@media all and (max-width: 680px) {
+section.articles article 
+{
+  width:auto;
+  display:block;
+  padding-left:4%;
+  max-width:480px;
+}
+section.articles article > h1
+{
+  font-size:1.5em;
+  margin-bottom:.1em;
+}
+section.articles section.collumn-right
+{
+  width:auto;
+  padding-left:4%;
+  float:none;
+}
+}
