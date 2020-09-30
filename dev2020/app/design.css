@@ -119,3 +119,19 @@ section.articles section.collumn-right
   float:none;
 }
 }
+
+article.big-quote
+{
+  width:70%;
+  max-width:700px;
+  margin:0 auto;
+  padding:4em 2em;
+  line-height:1.5;
+  font-style:italic;
+}
+article.big-quote h1
+{
+  margin:0;
+  padding:0 0 .5em 0;
+  font-size:1.5em;
+}
