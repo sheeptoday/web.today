@@ -604,7 +604,7 @@ body {
  *  CSS
  *  Default path: ../fonts/
  */
-/** -------------------------------------------- Serif Texts  */
+/** -------------------------------------------- Serif Texts  *
 @font-face {
   font-family: "Vollkorn";
   font-weight: normal;
@@ -623,7 +623,7 @@ body {
   font-style: italic;
   src: url("../fonts/Vollkorn-I.eot?#iefix") format("embedded-opentype"), url("../fonts/Vollkorn-I.woff2") format("woff2"), url("../fonts/Vollkorn-I.woff") format("woff"), url("../fonts/Vollkorn-I.ttf") format("truetype"), url("../fonts/Vollkorn-I.svg#Vollkorn-Italic") format("svg");
 }
-/** -------------------------------------------- Mono Codeblock */
+/** -------------------------------------------- Mono Codeblock *
 @font-face {
   font-family: "VT323";
   font-weight: normal;
