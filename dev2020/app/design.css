@@ -12,7 +12,7 @@
 /* Layout 2013 */
 
 section.articles {
-  margin-bottom:2em;
+  padding-bottom:2em;
 }
 section.with-right-collumn:after {
   content:'';
