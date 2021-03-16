@@ -1,14 +1,17 @@
-# www.sheep.today
+# [sheep.today](https://sheeptoday.github.io/web.today/)
 
 ## Events log
 
-feb 2020
-github migration
+mar 2021  
+custom domain sheed.today removed  
 
-oct 2017
-web core
+feb 2020  
+github migration  
+
+oct 2017  
+web core  
 
 ## Author
 
-zl/sheep.today
-sheep.today@gmail.com
+zl/sheep.today  
+sheep.today@gmail.com  
